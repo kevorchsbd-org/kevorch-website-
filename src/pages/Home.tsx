@@ -4,15 +4,17 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
   Sparkles,
-  Search,
   Target,
   Share2,
-  Globe,
   Star,
   ChevronRight,
   ShieldCheck,
   Play,
   Flame,
+  MessageSquare,
+  Palette,
+  Video,
+  Headphones,
 } from 'lucide-react';
 
 import { MagneticButton } from '../components/MagneticButton';
@@ -350,49 +352,80 @@ export const Home: React.FC = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES_DATA.filter((s) => s.featured).slice(0, 6).map((service) => (
-              <div
-                key={service.id}
-                className={`rounded-3xl p-7 border transition-all h-full flex flex-col justify-between space-y-6 group ${
-                  isDark ? 'bg-neutral-900/60 border-neutral-800 hover:border-red-500/50' : 'bg-white border-stone-200 hover:border-stone-400 shadow-sm'
-                }`}
-              >
-                <div className="space-y-4">
-                  <div className={`w-11 h-11 rounded-2xl border flex items-center justify-center group-hover:scale-105 transition-transform ${
-                    isDark ? 'bg-red-600/15 border-red-500/30 text-red-500' : 'bg-stone-100 border-stone-200 text-slate-800'
-                  }`}>
-                    {service.id === 'seo' && <Search className="w-5 h-5" />}
-                    {service.id === 'google-ads' && <Target className="w-5 h-5" />}
-                    {service.id === 'meta-ads' && <Share2 className="w-5 h-5" />}
-                    {service.id === 'branding' && <Sparkles className="w-5 h-5" />}
-                    {service.id === 'web-dev' && <Globe className="w-5 h-5" />}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {SERVICES_DATA.slice(0, 6).map((service) => {
+              const getHomeServiceIcon = (id: string) => {
+                const iconClass = "w-5 h-5 transition-transform duration-300 group-hover:scale-110";
+                switch (id) {
+                  case 'smm': return <MessageSquare className={iconClass} />;
+                  case 'meta-ads': return <Share2 className={iconClass} />;
+                  case 'google-ads': return <Target className={iconClass} />;
+                  case 'graphic-design': return <Palette className={iconClass} />;
+                  case 'video-editing': return <Video className={iconClass} />;
+                  case 'sales-support': return <Headphones className={iconClass} />;
+                  default: return <Sparkles className={iconClass} />;
+                }
+              };
+
+              return (
+                <motion.div
+                  key={service.id}
+                  variants={{
+                    hidden: { opacity: 0, y: 30, scale: 0.95 },
+                    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+                  }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className={`rounded-3xl p-7 border transition-all h-full flex flex-col justify-between space-y-6 group overflow-hidden relative ${
+                    isDark ? 'bg-neutral-900/60 border-neutral-800 hover:border-red-500/60 hover:shadow-[0_10px_30px_rgba(222,9,24,0.2)]' : 'bg-white border-stone-200 hover:border-red-300 hover:shadow-xl shadow-sm'
+                  }`}
+                >
+                  <div className="space-y-4 relative z-10">
+                    <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center transition-all duration-300 ${
+                      isDark
+                        ? 'bg-red-600/15 border-red-500/30 text-red-500 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_20px_#DE0918]'
+                        : 'bg-stone-100 border-stone-200 text-slate-900 group-hover:bg-slate-950 group-hover:text-white'
+                    }`}>
+                      {getHomeServiceIcon(service.id)}
+                    </div>
+
+                    <h3 className={`text-xl font-heading font-extrabold transition-colors ${
+                      isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'
+                    }`}>
+                      {service.title}
+                    </h3>
+
+                    <p className={`text-sm leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+                      {service.shortDescription}
+                    </p>
                   </div>
 
-                  <h3 className={`text-xl font-heading font-bold transition-colors ${
-                    isDark ? 'text-white group-hover:text-red-500' : 'text-neutral-900 group-hover:text-slate-950'
+                  <div className={`pt-4 border-t flex items-center justify-between text-xs relative z-10 ${
+                    isDark ? 'border-neutral-800' : 'border-stone-200'
                   }`}>
-                    {service.title}
-                  </h3>
-
-                  <p className={`text-sm leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-                    {service.shortDescription}
-                  </p>
-                </div>
-
-                <div className={`pt-4 border-t flex items-center justify-between text-xs ${
-                  isDark ? 'border-neutral-800' : 'border-stone-200'
-                }`}>
-                  <span className={`font-mono font-semibold ${isDark ? 'text-red-500' : 'text-slate-900'}`}>{service.metrics.avgGrowth} Avg Lift</span>
-                  <NavLink to="/services" className={`flex items-center gap-1 font-semibold ${
-                    isDark ? 'text-neutral-300 group-hover:text-red-500' : 'text-stone-700 group-hover:text-black'
-                  }`}>
-                    Explore <ChevronRight className="w-4 h-4" />
-                  </NavLink>
-                </div>
-              </div>
-            ))}
-          </div>
+                    <span className={`font-mono font-bold ${isDark ? 'text-red-500' : 'text-slate-900'}`}>{service.metrics.avgGrowth} Avg Lift</span>
+                    <NavLink to="/services" className={`flex items-center gap-1 font-bold ${
+                      isDark ? 'text-neutral-300 group-hover:text-red-400' : 'text-stone-700 group-hover:text-red-600'
+                    }`}>
+                      Explore <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </NavLink>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
 
           <div className="text-center pt-4">
             <MagneticButton
