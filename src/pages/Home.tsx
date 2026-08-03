@@ -16,6 +16,7 @@ import {
   Globe,
   Code2,
   Zap,
+  Users,
 } from 'lucide-react';
 
 import { MagneticButton } from '../components/MagneticButton';
@@ -462,10 +463,10 @@ export const Home: React.FC = () => {
                     ];
                   case 'sales-support':
                     return [
-                      { name: 'Headset', node: <Headphones className={`${iconClass} text-blue-500`} />, bg: 'bg-blue-500/15 border-blue-500/30 text-blue-500' },
-                      { name: 'CRM Chat', node: <MessageSquare className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
-                      { name: 'Leads', node: <Target className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
-                      { name: 'Nurture', node: <Zap className={`${iconClass} text-amber-500`} />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+                      { name: 'CRM Systems', node: <Users className={`${iconClass} text-blue-500`} />, bg: 'bg-blue-500/15 border-blue-500/30 text-blue-500' },
+                      { name: 'Lead Gen', node: <Target className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+                      { name: 'Follow-Up', node: <MessageSquare className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
+                      { name: 'Sales Support', node: <Headphones className={`${iconClass} text-amber-500`} />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
                     ];
                   default:
                     return [
