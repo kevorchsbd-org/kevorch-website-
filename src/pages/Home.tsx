@@ -87,7 +87,7 @@ export const Home: React.FC = () => {
           <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-hero-glow blur-3xl pointer-events-none opacity-40 z-0" />
         )}
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-left">
           <div className="space-y-8">
             
             <motion.div
@@ -114,7 +114,7 @@ export const Home: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="text-4xl sm:text-6xl lg:text-7xl font-black flex items-center justify-center tracking-tight min-h-[1.2em]"
+                className="text-4xl sm:text-6xl lg:text-7xl font-black flex items-center justify-start tracking-tight min-h-[1.2em]"
               >
                 <span className={isDark ? "text-transparent bg-clip-text bg-linear-to-r from-red-500 via-rose-500 to-red-700 drop-shadow-[0_0_25px_rgba(222,9,24,0.4)] font-black" : "text-red-600 font-black"}>
                   {typedText}
@@ -131,7 +131,7 @@ export const Home: React.FC = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className={`text-2xl sm:text-4xl lg:text-4xl font-extrabold leading-tight block max-w-3xl mx-auto ${
+                className={`text-2xl sm:text-4xl lg:text-4xl font-extrabold leading-tight block max-w-3xl ${
                   isDark ? 'text-white' : 'text-neutral-900'
                 }`}
               >
@@ -144,7 +144,7 @@ export const Home: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-sans ${
+              className={`text-base sm:text-lg max-w-2xl leading-relaxed font-sans ${
                 isDark ? 'text-neutral-400' : 'text-stone-600'
               }`}
             >
@@ -156,7 +156,7 @@ export const Home: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+              className="flex flex-col sm:flex-row items-center justify-start gap-4"
             >
               <MagneticButton
                 variant="primary"
