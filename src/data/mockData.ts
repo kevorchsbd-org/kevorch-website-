@@ -34,7 +34,7 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     id: 'google-ads',
-    title: 'Google Search & Shopping Ads',
+    title: 'Google Ads & SEO',
     category: 'Paid Media',
     shortDescription: 'Connect with active buyers through focused search campaigns and strategic bidding.',
     fullDescription: 'Precision ad setup, persuasive copy, negative keyword filters, and continuous testing to maximize ad spend return.',
