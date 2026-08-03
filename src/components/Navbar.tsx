@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, PhoneCall } from 'lucide-react';
+import { Menu, X, ArrowRight, Sparkles } from 'lucide-react';
 import logoImg from '../assets/logo_icon_3-removebg-preview.png';
 import logo8Img from '../assets/logo8-removebg-preview.png';
 import { MagneticButton } from './MagneticButton';
@@ -37,39 +37,48 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-        isScrolled
-          ? 'glass-nav py-2.5 shadow-2xl shadow-red-950/20'
-          : 'bg-transparent py-4'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-0 flex items-center justify-between">
+    <header className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pointer-events-none transition-all duration-300">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
 
-        {/* ── LEFT: Brand Logo ── */}
-        <NavLink to="/" className="flex items-center group relative z-50 shrink-0">
-          {/* Icon - removebg, transparent, no container */}
-          <img
-            src={logoImg}
-            alt="KEVORCH Icon"
-            className="w-16 h-16 object-contain flex-shrink-0"
-          />
-          {/* Wordmark - already transparent background */}
-          <img
-            src={logo8Img}
-            alt="KEVORCH"
-            className={`h-11 w-auto object-contain transition-opacity duration-300 group-hover:opacity-75 ${
-              isDark ? '' : 'brightness-0'
-            }`}
-          />
-        </NavLink>
+        {/* ── 1. INDEPENDENT LOGO PILL ── */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="pointer-events-auto"
+        >
+          <NavLink
+            to="/"
+            className={`flex items-center gap-3 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-300 group ${
+              isDark
+                ? 'bg-black/50 hover:bg-black/80 border border-red-900/40 hover:border-red-500/60 shadow-xl shadow-black/50'
+                : 'bg-neutral-950 hover:bg-black border border-stone-800 text-white shadow-xl shadow-stone-900/30'
+            } ${isScrolled ? 'scale-95' : 'scale-100'}`}
+          >
+            <img
+              src={logoImg}
+              alt="KEVORCH Icon"
+              className="w-14 h-14 object-contain flex-shrink-0 transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(222,9,24,0.3)]"
+            />
+            <img
+              src={logo8Img}
+              alt="KEVORCH"
+              className="h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90 drop-shadow-md"
+            />
+          </NavLink>
+        </motion.div>
 
-        {/* ── CENTER: Desktop Navigation (standalone pill) ── */}
-        <nav className={`hidden md:flex items-center gap-1 border backdrop-blur-xl px-3 py-1.5 rounded-full shadow-inner transition-colors duration-300 absolute left-1/2 -translate-x-1/2 ${
-          isDark
-            ? 'bg-neutral-900/70 border-red-900/30'
-            : 'bg-white/90 border-stone-200 shadow-stone-200/50'
-        }`}>
+        {/* ── 2. INDEPENDENT DESKTOP NAVIGATION PILL ── */}
+        <motion.nav
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className={`hidden md:flex items-center gap-1 border backdrop-blur-xl px-3 py-1.5 rounded-full shadow-lg pointer-events-auto transition-all duration-300 ${
+            isDark
+              ? 'bg-black/40 border-red-900/30 shadow-black/40'
+              : 'bg-white/80 border-stone-200 shadow-stone-200/50'
+          } ${isScrolled ? 'scale-95' : 'scale-100'}`}
+        >
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (
@@ -78,8 +87,12 @@ export const Navbar: React.FC = () => {
                 to={link.path}
                 className={`relative px-4 py-1.5 text-sm font-heading font-medium transition-colors duration-300 rounded-full whitespace-nowrap ${
                   isActive
-                    ? isDark ? 'text-white font-semibold' : 'text-neutral-950 font-bold'
-                    : isDark ? 'text-neutral-400 hover:text-neutral-200' : 'text-stone-600 hover:text-stone-900'
+                    ? isDark
+                      ? 'text-white font-semibold'
+                      : 'text-neutral-950 font-bold'
+                    : isDark
+                    ? 'text-neutral-300 hover:text-white'
+                    : 'text-stone-600 hover:text-stone-900'
                 }`}
               >
                 {link.name}
@@ -88,8 +101,8 @@ export const Navbar: React.FC = () => {
                     layoutId="activeNavTab"
                     className={`absolute inset-0 rounded-full -z-10 ${
                       isDark
-                        ? 'bg-linear-to-r from-red-600/30 to-red-900/20 border border-red-500/40'
-                        : 'bg-stone-100 border border-stone-300'
+                        ? 'bg-gradient-to-r from-red-600/30 to-red-900/20 border border-red-500/40 shadow-[0_0_12px_rgba(222,9,24,0.3)]'
+                        : 'bg-stone-100 border border-stone-300 shadow-sm'
                     }`}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
@@ -97,10 +110,19 @@ export const Navbar: React.FC = () => {
               </NavLink>
             );
           })}
-        </nav>
+        </motion.nav>
 
-        {/* ── RIGHT: CTA & Theme Toggle ── */}
-        <div className="hidden md:flex items-center gap-3 shrink-0">
+        {/* ── 3. INDEPENDENT RIGHT ACTIONS PILL (Theme Toggle & CTA) ── */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className={`hidden md:flex items-center gap-3 border backdrop-blur-xl px-3 py-1.5 rounded-full shadow-lg pointer-events-auto transition-all duration-300 ${
+            isDark
+              ? 'bg-black/40 border-red-900/30 shadow-black/40'
+              : 'bg-white/80 border-stone-200 shadow-stone-200/50'
+          } ${isScrolled ? 'scale-95' : 'scale-100'}`}
+        >
           <ThemeToggle />
           <MagneticButton
             variant="primary"
@@ -109,52 +131,71 @@ export const Navbar: React.FC = () => {
           >
             Start Project <ArrowRight className="w-4 h-4 ml-1" />
           </MagneticButton>
+        </motion.div>
+
+        {/* ── 4. INDEPENDENT MOBILE CONTROLS PILL ── */}
+        <div className="md:hidden flex items-center gap-2 pointer-events-auto">
+          <div
+            className={`flex items-center gap-2 border backdrop-blur-xl px-2.5 py-1.5 rounded-full shadow-lg ${
+              isDark
+                ? 'bg-black/40 border-red-900/30'
+                : 'bg-white/80 border-stone-200'
+            }`}
+          >
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`p-2 rounded-full border transition-colors ${
+                isDark
+                  ? 'bg-neutral-900 border-red-900/50 text-neutral-200 hover:text-white'
+                  : 'bg-stone-100 border-stone-300 text-stone-800 hover:text-black'
+              }`}
+              aria-label="Toggle Menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5 text-red-500" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
         </div>
 
-        {/* ── Mobile Controls ── */}
-        <div className="md:hidden flex items-center gap-3 relative z-50">
-          <ThemeToggle />
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`p-2.5 rounded-xl border transition-colors ${
-              isDark
-                ? 'bg-neutral-900 border-red-900/50 text-neutral-200 hover:text-white'
-                : 'bg-white border-stone-300 text-stone-800 hover:text-black'
-            }`}
-            aria-label="Toggle Menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-red-500" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
       </div>
 
-      {/* ── Mobile Drawer Overlay ── */}
+      {/* ── MOBILE DRAWER OVERLAY ── */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className={`md:hidden fixed inset-0 backdrop-blur-2xl z-40 flex flex-col pt-28 px-6 pb-12 overflow-y-auto transition-colors duration-300 ${
-              isDark ? 'bg-black/98 text-white' : 'bg-white/98 text-neutral-900'
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className={`md:hidden pointer-events-auto absolute top-20 left-4 right-4 rounded-3xl border backdrop-blur-2xl z-50 p-6 shadow-2xl transition-colors duration-300 ${
+              isDark
+                ? 'bg-neutral-950/95 border-red-900/40 text-white shadow-red-950/40'
+                : 'bg-white/98 border-stone-200 text-neutral-900 shadow-stone-400/30'
             }`}
           >
-            <div className="flex flex-col gap-6 max-w-sm mx-auto w-full">
+            <div className="flex flex-col gap-5 max-w-sm mx-auto w-full">
               {navLinks.map((link, idx) => (
                 <motion.div
                   key={link.path}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -15 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + idx * 0.05 }}
+                  transition={{ delay: 0.05 * idx }}
                 >
                   <NavLink
                     to={link.path}
                     className={({ isActive }) =>
-                      `block text-2xl font-heading font-bold py-2 ${
+                      `block text-xl font-heading font-bold py-1.5 px-3 rounded-xl transition-all ${
                         isActive
-                          ? 'text-transparent bg-clip-text bg-linear-to-r from-red-500 to-rose-400'
-                          : isDark ? 'text-neutral-300 hover:text-white' : 'text-stone-700 hover:text-black'
+                          ? isDark
+                            ? 'text-red-500 bg-red-950/30 border border-red-900/40'
+                            : 'text-red-600 bg-red-50 border border-red-200'
+                          : isDark
+                          ? 'text-neutral-300 hover:text-white hover:bg-neutral-900/50'
+                          : 'text-stone-700 hover:text-black hover:bg-stone-100'
                       }`
                     }
                   >
@@ -163,21 +204,21 @@ export const Navbar: React.FC = () => {
                 </motion.div>
               ))}
 
-              <div className="pt-8 border-t border-red-900/30 flex flex-col gap-4">
+              <div className="pt-4 border-t border-red-900/30 flex flex-col gap-4">
                 <div className="flex items-center gap-3 text-sm text-neutral-400">
-                  <PhoneCall className="w-4 h-4 text-red-500" />
-                  <span>+1 (800) 459-NEXUS</span>
+                  <Sparkles className="w-4 h-4 text-red-500" />
+                  <span>Kevorch Digital Solutions</span>
                 </div>
                 <MagneticButton
                   variant="primary"
                   size="md"
-                  className="w-full"
+                  className="w-full justify-center"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     navigate('/contact');
                   }}
                 >
-                  Book Strategy Call <ArrowRight className="w-4 h-4 ml-2" />
+                  Start Project <ArrowRight className="w-4 h-4 ml-2" />
                 </MagneticButton>
               </div>
             </div>
@@ -187,3 +228,4 @@ export const Navbar: React.FC = () => {
     </header>
   );
 };
+

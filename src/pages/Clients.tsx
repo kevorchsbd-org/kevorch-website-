@@ -61,25 +61,6 @@ export const Clients: React.FC = () => {
           Explore how we helped enterprise tech companies, fintech unicorns, and D2C brands break revenue ceilings.
         </p>
 
-        {/* Aggregate Stats Banner */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-6 text-left">
-          <div className={`p-5 rounded-2xl border ${isDark ? 'bg-neutral-950 border-red-900/30' : 'bg-stone-50 border-stone-200'}`}>
-            <span className={`text-xs font-mono ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Combined Client Revenue</span>
-            <div className={`text-2xl sm:text-3xl font-bold font-number mt-1 ${isDark ? 'text-red-500' : 'text-slate-950'}`}>$236.7M</div>
-          </div>
-          <div className={`p-5 rounded-2xl border ${isDark ? 'bg-neutral-950 border-red-900/30' : 'bg-stone-50 border-stone-200'}`}>
-            <span className={`text-xs font-mono ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Avg ROAS Delivered</span>
-            <div className={`text-2xl sm:text-3xl font-bold font-number mt-1 ${isDark ? 'text-red-500' : 'text-slate-950'}`}>5.4x</div>
-          </div>
-          <div className={`p-5 rounded-2xl border ${isDark ? 'bg-neutral-950 border-red-900/30' : 'bg-stone-50 border-stone-200'}`}>
-            <span className={`text-xs font-mono ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Organic Traffic Lift</span>
-            <div className={`text-2xl sm:text-3xl font-bold font-number mt-1 ${isDark ? 'text-red-500' : 'text-slate-950'}`}>+510%</div>
-          </div>
-          <div className={`p-5 rounded-2xl border ${isDark ? 'bg-neutral-950 border-red-900/30' : 'bg-stone-50 border-stone-200'}`}>
-            <span className={`text-xs font-mono ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Client NPS Score</span>
-            <div className={`text-2xl sm:text-3xl font-bold font-number mt-1 ${isDark ? 'text-red-500' : 'text-slate-950'}`}>94.8</div>
-          </div>
-        </div>
       </section>
 
       {/* ========================================================================= */}
@@ -145,17 +126,6 @@ export const Clients: React.FC = () => {
               </div>
 
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-2 text-xs">
-                  <div className={`p-2.5 rounded-xl border ${isDark ? 'bg-black border-neutral-900' : 'bg-stone-50 border-stone-200'}`}>
-                    <span className={`block font-mono text-[10px] ${isDark ? 'text-red-500' : 'text-stone-600'}`}>ROI Multiplier</span>
-                    <span className={`font-bold font-number ${isDark ? 'text-red-500' : 'text-slate-950'}`}>{study.results.roi}</span>
-                  </div>
-                  <div className={`p-2.5 rounded-xl border ${isDark ? 'bg-black border-neutral-900' : 'bg-stone-50 border-stone-200'}`}>
-                    <span className={`block font-mono text-[10px] ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Revenue Impact</span>
-                    <span className={`font-bold font-number ${isDark ? 'text-red-500' : 'text-slate-950'}`}>{study.results.revenue}</span>
-                  </div>
-                </div>
-
                 <div className={`pt-3 border-t flex items-center justify-between text-xs font-semibold ${
                   isDark ? 'border-neutral-900 text-red-500' : 'border-stone-200 text-slate-900'
                 }`}>

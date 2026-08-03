@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, TrendingUp, DollarSign, Award, ArrowRight } from 'lucide-react';
+import { X, ArrowRight } from 'lucide-react';
 import type { CaseStudy } from '../types';
 import { MagneticButton } from './MagneticButton';
 import { useTheme } from '../context/ThemeContext';
@@ -79,44 +79,6 @@ export const ProjectModal = ({ project, onClose, onConsultationClick }: ProjectM
 
           {/* Modal Content Body */}
           <div className="p-6 sm:p-8 overflow-y-auto flex-1 space-y-8 text-sm leading-relaxed">
-            {/* Metric Highlights Cards */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className={`p-4 rounded-2xl border flex flex-col ${
-                isDark ? 'bg-neutral-900 border-red-900/30' : 'bg-stone-50 border-stone-200'
-              }`}>
-                <span className="text-xs font-mono flex items-center gap-1 mb-1 text-red-500">
-                  <TrendingUp className="w-3.5 h-3.5" /> ROI Multiplier
-                </span>
-                <span className="text-xl sm:text-2xl font-bold font-number text-red-500">{project.results.roi}</span>
-              </div>
-
-              <div className={`p-4 rounded-2xl border flex flex-col ${
-                isDark ? 'bg-neutral-900 border-red-900/30' : 'bg-stone-50 border-stone-200'
-              }`}>
-                <span className="text-xs font-mono flex items-center gap-1 mb-1 text-red-500">
-                  <DollarSign className="w-3.5 h-3.5" /> Generated Revenue
-                </span>
-                <span className="text-xl sm:text-2xl font-bold font-number text-red-500">{project.results.revenue}</span>
-              </div>
-
-              <div className={`p-4 rounded-2xl border flex flex-col ${
-                isDark ? 'bg-neutral-900 border-red-900/30' : 'bg-stone-50 border-stone-200'
-              }`}>
-                <span className="text-xs font-mono flex items-center gap-1 mb-1 text-red-500">
-                  <Award className="w-3.5 h-3.5" /> Traffic Surge
-                </span>
-                <span className="text-xl sm:text-2xl font-bold font-number text-red-500">{project.results.trafficIncrease}</span>
-              </div>
-
-              <div className={`p-4 rounded-2xl border flex flex-col ${
-                isDark ? 'bg-neutral-900 border-red-900/30' : 'bg-stone-50 border-stone-200'
-              }`}>
-                <span className="text-xs font-mono flex items-center gap-1 mb-1 text-red-500">
-                  <ExternalLink className="w-3.5 h-3.5" /> Conv. Rate
-                </span>
-                <span className="text-xl sm:text-2xl font-bold font-number text-red-500">{project.results.conversionRate}</span>
-              </div>
-            </div>
 
             {/* Challenge & Solution */}
             <div className="space-y-4">

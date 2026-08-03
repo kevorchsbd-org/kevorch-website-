@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 interface MarqueeProps {
-  items: { name: string; logo: string }[];
+  items: { name: string; logo: string; logoImg?: string }[];
   speed?: number;
   direction?: 'left' | 'right';
   className?: string;
@@ -34,6 +34,13 @@ export const Marquee: React.FC<MarqueeProps> = ({
             key={idx}
             className="inline-flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity duration-300 group cursor-default"
           >
+            {item.logoImg ? (
+              <img
+                src={item.logoImg}
+                alt={item.name}
+                className="h-8 sm:h-10 w-auto object-contain filter brightness-75 group-hover:brightness-110 transition-all duration-300 group-hover:scale-105"
+              />
+            ) : null}
             <span className="text-xl sm:text-2xl font-bold font-heading text-slate-300 group-hover:text-cyan-400 group-hover:scale-105 transition-all duration-300">
               {item.logo}
             </span>

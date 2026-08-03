@@ -1,9 +1,12 @@
 import type { Service, CaseStudy, TeamMember, Testimonial, FAQItem, Milestone } from '../types';
 
+import pureDropLogo from '../assets/Vector Only.png';
+
 export const CLIENT_LOGOS = [
-  { name: 'HEAVEN11HOLIDAYS', logo: '🌴 HEAVEN11HOLIDAYS' },
-  { name: 'ASCOPETECH', logo: '⚙️ ASCOPETECH' },
-  { name: 'LAKSHNASTUDIO (SINGAPORE)', logo: '✨ LAKSHNASTUDIO (SINGAPORE)' },
+  { name: 'HEAVEN11HOLIDAYS', logo: 'HEAVEN11HOLIDAYS' },
+  { name: 'ASCOPETECH', logo: 'ASCOPETECH' },
+  { name: 'LAKSHNASTUDIO', logo: 'LAKSHNASTUDIO' },
+  { name: 'PURE DROP AQUA', logo: 'PURE DROP AQUA', logoImg: pureDropLogo },
 ];
 
 export const SERVICES_DATA: Service[] = [
@@ -174,7 +177,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: 'Heaven11holidays',
     industry: 'Travel & Hospitality',
     category: 'Paid Media & SEO',
-    summary: 'Restructured Google Search & Meta ad campaigns combined with high-speed landing page design.',
+    summary: 'Meta Ads, Social Media Management, Poster Design & Video Editing to elevate brand presence and drive bookings.',
     challenge: 'High cost per customer acquisition and limited search visibility across competitive holiday package queries.',
     solution: 'Designed high-converting travel package pages, launched Google Performance Max campaigns, and set up targeted Meta ad funnels.',
     results: {
@@ -183,7 +186,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       trafficIncrease: '+510%',
       conversionRate: '6.2%',
     },
-    tags: ['Google Ads', 'SEO', 'Hospitality', 'Travel'],
+    tags: ['Meta Ads', 'Social Media Management', 'Poster Design', 'Video Editing'],
     imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#DE0918',
   },
@@ -193,7 +196,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: 'Ascopetech',
     industry: 'Technology & Engineering',
     category: 'Branding & Web Dev',
-    summary: 'Full digital identity refresh and ultra-fast React web application build.',
+    summary: 'Social Media Management & Meta Ads to grow brand visibility and drive qualified leads.',
     challenge: 'Legacy web portal was slow, difficult to navigate on mobile, and generated low qualified B2B inquiries.',
     solution: 'Engineered a modern React application with custom UI design, clear service hierarchy, and optimized lead capture forms.',
     results: {
@@ -202,17 +205,17 @@ export const CASE_STUDIES: CaseStudy[] = [
       trafficIncrease: '+390%',
       conversionRate: '7.8%',
     },
-    tags: ['Brand Identity', 'React', 'Framer Motion', 'B2B Tech'],
+    tags: ['Social Media Management', 'Meta Ads'],
     imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#DE0918',
   },
   {
     id: 'lakshnastudio-singapore',
-    title: 'Expanding Digital Brand Presence for Lakshnastudio (Singapore)',
-    client: 'Lakshnastudio (singapore)',
+    title: 'Expanding Digital Brand Presence for Lakshnastudio',
+    client: 'Lakshnastudio',
     industry: 'Creative & Studio',
     category: 'UI/UX & Social Marketing',
-    summary: 'Comprehensive UI/UX redesign and targeted social media growth campaign in Singapore.',
+    summary: 'Visiting Card Design, Outdoor Banner Design & Social Media Posters to strengthen brand identity.',
     challenge: 'Standing out in a crowded creative market and attracting high-value enterprise design clients.',
     solution: 'Crafted an elegant portfolio website UI, optimized local search profiles in Singapore, and launched targeted social campaigns.',
     results: {
@@ -221,7 +224,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       trafficIncrease: '+320%',
       conversionRate: '8.4%',
     },
-    tags: ['UI/UX Design', 'Social Media', 'Branding', 'Singapore'],
+    tags: ['Visiting Card Design', 'Outdoor Banner', 'Social Media Posters', 'Branding'],
     imageUrl: 'https://images.unsplash.com/photo-1542744094-3a3121699499?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#DE0918',
   },
