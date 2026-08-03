@@ -37,24 +37,7 @@ export const Home: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const headlineWords = "Make Your Mark. Transform Your Brand With Strategic Performance Marketing.".split(" ");
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-    },
-  };
-
-  const wordVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
-    },
-  };
 
   return (
     <div className={`relative min-h-screen transition-colors duration-400 overflow-hidden ${
@@ -101,24 +84,34 @@ export const Home: React.FC = () => {
 
             {/* Large Statement Heading */}
             <motion.h1
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="text-4xl sm:text-6xl lg:text-6xl font-heading font-extrabold tracking-tight leading-[1.12]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="font-heading font-extrabold tracking-tight space-y-4"
             >
-              {headlineWords.map((word, index) => (
-                <motion.span
-                  key={index}
-                  variants={wordVariants}
-                  className={`inline-block mr-2.5 ${
-                    word.includes('Make') || word.includes('Mark.') || word.includes('Strategic') || word.includes('Marketing.')
-                      ? isDark ? 'text-red-500 font-black' : 'text-red-600 font-black'
-                      : isDark ? 'text-white' : 'text-neutral-900'
-                  }`}
-                >
-                  {word}
-                </motion.span>
-              ))}
+              {/* Single Line Animated Title */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="text-4xl sm:text-6xl lg:text-7xl font-black block tracking-tight"
+              >
+                <span className={isDark ? "text-transparent bg-clip-text bg-linear-to-r from-red-500 via-rose-500 to-red-700 drop-shadow-[0_0_25px_rgba(222,9,24,0.4)]" : "text-red-600 font-black"}>
+                  Make Your Mark.
+                </span>
+              </motion.div>
+
+              {/* Sub-headline on Next Line in slightly smaller size */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className={`text-2xl sm:text-4xl lg:text-4xl font-extrabold leading-tight block max-w-3xl mx-auto ${
+                  isDark ? 'text-white' : 'text-neutral-900'
+                }`}
+              >
+                Transform Your Brand With <span className={isDark ? 'text-red-400 font-black' : 'text-red-600 font-black'}>Strategic Performance Marketing.</span>
+              </motion.div>
             </motion.h1>
 
             {/* Supporting Description */}
