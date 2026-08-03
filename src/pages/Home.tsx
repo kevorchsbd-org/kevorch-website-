@@ -421,15 +421,7 @@ export const Home: React.FC = () => {
             })}
           </motion.div>
 
-          <div className="text-center pt-4">
-            <MagneticButton
-              variant="outline"
-              size="md"
-              onClick={() => navigate('/services')}
-            >
-              View All 14 Services <ArrowRight className="w-4 h-4 ml-1" />
-            </MagneticButton>
-          </div>
+
 
         </div>
       </section>
