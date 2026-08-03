@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 
 import { MagneticButton } from '../components/MagneticButton';
-import { TiltCard } from '../components/TiltCard';
 import { Marquee } from '../components/Marquee';
 import { CLIENT_LOGOS, SERVICES_DATA, CASE_STUDIES, TESTIMONIALS } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
@@ -85,246 +84,98 @@ export const Home: React.FC = () => {
           <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-100 bg-hero-glow blur-3xl pointer-events-none opacity-40 z-0" />
         )}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+          <div className="space-y-8">
             
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
-              
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono font-medium ${
-                  isDark ? 'border-red-900/40 bg-neutral-900/60 text-red-400' : 'border-stone-300 bg-stone-100 text-stone-800'
-                }`}
-              >
-                <Flame className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
-                <span>Make Your Mark.</span>
-              </motion.div>
-
-              {/* Large Statement Heading */}
-              <motion.h1
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                className="text-4xl sm:text-6xl lg:text-6xl font-heading font-extrabold tracking-tight leading-[1.12]"
-              >
-                {headlineWords.map((word, index) => (
-                  <motion.span
-                    key={index}
-                    variants={wordVariants}
-                    className={`inline-block mr-2.5 ${
-                      word.includes('Make') || word.includes('Mark.') || word.includes('Strategic') || word.includes('Marketing.')
-                        ? isDark ? 'text-red-500 font-black' : 'text-red-600 font-black'
-                        : isDark ? 'text-white' : 'text-neutral-900'
-                    }`}
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </motion.h1>
-
-              {/* Supporting Description */}
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className={`text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans ${
-                  isDark ? 'text-neutral-400' : 'text-stone-600'
-                }`}
-              >
-                We help growing businesses build modern digital experiences, scale search engine visibility, and run high-converting search & social ad campaigns.
-              </motion.p>
-
-              {/* Action Buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
-              >
-                <MagneticButton
-                  variant="primary"
-                  size="lg"
-                  onClick={() => navigate('/contact')}
-                >
-                  Get Started <ArrowRight className="w-5 h-5 ml-1" />
-                </MagneticButton>
-
-                <MagneticButton
-                  variant="secondary"
-                  size="lg"
-                  onClick={() => navigate('/clients')}
-                >
-                  View Our Work <Play className="w-4 h-4 ml-1 fill-current" />
-                </MagneticButton>
-              </motion.div>
-
-              {/* Trust Micro-Badges */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
-                className={`pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-mono ${
-                  isDark ? 'text-neutral-400' : 'text-stone-500'
-                }`}
-              >
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className={`w-4 h-4 ${isDark ? 'text-red-500' : 'text-slate-800'}`} /> Google Certified
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className={`w-4 h-4 ${isDark ? 'text-red-500' : 'text-slate-800'}`} /> Meta Partner
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Star className="w-4 h-4 text-amber-500 fill-amber-500" /> 4.9 Rating
-                </span>
-              </motion.div>
-            </div>
-
-            {/* Right Visual - Premium Animated Results Card */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5 relative"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono font-medium ${
+                isDark ? 'border-red-900/40 bg-neutral-900/60 text-red-400' : 'border-stone-300 bg-stone-100 text-stone-800'
+              }`}
             >
-              {/* Ambient glow */}
-              {isDark && (
-                <div className="absolute -inset-6 rounded-[3rem] bg-red-600/10 blur-3xl pointer-events-none" />
-              )}
-
-              <TiltCard glowColor={isDark ? "rgba(222,9,24,0.3)" : "rgba(0,0,0,0.06)"}>
-                <div className={`relative rounded-3xl overflow-hidden border transition-colors ${
-                  isDark ? 'bg-neutral-950/95 border-neutral-800' : 'bg-white border-stone-200'
-                } shadow-2xl`}>
-
-                  {/* Top header bar */}
-                  <div className={`flex items-center justify-between px-6 py-4 border-b ${
-                    isDark ? 'border-neutral-800/70' : 'border-stone-100'
-                  }`}>
-                    <div className="flex items-center gap-2.5">
-                      <motion.div
-                        animate={{ scale: [1, 1.25, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                        className="w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_#DE0918]"
-                      />
-                      <span className={`text-xs font-mono font-semibold tracking-wider uppercase ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
-                        Live Results
-                      </span>
-                    </div>
-                    <motion.span
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 1.2 }}
-                      className="text-[11px] font-mono font-bold text-red-500"
-                    >
-                      ● ACTIVE
-                    </motion.span>
-                  </div>
-
-                  {/* Main content */}
-                  <div className="p-6 space-y-5">
-
-                    {/* Top big stat */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.6, duration: 0.6 }}
-                      className={`rounded-2xl p-5 border relative overflow-hidden ${
-                        isDark ? 'bg-neutral-900/70 border-neutral-800' : 'bg-stone-50 border-stone-200'
-                      }`}
-                    >
-                      {isDark && (
-                        <div className="absolute right-0 top-0 w-24 h-24 bg-red-600/10 blur-2xl rounded-full pointer-events-none" />
-                      )}
-                      <p className={`text-[11px] font-mono uppercase tracking-widest mb-1 ${isDark ? 'text-neutral-500' : 'text-stone-500'}`}>
-                        Avg. Monthly Revenue Tracked
-                      </p>
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.85 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.8, type: 'spring', stiffness: 200 }}
-                        className={`text-4xl font-extrabold font-heading ${isDark ? 'text-white' : 'text-neutral-900'}`}
-                      >
-                        $156K
-                        <span className="text-red-500">/mo</span>
-                      </motion.div>
-                      {/* Animated progress bar */}
-                      <div className={`mt-3 h-1.5 rounded-full overflow-hidden ${isDark ? 'bg-neutral-800' : 'bg-stone-200'}`}>
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={{ width: '82%' }}
-                          transition={{ delay: 1, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                          className="h-full rounded-full bg-linear-to-r from-red-600 to-rose-400"
-                        />
-                      </div>
-                      <p className={`text-[10px] font-mono mt-1.5 ${isDark ? 'text-neutral-500' : 'text-stone-400'}`}>↑ 82% toward quarterly goal</p>
-                    </motion.div>
-
-                    {/* 3-column stat grid */}
-                    <div className="grid grid-cols-3 gap-3">
-                      {[
-                        { label: 'ROAS', value: '4.8x', icon: '📈', delay: 0.75 },
-                        { label: 'Organic', value: '+280%', icon: '🚀', delay: 0.9 },
-                        { label: 'CTR Lift', value: '3.2x', icon: '⚡', delay: 1.05 },
-                      ].map(({ label, value, icon, delay }) => (
-                        <motion.div
-                          key={label}
-                          initial={{ opacity: 0, y: 14 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                          whileHover={{ scale: 1.04 }}
-                          className={`rounded-2xl p-3 border text-center cursor-default transition-colors ${
-                            isDark
-                              ? 'bg-neutral-900/60 border-neutral-800 hover:border-red-800/50'
-                              : 'bg-stone-50 border-stone-200 hover:border-red-200'
-                          }`}
-                        >
-                          <div className="text-lg mb-0.5">{icon}</div>
-                          <div className={`text-lg font-extrabold font-heading ${isDark ? 'text-red-400' : 'text-slate-900'}`}>{value}</div>
-                          <div className={`text-[10px] font-mono ${isDark ? 'text-neutral-500' : 'text-stone-500'}`}>{label}</div>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    {/* Activity feed */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 1.1, duration: 0.6 }}
-                      className={`rounded-2xl p-4 border space-y-3 ${
-                        isDark ? 'bg-neutral-900/60 border-neutral-800' : 'bg-stone-50 border-stone-200'
-                      }`}
-                    >
-                      <p className={`text-[10px] font-mono uppercase tracking-widest font-semibold ${isDark ? 'text-neutral-500' : 'text-stone-500'}`}>
-                        Recent Wins
-                      </p>
-                      {[
-                        { text: 'SEO campaign hit Page 1 ranking', time: '2h ago', color: 'bg-green-500' },
-                        { text: 'ROAS exceeded target by 34%', time: '5h ago', color: 'bg-red-500' },
-                        { text: 'New client onboarded — ₹8L budget', time: '1d ago', color: 'bg-blue-500' },
-                      ].map(({ text, time, color }, i) => (
-                        <motion.div
-                          key={text}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 1.2 + i * 0.15, duration: 0.4 }}
-                          className="flex items-start gap-2.5"
-                        >
-                          <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${color}`} />
-                          <p className={`text-[11px] flex-1 font-medium ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>{text}</p>
-                          <span className={`text-[10px] font-mono shrink-0 ${isDark ? 'text-neutral-600' : 'text-stone-400'}`}>{time}</span>
-                        </motion.div>
-                      ))}
-                    </motion.div>
-
-                  </div>
-                </div>
-              </TiltCard>
+              <Flame className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
+              <span>Make Your Mark.</span>
             </motion.div>
 
+            {/* Large Statement Heading */}
+            <motion.h1
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-4xl sm:text-6xl lg:text-6xl font-heading font-extrabold tracking-tight leading-[1.12]"
+            >
+              {headlineWords.map((word, index) => (
+                <motion.span
+                  key={index}
+                  variants={wordVariants}
+                  className={`inline-block mr-2.5 ${
+                    word.includes('Make') || word.includes('Mark.') || word.includes('Strategic') || word.includes('Marketing.')
+                      ? isDark ? 'text-red-500 font-black' : 'text-red-600 font-black'
+                      : isDark ? 'text-white' : 'text-neutral-900'
+                  }`}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h1>
 
+            {/* Supporting Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-sans ${
+                isDark ? 'text-neutral-400' : 'text-stone-600'
+              }`}
+            >
+              We help growing businesses build modern digital experiences, scale search engine visibility, and run high-converting search & social ad campaigns.
+            </motion.p>
+
+            {/* Action Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <MagneticButton
+                variant="primary"
+                size="lg"
+                onClick={() => navigate('/contact')}
+              >
+                Get Started <ArrowRight className="w-5 h-5 ml-1" />
+              </MagneticButton>
+
+              <MagneticButton
+                variant="secondary"
+                size="lg"
+                onClick={() => navigate('/clients')}
+              >
+                View Our Work <Play className="w-4 h-4 ml-1 fill-current" />
+              </MagneticButton>
+            </motion.div>
+
+            {/* Trust Micro-Badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className={`pt-2 flex flex-wrap items-center justify-center gap-6 text-xs font-mono ${
+                isDark ? 'text-neutral-400' : 'text-stone-500'
+              }`}
+            >
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className={`w-4 h-4 ${isDark ? 'text-red-500' : 'text-slate-800'}`} /> Google Certified
+              </span>
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className={`w-4 h-4 ${isDark ? 'text-red-500' : 'text-slate-800'}`} /> Meta Partner
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Star className="w-4 h-4 text-amber-500 fill-amber-500" /> 4.9 Rating
+              </span>
+            </motion.div>
           </div>
         </div>
       </section>
