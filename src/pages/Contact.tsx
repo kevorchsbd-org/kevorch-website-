@@ -5,7 +5,6 @@ import {
   Flame,
   Mail,
   Phone,
-  MapPin,
   Send,
   CheckCircle2,
   ChevronDown,
@@ -255,24 +254,7 @@ export const Contact: React.FC = () => {
 
 
 
-            {/* Embedded Simulated Interactive Map Visual */}
-            <div className={`glass-card rounded-3xl p-4 border relative overflow-hidden h-48 flex items-center justify-center ${
-              isDark ? 'border-red-900/30' : 'border-stone-200'
-            }`}>
-              <img
-                src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80"
-                alt="Global Map View"
-                className="absolute inset-0 w-full h-full object-cover opacity-25"
-              />
-              <div className="relative z-10 text-center space-y-1">
-                <MapPin className={`w-8 h-8 mx-auto animate-bounce ${isDark ? 'text-red-500' : 'text-slate-900'}`} />
-                <span className={`text-xs font-mono font-bold px-3 py-1 rounded-full border ${
-                  isDark ? 'bg-black/90 text-white border-red-900/40' : 'bg-white/90 text-neutral-900 border-stone-200 shadow-xs'
-                }`}>
-                  Global Remote & Physical Hubs
-                </span>
-              </div>
-            </div>
+
           </div>
 
           {/* Right Column: Form */}
