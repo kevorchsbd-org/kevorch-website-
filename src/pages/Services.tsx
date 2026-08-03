@@ -37,6 +37,24 @@ const FacebookIcon = ({ className = "w-4 h-4" }: IconProps) => (
   </svg>
 );
 
+const FigmaIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 12c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm0-6C12 4.343 10.657 3 9 3S6 4.343 6 6s1.343 3 3 3 3-1.343 3-3zm6 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm0 6c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm-6 6c0 1.657-1.343 3-3 3a3 3 0 0 1-3-3v-3h6v3z"/>
+  </svg>
+);
+
+const PhotoshopIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <span className={`${className} inline-flex items-center justify-center font-extrabold text-[11px] leading-none tracking-tighter`}>Ps</span>
+);
+
+const IllustratorIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <span className={`${className} inline-flex items-center justify-center font-extrabold text-[11px] leading-none tracking-tighter`}>Ai</span>
+);
+
+const AdobeXdIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <span className={`${className} inline-flex items-center justify-center font-extrabold text-[11px] leading-none tracking-tighter`}>Xd</span>
+);
+
 export const Services: React.FC = () => {
   const navigate = useNavigate();
   const { theme } = useTheme();
@@ -106,10 +124,10 @@ export const Services: React.FC = () => {
         ];
       case 'graphic-design':
         return [
-          { name: 'Branding', node: <Palette className={`${iconClass} text-pink-500`} />, bg: 'bg-pink-500/15 border-pink-500/30 text-pink-500' },
-          { name: 'UI Layout', node: <Layout className={`${iconClass} text-indigo-500`} />, bg: 'bg-indigo-500/15 border-indigo-500/30 text-indigo-500' },
-          { name: 'Ad Assets', node: <FileText className={`${iconClass} text-cyan-500`} />, bg: 'bg-cyan-500/15 border-cyan-500/30 text-cyan-500' },
-          { name: 'Creatives', node: <Sparkles className={`${iconClass} text-amber-500`} />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+          { name: 'Figma', node: <FigmaIcon className="w-4 h-4 text-purple-400" />, bg: 'bg-purple-500/15 border-purple-500/30 text-purple-400' },
+          { name: 'Photoshop', node: <PhotoshopIcon className="w-4 h-4 text-blue-400 font-extrabold" />, bg: 'bg-blue-500/15 border-blue-500/30 text-blue-400' },
+          { name: 'Illustrator', node: <IllustratorIcon className="w-4 h-4 text-amber-500 font-extrabold" />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+          { name: 'Adobe XD', node: <AdobeXdIcon className="w-4 h-4 text-pink-500 font-extrabold" />, bg: 'bg-pink-500/15 border-pink-500/30 text-pink-500' },
         ];
       case 'video-editing':
         return [

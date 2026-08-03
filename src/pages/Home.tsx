@@ -15,8 +15,6 @@ import {
   Search,
   Globe,
   Code2,
-  Layout,
-  FileText,
   Zap,
 } from 'lucide-react';
 
@@ -38,6 +36,24 @@ const FacebookIcon = ({ className = "w-4 h-4" }: IconProps) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24">
     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
   </svg>
+);
+
+const FigmaIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 12c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm0-6C12 4.343 10.657 3 9 3S6 4.343 6 6s1.343 3 3 3 3-1.343 3-3zm6 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm0 6c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm-6 6c0 1.657-1.343 3-3 3a3 3 0 0 1-3-3v-3h6v3z"/>
+  </svg>
+);
+
+const PhotoshopIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <span className={`${className} inline-flex items-center justify-center font-extrabold text-[11px] leading-none tracking-tighter`}>Ps</span>
+);
+
+const IllustratorIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <span className={`${className} inline-flex items-center justify-center font-extrabold text-[11px] leading-none tracking-tighter`}>Ai</span>
+);
+
+const AdobeXdIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <span className={`${className} inline-flex items-center justify-center font-extrabold text-[11px] leading-none tracking-tighter`}>Xd</span>
 );
 
 export const Home: React.FC = () => {
@@ -416,10 +432,10 @@ export const Home: React.FC = () => {
                     ];
                   case 'graphic-design':
                     return [
-                      { name: 'Branding', node: <Palette className={`${iconClass} text-pink-500`} />, bg: 'bg-pink-500/15 border-pink-500/30 text-pink-500' },
-                      { name: 'UI Layout', node: <Layout className={`${iconClass} text-indigo-500`} />, bg: 'bg-indigo-500/15 border-indigo-500/30 text-indigo-500' },
-                      { name: 'Ad Assets', node: <FileText className={`${iconClass} text-cyan-500`} />, bg: 'bg-cyan-500/15 border-cyan-500/30 text-cyan-500' },
-                      { name: 'Creatives', node: <Sparkles className={`${iconClass} text-amber-500`} />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+                      { name: 'Figma', node: <FigmaIcon className="w-4 h-4 text-purple-400" />, bg: 'bg-purple-500/15 border-purple-500/30 text-purple-400' },
+                      { name: 'Photoshop', node: <PhotoshopIcon className="w-4 h-4 text-blue-400 font-extrabold" />, bg: 'bg-blue-500/15 border-blue-500/30 text-blue-400' },
+                      { name: 'Illustrator', node: <IllustratorIcon className="w-4 h-4 text-amber-500 font-extrabold" />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+                      { name: 'Adobe XD', node: <AdobeXdIcon className="w-4 h-4 text-pink-500 font-extrabold" />, bg: 'bg-pink-500/15 border-pink-500/30 text-pink-500' },
                     ];
                   case 'video-editing':
                     return [
