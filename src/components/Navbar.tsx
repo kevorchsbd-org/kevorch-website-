@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, Sparkles } from 'lucide-react';
-import logoImg from '../assets/logo_icon_3-removebg-preview.png';
-import logo8Img from '../assets/logo8-removebg-preview.png';
+
 import { MagneticButton } from './MagneticButton';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from '../context/ThemeContext';
@@ -40,33 +39,7 @@ export const Navbar: React.FC = () => {
     <header className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pointer-events-none transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
 
-        {/* ── 1. INDEPENDENT LOGO PILL ── */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="pointer-events-auto"
-        >
-          <NavLink
-            to="/"
-            className={`flex items-center gap-3 px-4 py-1.5 rounded-full backdrop-blur-md transition-all duration-300 group ${
-              isDark
-                ? 'bg-black/50 hover:bg-black/80 border border-red-900/40 hover:border-red-500/60 shadow-xl shadow-black/50'
-                : 'bg-neutral-950 hover:bg-black border border-stone-800 text-white shadow-xl shadow-stone-900/30'
-            } ${isScrolled ? 'scale-95' : 'scale-100'}`}
-          >
-            <img
-              src={logoImg}
-              alt="KEVORCH Icon"
-              className="w-14 h-14 object-contain flex-shrink-0 transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_2px_8px_rgba(222,9,24,0.3)]"
-            />
-            <img
-              src={logo8Img}
-              alt="KEVORCH"
-              className="h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90 drop-shadow-md"
-            />
-          </NavLink>
-        </motion.div>
+
 
         {/* ── 2. INDEPENDENT DESKTOP NAVIGATION PILL ── */}
         <motion.nav
