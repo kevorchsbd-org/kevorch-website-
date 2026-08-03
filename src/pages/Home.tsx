@@ -541,13 +541,9 @@ export const Home: React.FC = () => {
                 </p>
               </div>
 
-              <div className={`pt-4 border-t flex items-center justify-between ${
+              <div className={`pt-4 border-t flex items-center justify-end ${
                 isDark ? 'border-neutral-900' : 'border-stone-200'
               }`}>
-                <div>
-                  <span className={`text-[10px] uppercase font-mono ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Results</span>
-                  <p className={`text-base font-bold font-number ${isDark ? 'text-red-500' : 'text-slate-950'}`}>{study.results.roi} ROI • {study.results.revenue}</p>
-                </div>
                 <span className={`p-2 rounded-full transition-all ${
                   isDark ? 'bg-red-600/20 text-red-500 group-hover:bg-red-600 group-hover:text-white' : 'bg-stone-100 text-slate-800 group-hover:bg-slate-900 group-hover:text-white'
                 }`}>
