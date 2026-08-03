@@ -156,21 +156,52 @@ export const About: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+          className="grid grid-cols-1 md:grid-cols-4 gap-6"
+        >
           {MILESTONES_DATA.map((item, idx) => (
-            <div key={idx} className={`rounded-3xl p-6 border space-y-3 ${
-              isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-white border-stone-200 shadow-xs'
-            }`}>
-              <span className={`text-xs font-mono font-bold px-3 py-1 rounded-full border ${
-                isDark ? 'bg-red-600/20 text-red-500 border-red-500/30' : 'bg-stone-100 text-slate-900 border-stone-200'
+            <motion.div
+              key={idx}
+              variants={{
+                hidden: { opacity: 0, y: 25, scale: 0.95 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+              }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className={`rounded-3xl p-6 border space-y-3 transition-all duration-300 group overflow-hidden relative ${
+                isDark
+                  ? 'bg-neutral-950/80 border-neutral-800 hover:border-red-600/70 hover:shadow-[0_10px_30px_rgba(222,9,24,0.2)]'
+                  : 'bg-white border-stone-200 hover:border-red-300 hover:shadow-xl shadow-xs'
+              }`}
+            >
+              <span className={`inline-block text-xs font-mono font-bold px-3.5 py-1 rounded-full border transition-colors ${
+                isDark
+                  ? 'bg-red-600/20 text-red-400 border-red-500/40 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_12px_#DE0918]'
+                  : 'bg-stone-100 text-slate-900 border-stone-300 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-600'
               }`}>
                 {item.year}
               </span>
-              <h3 className={`text-base font-heading font-bold pt-2 ${isDark ? 'text-white' : 'text-neutral-900'}`}>{item.title}</h3>
-              <p className={`text-xs leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>{item.description}</p>
-            </div>
+              <h3 className={`text-base font-heading font-extrabold pt-1 transition-colors ${
+                isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'
+              }`}>
+                {item.title}
+              </h3>
+              <p className={`text-xs leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+                {item.description}
+              </p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* ========================================================================= */}
