@@ -253,36 +253,7 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Global Office Cards */}
-            <div className="space-y-4">
-              <h4 className={`text-lg font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                Global Offices
-              </h4>
 
-              <div className={`glass-card rounded-2xl p-4 border flex items-center justify-between ${
-                isDark ? 'border-neutral-900' : 'border-stone-200'
-              }`}>
-                <div>
-                  <h5 className={`font-bold text-sm ${isDark ? 'text-white' : 'text-neutral-900'}`}>San Francisco (HQ)</h5>
-                  <p className={`text-xs ${isDark ? 'text-neutral-400' : 'text-stone-500'}`}>500 Howard St, Suite 400, CA 94105</p>
-                </div>
-                <span className={`text-xs font-mono px-2.5 py-1 border rounded-full font-bold ${
-                  isDark ? 'bg-red-600/20 text-red-500 border-red-500/30' : 'bg-stone-100 text-slate-900 border-stone-300'
-                }`}>PST</span>
-              </div>
-
-              <div className={`glass-card rounded-2xl p-4 border flex items-center justify-between ${
-                isDark ? 'border-neutral-900' : 'border-stone-200'
-              }`}>
-                <div>
-                  <h5 className={`font-bold text-sm ${isDark ? 'text-white' : 'text-neutral-900'}`}>London Innovation Hub</h5>
-                  <p className={`text-xs ${isDark ? 'text-neutral-400' : 'text-stone-500'}`}>100 Bishopsgate, London EC2N 4AG</p>
-                </div>
-                <span className={`text-xs font-mono px-2.5 py-1 border rounded-full font-bold ${
-                  isDark ? 'bg-red-600/20 text-red-500 border-red-500/30' : 'bg-stone-100 text-slate-900 border-stone-300'
-                }`}>GMT</span>
-              </div>
-            </div>
 
             {/* Embedded Simulated Interactive Map Visual */}
             <div className={`glass-card rounded-3xl p-4 border relative overflow-hidden h-48 flex items-center justify-center ${
