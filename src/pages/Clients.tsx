@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   Flame,
-  ArrowRight,
   CheckCircle2,
 } from 'lucide-react';
 import { CASE_STUDIES, CLIENT_LOGOS } from '../data/mockData';
@@ -125,14 +124,6 @@ export const Clients: React.FC = () => {
                 </p>
               </div>
 
-              <div className="space-y-4">
-                <div className={`pt-3 border-t flex items-center justify-between text-xs font-semibold ${
-                  isDark ? 'border-neutral-900 text-red-500' : 'border-stone-200 text-slate-900'
-                }`}>
-                  <span>Read Full Case Study</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
             </div>
           ))}
         </div>
