@@ -150,117 +150,157 @@ export const Contact: React.FC = () => {
       {/* 2. FORM & DIRECT DETAILS GRID */}
       {/* ========================================================================= */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Left Column: Direct Details & Office Cards */}
-          <div className="lg:col-span-5 space-y-8">
-            <div className={`glass-card rounded-3xl p-8 border space-y-6 ${
-              isDark ? 'border-red-900/30' : 'border-stone-200 shadow-sm'
+          {/* Left Column: Direct Details & Social Links */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 space-y-8"
+          >
+            <div className={`rounded-3xl p-8 border space-y-6 transition-all duration-300 relative overflow-hidden ${
+              isDark ? 'bg-neutral-950/90 border-neutral-800 shadow-[0_10px_30px_rgba(222,9,24,0.15)]' : 'bg-white border-stone-200 shadow-xl'
             }`}>
-              <h3 className={`text-2xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                Direct Agency Contact
-              </h3>
+              {/* Header with live status */}
+              <div className="flex items-center justify-between border-b pb-4 border-neutral-200 dark:border-neutral-800/80">
+                <h3 className={`text-2xl font-heading font-extrabold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                  Direct Agency Contact
+                </h3>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_#DE0918]" />
+                  <span className="text-[10px] font-mono font-bold text-red-500 uppercase tracking-wider">Available Now</span>
+                </div>
+              </div>
               
-              <div className="space-y-4 text-sm">
-                <div className="flex items-center gap-3">
-                  <div className={`p-3 rounded-2xl border ${
-                    isDark ? 'bg-red-600/20 text-red-500 border-red-500/30' : 'bg-stone-100 text-slate-800 border-stone-200'
+              <div className="space-y-5 text-sm">
+                {/* Email Contact Item */}
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  transition={{ type: 'spring', stiffness: 400 }}
+                  className="flex items-center gap-4 group"
+                >
+                  <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center shrink-0 transition-all duration-300 ${
+                    isDark ? 'bg-red-600/15 text-red-500 border-red-500/30 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_15px_#DE0918]' : 'bg-stone-100 text-slate-900 border-stone-200 group-hover:bg-slate-900 group-hover:text-white'
                   }`}>
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className={`text-xs font-mono ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Inquiries & Proposals</span>
-                    <p className={`font-semibold ${isDark ? 'text-white' : 'text-neutral-900'}`}>kevorchsbd@gmail.com</p>
+                    <span className={`text-xs font-mono block ${isDark ? 'text-red-400 font-semibold' : 'text-stone-500'}`}>Inquiries & Proposals</span>
+                    <a href="mailto:kevorchsbd@gmail.com" className={`font-bold transition-colors block ${isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'}`}>
+                      kevorchsbd@gmail.com
+                    </a>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-center gap-3">
-                  <div className={`p-3 rounded-2xl border ${
-                    isDark ? 'bg-red-600/20 text-red-500 border-red-500/30' : 'bg-stone-100 text-slate-800 border-stone-200'
+                {/* Mobile / WhatsApp Contact Item */}
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  transition={{ type: 'spring', stiffness: 400 }}
+                  className="flex items-center gap-4 group"
+                >
+                  <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center shrink-0 transition-all duration-300 ${
+                    isDark ? 'bg-red-600/15 text-red-500 border-red-500/30 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_15px_#DE0918]' : 'bg-stone-100 text-slate-900 border-stone-200 group-hover:bg-slate-900 group-hover:text-white'
                   }`}>
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className={`text-xs font-mono ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Direct Mobile / WhatsApp</span>
-                    <a href="tel:+918438358405" className={`font-semibold block hover:underline ${isDark ? 'text-white' : 'text-neutral-900'}`}>+91 84383 58405</a>
+                    <span className={`text-xs font-mono block ${isDark ? 'text-red-400 font-semibold' : 'text-stone-500'}`}>Direct Mobile / WhatsApp</span>
+                    <a href="tel:+918438358405" className={`font-bold transition-colors block ${isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'}`}>
+                      +91 84383 58405
+                    </a>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex items-center gap-3">
-                  <div className={`p-3 rounded-2xl border ${
-                    isDark ? 'bg-red-600/20 text-red-500 border-red-500/30' : 'bg-stone-100 text-slate-800 border-stone-200'
+                {/* Response Time Item */}
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  transition={{ type: 'spring', stiffness: 400 }}
+                  className="flex items-center gap-4 group"
+                >
+                  <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center shrink-0 transition-all duration-300 ${
+                    isDark ? 'bg-red-600/15 text-red-500 border-red-500/30 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_15px_#DE0918]' : 'bg-stone-100 text-slate-900 border-stone-200 group-hover:bg-slate-900 group-hover:text-white'
                   }`}>
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className={`text-xs font-mono ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Guaranteed Response Time</span>
-                    <p className={`font-semibold ${isDark ? 'text-white' : 'text-neutral-900'}`}>Under 12 Hours</p>
+                    <span className={`text-xs font-mono block ${isDark ? 'text-red-400 font-semibold' : 'text-stone-500'}`}>Guaranteed Response Time</span>
+                    <p className={`font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>Under 12 Hours</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
-              {/* Social Media Channels: WhatsApp, Facebook, Email, LinkedIn */}
-              <div className="pt-4 border-t border-stone-200 dark:border-neutral-800 space-y-3">
-                <span className={`text-xs font-mono font-semibold uppercase tracking-wider block ${
-                  isDark ? 'text-red-500' : 'text-stone-600'
+              {/* Social Media Channels */}
+              <div className="pt-5 border-t border-stone-200 dark:border-neutral-800 space-y-4">
+                <span className={`text-xs font-mono font-bold uppercase tracking-wider block ${
+                  isDark ? 'text-red-400' : 'text-stone-600'
                 }`}>
                   Official Social Channels
                 </span>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
-                  <a
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                  <motion.a
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
                     href="https://www.instagram.com/kevorchsbd/?hl=en"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 p-3 rounded-xl border transition-all hover:scale-[1.02] bg-[#E1306C]/10 border-[#E1306C]/30 text-[#E1306C] hover:bg-[#E1306C] hover:text-white font-semibold"
+                    className="flex items-center justify-center gap-2 p-3 rounded-2xl border font-bold transition-all bg-[#E1306C]/10 border-[#E1306C]/30 text-[#E1306C] hover:bg-[#E1306C] hover:text-white shadow-xs"
                   >
                     <InstagramIcon className="w-4 h-4 fill-current" />
                     <span>Instagram</span>
-                  </a>
+                  </motion.a>
 
-                  <a
-                    href="https://wa.me/"
+                  <motion.a
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    href="https://wa.me/918438358405"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 p-3 rounded-xl border transition-all hover:scale-[1.02] bg-[#25D366]/10 border-[#25D366]/30 text-[#25D366] hover:bg-[#25D366] hover:text-white font-semibold"
+                    className="flex items-center justify-center gap-2 p-3 rounded-2xl border font-bold transition-all bg-[#25D366]/10 border-[#25D366]/30 text-[#25D366] hover:bg-[#25D366] hover:text-white shadow-xs"
                   >
                     <WhatsAppIcon className="w-4 h-4 fill-current" />
                     <span>WhatsApp</span>
-                  </a>
+                  </motion.a>
 
-                  <a
+                  <motion.a
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
                     href="https://www.facebook.com/profile.php?id=61591971660618"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 p-3 rounded-xl border transition-all hover:scale-[1.02] bg-[#1877F2]/10 border-[#1877F2]/30 text-[#1877F2] hover:bg-[#1877F2] hover:text-white font-semibold"
+                    className="flex items-center justify-center gap-2 p-3 rounded-2xl border font-bold transition-all bg-[#1877F2]/10 border-[#1877F2]/30 text-[#1877F2] hover:bg-[#1877F2] hover:text-white shadow-xs"
                   >
                     <FacebookIcon className="w-4 h-4 fill-current" />
                     <span>Facebook</span>
-                  </a>
+                  </motion.a>
 
-                  <a
+                  <motion.a
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
                     href="https://mail.google.com/mail/?view=cm&to=kevorchsbd@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 p-3 rounded-xl border transition-all hover:scale-[1.02] bg-[#EA4335]/10 border-[#EA4335]/30 text-[#EA4335] hover:bg-[#EA4335] hover:text-white font-semibold"
+                    className="flex items-center justify-center gap-2 p-3 rounded-2xl border font-bold transition-all bg-[#EA4335]/10 border-[#EA4335]/30 text-[#EA4335] hover:bg-[#EA4335] hover:text-white shadow-xs"
                   >
                     <Mail className="w-4 h-4 stroke-[2.2]" />
                     <span>Email</span>
-                  </a>
-
-
+                  </motion.a>
                 </div>
               </div>
             </div>
+          </motion.div>
 
-
-
-
-          </div>
-
-          {/* Right Column: Form */}
-          <div className="lg:col-span-7">
-            <div className={`glass-card rounded-3xl p-8 sm:p-10 border relative overflow-hidden shadow-2xl ${
-              isDark ? 'border-red-900/40' : 'border-stone-200 shadow-xl'
+          {/* Right Column: Interactive Consultation Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+          >
+            <div className={`rounded-3xl p-8 sm:p-10 border relative overflow-hidden transition-all duration-300 ${
+              isDark ? 'bg-neutral-950/90 border-neutral-800 shadow-[0_15px_40px_rgba(222,9,24,0.15)]' : 'bg-white border-stone-200 shadow-2xl'
             }`}>
               
               {isSubmitted ? (
@@ -269,12 +309,12 @@ export const Contact: React.FC = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12 space-y-6"
                 >
-                  <div className={`w-20 h-20 rounded-full border flex items-center justify-center mx-auto ${
-                    isDark ? 'bg-red-600/20 border-red-500/40 text-red-500' : 'bg-stone-100 border-stone-300 text-slate-900'
+                  <div className={`w-20 h-20 rounded-full border flex items-center justify-center mx-auto shadow-xl ${
+                    isDark ? 'bg-red-600/20 border-red-500/40 text-red-500 shadow-red-600/30' : 'bg-red-50 border-red-200 text-red-600'
                   }`}>
-                    <CheckCircle2 className="w-10 h-10" />
+                    <CheckCircle2 className="w-10 h-10 animate-bounce" />
                   </div>
-                  <h3 className={`text-3xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                  <h3 className={`text-3xl font-heading font-extrabold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
                     Strategy Request Received!
                   </h3>
                   <p className={`text-sm max-w-md mx-auto leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
@@ -288,13 +328,13 @@ export const Contact: React.FC = () => {
                         email: '',
                         company: '',
                         website: '',
-                        budget: '$15k - $30k/mo',
+                        budget: '$10k - $25k/mo',
                         selectedServices: [],
                         message: '',
                       });
                     }}
-                    className={`px-6 py-2.5 rounded-full text-xs font-mono transition-colors ${
-                      isDark ? 'bg-neutral-900 text-neutral-300 hover:text-white' : 'bg-stone-100 text-stone-700 hover:text-black'
+                    className={`px-8 py-3 rounded-full text-xs font-mono font-bold transition-all hover:scale-105 ${
+                      isDark ? 'bg-neutral-900 text-neutral-200 hover:text-white border border-neutral-800' : 'bg-stone-100 text-stone-800 hover:text-black border border-stone-300'
                     }`}
                   >
                     Send Another Inquiry
@@ -302,19 +342,19 @@ export const Contact: React.FC = () => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className={`border-b pb-4 ${isDark ? 'border-neutral-900' : 'border-stone-200'}`}>
-                    <h3 className={`text-2xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                  <div className={`border-b pb-5 ${isDark ? 'border-neutral-900' : 'border-stone-200'}`}>
+                    <h3 className={`text-2xl font-heading font-extrabold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
                       Project Consultation Form
                     </h3>
-                    <p className={`text-xs ${isDark ? 'text-neutral-400' : 'text-stone-500'}`}>
-                      Select services and share your quarterly growth targets.
+                    <p className={`text-xs mt-1 ${isDark ? 'text-neutral-400' : 'text-stone-500'}`}>
+                      Select your target services and share your growth objectives.
                     </p>
                   </div>
 
                   {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className={`text-xs font-mono uppercase ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                      <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Your Full Name *
                       </label>
                       <input
@@ -322,17 +362,17 @@ export const Contact: React.FC = () => {
                         placeholder="Alex Vance"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none ${
+                        className={`w-full border rounded-2xl px-4 py-3.5 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-black border-neutral-900 text-white placeholder-neutral-600 focus:border-red-500'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-slate-900'
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600/20'
                         } ${errors.name ? 'border-red-600' : ''}`}
                       />
-                      {errors.name && <span className="text-[11px] text-red-500 font-mono">{errors.name}</span>}
+                      {errors.name && <span className="text-[11px] text-red-500 font-mono font-bold">{errors.name}</span>}
                     </div>
 
                     <div className="space-y-2">
-                      <label className={`text-xs font-mono uppercase ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                      <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Work Email *
                       </label>
                       <input
@@ -340,20 +380,20 @@ export const Contact: React.FC = () => {
                         placeholder="alex@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none ${
+                        className={`w-full border rounded-2xl px-4 py-3.5 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-black border-neutral-900 text-white placeholder-neutral-600 focus:border-red-500'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-slate-900'
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600/20'
                         } ${errors.email ? 'border-red-600' : ''}`}
                       />
-                      {errors.email && <span className="text-[11px] text-red-500 font-mono">{errors.email}</span>}
+                      {errors.email && <span className="text-[11px] text-red-500 font-mono font-bold">{errors.email}</span>}
                     </div>
                   </div>
 
                   {/* Company & Website */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className={`text-xs font-mono uppercase ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                      <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Company Name *
                       </label>
                       <input
@@ -361,17 +401,17 @@ export const Contact: React.FC = () => {
                         placeholder="Aurora Capital"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none ${
+                        className={`w-full border rounded-2xl px-4 py-3.5 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-black border-neutral-900 text-white placeholder-neutral-600 focus:border-red-500'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-slate-900'
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600/20'
                         } ${errors.company ? 'border-red-600' : ''}`}
                       />
-                      {errors.company && <span className="text-[11px] text-red-500 font-mono">{errors.company}</span>}
+                      {errors.company && <span className="text-[11px] text-red-500 font-mono font-bold">{errors.company}</span>}
                     </div>
 
                     <div className="space-y-2">
-                      <label className={`text-xs font-mono uppercase ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                      <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Company Website
                       </label>
                       <input
@@ -379,10 +419,10 @@ export const Contact: React.FC = () => {
                         placeholder="https://company.com"
                         value={formData.website}
                         onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                        className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none ${
+                        className={`w-full border rounded-2xl px-4 py-3.5 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-black border-neutral-900 text-white placeholder-neutral-600 focus:border-red-500'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-slate-900'
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600/20'
                         }`}
                       />
                     </div>
@@ -390,27 +430,29 @@ export const Contact: React.FC = () => {
 
                   {/* Service Chips Selection */}
                   <div className="space-y-2">
-                    <label className={`text-xs font-mono uppercase ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                    <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                       Required Growth Services
                     </label>
-                    <div className="flex flex-wrap gap-2 pt-1">
+                    <div className="flex flex-wrap gap-2.5 pt-1">
                       {availableServices.map((srv) => {
                         const isSelected = formData.selectedServices.includes(srv);
                         return (
-                          <button
+                          <motion.button
+                            whileHover={{ scale: 1.04 }}
+                            whileTap={{ scale: 0.96 }}
                             type="button"
                             key={srv}
                             onClick={() => handleServiceToggle(srv)}
-                            className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
+                            className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                               isSelected
-                                ? isDark ? 'bg-red-600 text-white border border-red-500' : 'bg-slate-950 text-white border border-slate-950'
+                                ? isDark ? 'bg-red-600 text-white border border-red-500 shadow-[0_0_15px_#DE0918]' : 'bg-red-600 text-white border border-red-600 shadow-md'
                                 : isDark
-                                  ? 'bg-neutral-950 border border-neutral-800 text-neutral-400 hover:text-white'
-                                  : 'bg-stone-100 border border-stone-200 text-stone-600 hover:text-black'
+                                  ? 'bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white hover:border-neutral-700'
+                                  : 'bg-stone-100 border border-stone-200 text-stone-700 hover:text-black hover:border-stone-300'
                             }`}
                           >
                             {isSelected ? '✓ ' : '+ '}{srv}
-                          </button>
+                          </motion.button>
                         );
                       })}
                     </div>
@@ -418,32 +460,34 @@ export const Contact: React.FC = () => {
 
                   {/* Budget Selection Pills */}
                   <div className="space-y-2">
-                    <label className={`text-xs font-mono uppercase ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                    <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                       Estimated Monthly Ad / Growth Budget
                     </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                       {budgetOptions.map((b) => (
-                        <button
+                        <motion.button
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.97 }}
                           type="button"
                           key={b}
                           onClick={() => setFormData({ ...formData, budget: b })}
-                          className={`py-2 rounded-xl text-xs font-mono transition-all cursor-pointer ${
+                          className={`py-2.5 rounded-2xl text-xs font-mono transition-all cursor-pointer ${
                             formData.budget === b
-                              ? isDark ? 'bg-red-600/20 text-red-500 border border-red-500 font-bold' : 'bg-slate-950 text-white border border-slate-950 font-bold'
+                              ? isDark ? 'bg-red-600/20 text-red-400 border border-red-500 font-bold shadow-[0_0_12px_rgba(222,9,24,0.3)]' : 'bg-red-600 text-white border border-red-600 font-bold shadow-md'
                               : isDark
-                                ? 'bg-neutral-950 border border-neutral-800 text-neutral-400 hover:text-white'
-                                : 'bg-stone-100 border border-stone-200 text-stone-600 hover:text-black'
+                                ? 'bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white'
+                                : 'bg-stone-100 border border-stone-200 text-stone-700 hover:text-black'
                           }`}
                         >
                           {b}
-                        </button>
+                        </motion.button>
                       ))}
                     </div>
                   </div>
 
                   {/* Message Input */}
                   <div className="space-y-2">
-                    <label className={`text-xs font-mono uppercase ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                    <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                       Growth Goals & Project Details *
                     </label>
                     <textarea
@@ -451,13 +495,13 @@ export const Contact: React.FC = () => {
                       placeholder="Tell us about your current CPA, targets, or timelines..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className={`w-full border rounded-xl p-4 text-sm focus:outline-none ${
+                      className={`w-full border rounded-2xl p-4 text-sm focus:outline-none transition-all ${
                         isDark
-                          ? 'bg-black border-neutral-900 text-white placeholder-neutral-600 focus:border-red-500'
-                          : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-slate-900'
+                          ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
+                          : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600/20'
                       } ${errors.message ? 'border-red-600' : ''}`}
                     />
-                    {errors.message && <span className="text-[11px] text-red-500 font-mono">{errors.message}</span>}
+                    {errors.message && <span className="text-[11px] text-red-500 font-mono font-bold">{errors.message}</span>}
                   </div>
 
                   {/* Submit Button */}
@@ -467,18 +511,18 @@ export const Contact: React.FC = () => {
                     className="w-full"
                   >
                     {isSubmitting ? (
-                      <span className="flex items-center justify-center gap-2">
+                      <span className="flex items-center justify-center gap-2 font-extrabold">
                         <span className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin"></span>
                         Transmitting Audit Request...
                       </span>
                     ) : (
-                      <span className="flex items-center justify-center gap-2">
+                      <span className="flex items-center justify-center gap-2 font-extrabold">
                         Submit Audit Request <Send className="w-4 h-4" />
                       </span>
                     )}
                   </MagneticButton>
 
-                  <div className={`flex items-center justify-center gap-2 text-[11px] font-mono text-center ${
+                  <div className={`flex items-center justify-center gap-2 text-[11px] font-mono text-center pt-1 ${
                     isDark ? 'text-neutral-500' : 'text-stone-500'
                   }`}>
                     <ShieldCheck className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
@@ -488,7 +532,7 @@ export const Contact: React.FC = () => {
               )}
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>
