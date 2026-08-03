@@ -8,7 +8,6 @@ import {
   Share2,
   Star,
   ChevronRight,
-  ShieldCheck,
   Play,
   Flame,
   MessageSquare,
@@ -176,25 +175,7 @@ export const Home: React.FC = () => {
               </MagneticButton>
             </motion.div>
 
-            {/* Trust Micro-Badges */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              className={`pt-2 flex flex-wrap items-center justify-center gap-6 text-xs font-mono ${
-                isDark ? 'text-neutral-400' : 'text-stone-500'
-              }`}
-            >
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className={`w-4 h-4 ${isDark ? 'text-red-500' : 'text-slate-800'}`} /> Google Certified
-              </span>
-              <span className="flex items-center gap-1.5">
-                <ShieldCheck className={`w-4 h-4 ${isDark ? 'text-red-500' : 'text-slate-800'}`} /> Meta Partner
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 text-amber-500 fill-amber-500" /> 4.9 Rating
-              </span>
-            </motion.div>
+
           </div>
         </div>
       </section>
