@@ -212,36 +212,55 @@ export const Services: React.FC = () => {
               >
                 <div className="relative w-full h-full transition-transform duration-700 transform-3d group-hover:transform-[rotateY(180deg)]">
                   
-                  {/* FRONT SIDE */}
-                  <div className={`absolute inset-0 w-full h-full backface-hidden rounded-2xl p-6 text-center flex flex-col justify-between transition-all duration-300 ${
+                  {/* FRONT SIDE — Premium 3-Section Layout */}
+                  <div className={`absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden flex flex-col transition-all duration-300 ${
                     isDark
-                      ? 'bg-[#111827] border border-slate-800 shadow-sm group-hover:border-red-500/70'
-                      : 'bg-white border border-slate-200/80 shadow-sm group-hover:border-red-500/70'
+                      ? 'bg-[#0f1623] border border-slate-800 group-hover:border-red-500/60 shadow-sm'
+                      : 'bg-white border border-slate-200 group-hover:border-red-400/70 shadow-md'
                   }`}>
-                    <div>
-                      {/* Outline Icon Top Center */}
-                      <div className="group-hover:text-red-500 transition-colors">
-                        {getServiceIcon(service.iconName)}
+
+                    {/* ── TOP ACCENT BAR ── */}
+                    <div className={`h-1 w-full bg-gradient-to-r from-transparent via-red-500 to-transparent transition-all duration-500 group-hover:via-red-400 shrink-0`} />
+
+                    {/* ── MAIN CONTENT ── */}
+                    <div className="flex-1 flex flex-col items-center justify-center px-4 py-3 text-center gap-2">
+                      {/* Icon in a styled box */}
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 ${
+                        isDark
+                          ? 'bg-slate-800/80 border border-slate-700 group-hover:bg-red-600/20 group-hover:border-red-500/50'
+                          : 'bg-stone-100 border border-stone-200 group-hover:bg-red-50 group-hover:border-red-300'
+                      }`}>
+                        <div className={`transition-colors duration-300 ${isDark ? 'text-slate-300 group-hover:text-red-400' : 'text-slate-700 group-hover:text-red-500'}`}>
+                          {getServiceIcon(service.iconName)}
+                        </div>
                       </div>
 
-                      {/* Service Title */}
-                      <h3 className={`text-base font-bold mb-2.5 leading-snug group-hover:text-red-500 transition-colors ${
+                      {/* Title */}
+                      <h3 className={`text-sm font-extrabold leading-snug transition-colors duration-300 group-hover:text-red-500 ${
                         isDark ? 'text-white' : 'text-slate-900'
                       }`}>
                         {service.title}
                       </h3>
 
-                      {/* Short Description */}
-                      <p className={`text-xs leading-relaxed font-normal ${
-                        isDark ? 'text-slate-400' : 'text-slate-600'
+                      {/* Description */}
+                      <p className={`text-[10px] leading-relaxed font-normal line-clamp-3 ${
+                        isDark ? 'text-slate-500' : 'text-slate-500'
                       }`}>
                         {service.shortDescription}
                       </p>
                     </div>
 
-                    <span className="text-[10px] font-mono font-bold text-red-500 tracking-wider uppercase mt-2 block">
-                      Hover to View Features →
-                    </span>
+                    {/* ── BOTTOM FOOTER STRIP ── */}
+                    <div className={`px-4 py-2 flex items-center justify-center gap-1.5 shrink-0 border-t transition-colors duration-300 ${
+                      isDark ? 'bg-slate-900/60 border-slate-800' : 'bg-stone-50 border-stone-200'
+                    }`}>
+                      <span className="w-1 h-1 rounded-full bg-red-500 inline-block" />
+                      <span className="text-[9px] font-mono font-bold text-red-500 tracking-widest uppercase">
+                        Hover to Flip
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-red-500 inline-block" />
+                    </div>
+
                   </div>
 
                   {/* BACK SIDE — Animated Premium Layout */}

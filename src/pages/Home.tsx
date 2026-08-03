@@ -488,35 +488,51 @@ export const Home: React.FC = () => {
                 >
                   <div className="relative w-full h-full transition-transform duration-700 transform-3d group-hover:transform-[rotateY(180deg)]">
                     
-                    {/* FRONT SIDE */}
-                    <div className={`absolute inset-0 w-full h-full backface-hidden rounded-3xl p-7 border transition-all flex flex-col justify-between space-y-4 ${
+                    {/* FRONT SIDE — Premium 3-Section Layout */}
+                    <div className={`absolute inset-0 w-full h-full backface-hidden rounded-3xl overflow-hidden flex flex-col transition-all duration-300 ${
                       isDark
-                        ? 'bg-neutral-900/80 border-neutral-800 group-hover:border-red-500/60 shadow-sm'
-                        : 'bg-white border-stone-200 group-hover:border-red-300 shadow-sm'
+                        ? 'bg-[#0f1623] border border-slate-800 group-hover:border-red-500/60 shadow-sm'
+                        : 'bg-white border border-stone-200 group-hover:border-red-400/70 shadow-md'
                     }`}>
-                      <div className="space-y-4">
-                        <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center transition-all duration-300 ${
+
+                      {/* ── TOP ACCENT BAR ── */}
+                      <div className="h-1 w-full bg-gradient-to-r from-transparent via-red-500 to-transparent shrink-0" />
+
+                      {/* ── MAIN CONTENT ── */}
+                      <div className="flex-1 flex flex-col justify-center px-7 py-4 gap-4">
+                        {/* Icon box */}
+                        <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 ${
                           isDark
-                            ? 'bg-red-600/15 border-red-500/30 text-red-500'
-                            : 'bg-stone-100 border-stone-200 text-slate-900'
+                            ? 'bg-slate-800/80 border-slate-700 group-hover:bg-red-600/20 group-hover:border-red-500/50'
+                            : 'bg-stone-100 border-stone-200 group-hover:bg-red-50 group-hover:border-red-300'
                         }`}>
-                          {getHomeServiceIcon(service.id)}
+                          <div className={`transition-colors duration-300 ${isDark ? 'text-slate-300 group-hover:text-red-400' : 'text-slate-700 group-hover:text-red-500'}`}>
+                            {getHomeServiceIcon(service.id)}
+                          </div>
                         </div>
 
-                        <h3 className={`text-xl font-heading font-extrabold ${
-                          isDark ? 'text-white' : 'text-neutral-900'
-                        }`}>
-                          {service.title}
-                        </h3>
-
-                        <p className={`text-sm leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-                          {service.shortDescription}
-                        </p>
+                        <div className="space-y-2">
+                          <h3 className={`text-lg font-heading font-extrabold leading-snug transition-colors duration-300 group-hover:text-red-500 ${
+                            isDark ? 'text-white' : 'text-neutral-900'
+                          }`}>
+                            {service.title}
+                          </h3>
+                          <p className={`text-xs leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+                            {service.shortDescription}
+                          </p>
+                        </div>
                       </div>
 
-                      <span className="text-xs font-mono font-bold text-red-500 tracking-wider uppercase block">
-                        Hover to View Features →
-                      </span>
+                      {/* ── BOTTOM FOOTER STRIP ── */}
+                      <div className={`px-7 py-3 flex items-center gap-2 shrink-0 border-t transition-colors duration-300 ${
+                        isDark ? 'bg-slate-900/60 border-slate-800' : 'bg-stone-50 border-stone-200'
+                      }`}>
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 inline-block animate-pulse" />
+                        <span className="text-[9px] font-mono font-bold text-red-500 tracking-widest uppercase">
+                          Hover to Flip
+                        </span>
+                      </div>
+
                     </div>
 
                     {/* BACK SIDE — Animated Premium Layout */}
