@@ -192,8 +192,8 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: 'ascopetech',
-    title: 'Redesigning Ascopetech’s Digital Platform & B2B Growth Engine',
-    client: 'Ascopetech',
+    title: 'Ascopetech Pvt Ltd',
+    client: 'Ascopetech Pvt Ltd',
     industry: 'Technology & Engineering',
     category: 'Branding & Web Dev',
     summary: 'Social Media Management & Meta Ads to grow brand visibility and drive qualified leads.',
