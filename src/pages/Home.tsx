@@ -519,39 +519,41 @@ export const Home: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* BACK SIDE (3D Rotated 180deg) */}
-                    <div className={`absolute inset-0 w-full h-full backface-hidden transform-[rotateY(180deg)] rounded-3xl p-6 text-center flex flex-col justify-between border ${
-                      isDark
-                        ? 'bg-neutral-950 border-red-600/60 text-white shadow-[0_0_25px_rgba(222,9,24,0.3)]'
-                        : 'bg-slate-950 text-white border-red-500 shadow-xl'
-                    }`}>
-                      <div>
-                        <span className="text-xs font-mono font-bold text-red-400 uppercase tracking-widest block mb-1">
-                          Service Features
+                    {/* BACK SIDE — Animated Premium Layout */}
+                    <div className="absolute inset-0 w-full h-full backface-hidden transform-[rotateY(180deg)] rounded-3xl overflow-hidden flex flex-col border border-red-500/60 shadow-[0_0_25px_rgba(222,9,24,0.25)]">
+
+                      {/* ── HEADER ── */}
+                      <div className="bg-gradient-to-br from-red-600 to-rose-700 px-4 py-3 flex flex-col items-center justify-center shrink-0">
+                        <span className="text-[9px] font-mono font-bold text-red-200 uppercase tracking-[0.2em] mb-0.5">
+                          ✦ Service Features ✦
                         </span>
-                        <h4 className="text-lg font-heading font-extrabold text-white mb-4">
+                        <h4 className="text-sm font-extrabold text-white text-center leading-tight line-clamp-2">
                           {service.title}
                         </h4>
+                      </div>
 
-                        {/* Relative Icons Display Grid */}
-                        <div className="grid grid-cols-2 gap-2.5 py-2">
+                      {/* ── CONTENT ── */}
+                      <div className="flex-1 bg-slate-950 px-4 py-3 flex items-center justify-center">
+                        <div className="grid grid-cols-2 gap-2.5 w-full">
                           {relativeIcons.map((item, idx) => (
                             <div
                               key={idx}
-                              className={`p-2.5 rounded-2xl border flex flex-col items-center justify-center gap-1 ${item.bg}`}
+                              className={`rounded-2xl border flex flex-col items-center justify-center gap-1 py-3 px-2 transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.bg}`}
                             >
                               {item.node}
-                              <span className="text-xs font-mono font-bold line-clamp-1">{item.name}</span>
+                              <span className="text-[10px] font-mono font-bold text-center leading-none">{item.name}</span>
                             </div>
                           ))}
                         </div>
                       </div>
 
-                      <div className="pt-2 border-t border-neutral-800">
-                        <span className="text-xs font-mono text-neutral-400 block">
-                          KevorchSBD Core Tech
-                        </span>
+                      {/* ── FOOTER ── */}
+                      <div className="bg-slate-900 border-t border-slate-800 px-4 py-2 flex items-center justify-center gap-2 shrink-0">
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 inline-block animate-pulse" />
+                        <span className="text-[10px] font-mono text-slate-400 tracking-wide">KevorchSBD Core Tech</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 inline-block animate-pulse" />
                       </div>
+
                     </div>
 
                   </div>
