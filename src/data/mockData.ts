@@ -173,7 +173,7 @@ export const SERVICES_DATA: Service[] = [
 export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'heaven11holidays',
-    title: 'Scaling Booking Conversions & Global Reach for Heaven11holidays',
+    title: 'Heaven11holidays',
     client: 'Heaven11holidays',
     industry: 'Travel & Hospitality',
     category: 'Paid Media & SEO',
