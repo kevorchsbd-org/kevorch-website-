@@ -3,6 +3,8 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, Sparkles } from 'lucide-react';
 
+import whiteLogo from '../assets/whitelogo.png';
+import blackLogo from '../assets/blacklogo.png';
 import { MagneticButton } from './MagneticButton';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from '../context/ThemeContext';
@@ -38,6 +40,29 @@ export const Navbar: React.FC = () => {
   return (
     <header className="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pointer-events-none transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+
+        {/* ── 1. INDEPENDENT LOGO PILL ── */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="pointer-events-auto"
+        >
+          <NavLink
+            to="/"
+            className={`flex items-center gap-3 px-4 py-2 rounded-full backdrop-blur-md transition-all duration-300 group ${
+              isDark
+                ? 'bg-black/50 hover:bg-black/80 border border-red-900/40 hover:border-red-500/60 shadow-xl shadow-black/50'
+                : 'bg-white/90 hover:bg-white border border-stone-200 shadow-xl shadow-stone-200/50'
+            } ${isScrolled ? 'scale-95' : 'scale-100'}`}
+          >
+            <img
+              src={isDark ? whiteLogo : blackLogo}
+              alt="KEVORCH Logo"
+              className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+          </NavLink>
+        </motion.div>
 
 
 

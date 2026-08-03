@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ArrowUp, Send, Check, ShieldCheck, Mail } from 'lucide-react';
-import logoImg from '../assets/logo_icon_3-removebg-preview.png';
-import logo8Img from '../assets/logo8-removebg-preview.png';
+import whiteLogo from '../assets/whitelogo.png';
+import blackLogo from '../assets/blacklogo.png';
 import { useTheme } from '../context/ThemeContext';
 
 interface IconProps { className?: string }
@@ -70,16 +70,9 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 flex flex-col gap-6">
             <div className="flex items-center gap-1">
               <img
-                src={logoImg}
-                alt="KEVORCH Icon"
-                className="w-12 h-12 object-contain"
-              />
-              <img
-                src={logo8Img}
-                alt="KEVORCH"
-                className={`h-9 w-auto object-contain ${
-                  isDark ? '' : 'brightness-0'
-                }`}
+                src={isDark ? whiteLogo : blackLogo}
+                alt="KEVORCH Logo"
+                className="h-10 sm:h-12 w-auto object-contain"
               />
             </div>
 
