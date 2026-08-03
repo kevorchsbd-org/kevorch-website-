@@ -34,18 +34,6 @@ const FacebookIcon = ({ className = "w-4 h-4" }: IconProps) => (
   </svg>
 );
 
-const LinkedinIcon = ({ className = "w-4 h-4" }: IconProps) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.7a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/>
-  </svg>
-);
-
-const YoutubeIcon = ({ className = "w-4 h-4" }: IconProps) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-  </svg>
-);
-
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -452,17 +440,18 @@ export const Home: React.FC = () => {
                           {service.title}
                         </h4>
 
-                        {/* Social Media Icons Grid: Instagram, Facebook, LinkedIn, YouTube */}
-                        <div className="grid grid-cols-4 gap-2 py-2">
+                        {/* Social Media Icons Grid: Instagram & Facebook ONLY */}
+                        <div className="grid grid-cols-2 gap-3 py-3 max-w-[200px] mx-auto">
                           <a
                             href="https://www.instagram.com/kevorchsbd/?hl=en"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="p-3 rounded-2xl bg-[#E1306C]/20 border border-[#E1306C]/40 text-[#E1306C] hover:bg-[#E1306C] hover:text-white transition-all transform hover:scale-110 flex items-center justify-center"
+                            className="py-3 px-4 rounded-2xl bg-[#E1306C]/20 border border-[#E1306C]/40 text-[#E1306C] hover:bg-[#E1306C] hover:text-white transition-all transform hover:scale-105 flex items-center justify-center gap-2 font-bold text-xs shadow-xs"
                             title="Instagram"
                           >
-                            <InstagramIcon className="w-5 h-5 fill-current" />
+                            <InstagramIcon className="w-5 h-5 fill-current shrink-0" />
+                            <span>Instagram</span>
                           </a>
 
                           <a
@@ -470,32 +459,11 @@ export const Home: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="p-3 rounded-2xl bg-[#1877F2]/20 border border-[#1877F2]/40 text-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-all transform hover:scale-110 flex items-center justify-center"
+                            className="py-3 px-4 rounded-2xl bg-[#1877F2]/20 border border-[#1877F2]/40 text-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-all transform hover:scale-105 flex items-center justify-center gap-2 font-bold text-xs shadow-xs"
                             title="Facebook"
                           >
-                            <FacebookIcon className="w-5 h-5 fill-current" />
-                          </a>
-
-                          <a
-                            href="https://linkedin.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="p-3 rounded-2xl bg-[#0A66C2]/20 border border-[#0A66C2]/40 text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white transition-all transform hover:scale-110 flex items-center justify-center"
-                            title="LinkedIn"
-                          >
-                            <LinkedinIcon className="w-5 h-5 fill-current" />
-                          </a>
-
-                          <a
-                            href="https://youtube.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="p-3 rounded-2xl bg-[#FF0000]/20 border border-[#FF0000]/40 text-[#FF0000] hover:bg-[#FF0000] hover:text-white transition-all transform hover:scale-110 flex items-center justify-center"
-                            title="YouTube"
-                          >
-                            <YoutubeIcon className="w-5 h-5 fill-current" />
+                            <FacebookIcon className="w-5 h-5 fill-current shrink-0" />
+                            <span>Facebook</span>
                           </a>
                         </div>
                       </div>
