@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
   Flame,
+  ArrowRight,
   CheckCircle2,
 } from 'lucide-react';
 import { CASE_STUDIES, CLIENT_LOGOS } from '../data/mockData';
