@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
   Search,
   MapPin,
@@ -202,13 +202,13 @@ export const Services: React.FC = () => {
           {SERVICES_DATA.map((service, index) => {
             const relativeIcons = getServiceRelativeIcons(service.id);
             return (
+              <NavLink to="/contact" key={service.id} className="block h-70 perspective-[1000px] group">
               <motion.div
-                key={service.id}
                 custom={index}
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                className="perspective-[1000px] group h-[280px]"
+                className="h-full"
               >
                 <div className="relative w-full h-full transition-transform duration-700 transform-3d group-hover:transform-[rotateY(180deg)]">
                   
@@ -220,7 +220,7 @@ export const Services: React.FC = () => {
                   }`}>
 
                     {/* ── TOP ACCENT BAR ── */}
-                    <div className={`h-1 w-full bg-gradient-to-r from-transparent via-red-500 to-transparent transition-all duration-500 group-hover:via-red-400 shrink-0`} />
+                    <div className="h-1 w-full bg-linear-to-r from-transparent via-red-500 to-transparent transition-all duration-500 group-hover:via-red-400 shrink-0" />
 
                     {/* ── MAIN CONTENT ── */}
                     <div className="flex-1 flex flex-col items-center justify-center px-4 py-3 text-center gap-2">
@@ -256,7 +256,7 @@ export const Services: React.FC = () => {
                   <div className="absolute inset-0 w-full h-full backface-hidden transform-[rotateY(180deg)] rounded-2xl overflow-hidden flex flex-col border border-red-500/60 shadow-[0_0_20px_rgba(222,9,24,0.25)]">
 
                     {/* ── HEADER ── */}
-                    <div className="bg-gradient-to-br from-red-600 to-rose-700 px-3 py-2.5 flex flex-col items-center justify-center shrink-0">
+                    <div className="bg-linear-to-br from-red-600 to-rose-700 px-3 py-2.5 flex flex-col items-center justify-center shrink-0">
                       <span className="text-[9px] font-mono font-bold text-red-200 uppercase tracking-[0.2em] mb-0.5">
                         ✦ Service Features ✦
                       </span>
@@ -291,6 +291,7 @@ export const Services: React.FC = () => {
 
                 </div>
               </motion.div>
+              </NavLink>
             );
           })}
         </div>

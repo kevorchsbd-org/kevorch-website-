@@ -478,13 +478,13 @@ export const Home: React.FC = () => {
               const relativeIcons = getHomeServiceRelativeIcons(service.id);
 
               return (
+                <NavLink to="/contact" key={service.id} className="block h-80 perspective-[1000px] group">
                 <motion.div
-                  key={service.id}
                   variants={{
                     hidden: { opacity: 0, y: 30, scale: 0.95 },
                     visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
                   }}
-                  className="perspective-[1000px] group h-[320px]"
+                  className="h-full"
                 >
                   <div className="relative w-full h-full transition-transform duration-700 transform-3d group-hover:transform-[rotateY(180deg)]">
                     
@@ -496,7 +496,7 @@ export const Home: React.FC = () => {
                     }`}>
 
                       {/* ── TOP ACCENT BAR ── */}
-                      <div className="h-1 w-full bg-gradient-to-r from-transparent via-red-500 to-transparent shrink-0" />
+                      <div className="h-1 w-full bg-linear-to-r from-transparent via-red-500 to-transparent shrink-0" />
 
                       {/* ── MAIN CONTENT ── */}
                       <div className="flex-1 flex flex-col justify-center px-7 py-4 gap-4">
@@ -529,7 +529,7 @@ export const Home: React.FC = () => {
                     <div className="absolute inset-0 w-full h-full backface-hidden transform-[rotateY(180deg)] rounded-3xl overflow-hidden flex flex-col border border-red-500/60 shadow-[0_0_25px_rgba(222,9,24,0.25)]">
 
                       {/* ── HEADER ── */}
-                      <div className="bg-gradient-to-br from-red-600 to-rose-700 px-4 py-3 flex flex-col items-center justify-center shrink-0">
+                      <div className="bg-linear-to-br from-red-600 to-rose-700 px-4 py-3 flex flex-col items-center justify-center shrink-0">
                         <span className="text-[9px] font-mono font-bold text-red-200 uppercase tracking-[0.2em] mb-0.5">
                           ✦ Service Features ✦
                         </span>
@@ -564,6 +564,7 @@ export const Home: React.FC = () => {
 
                   </div>
                 </motion.div>
+                </NavLink>
               );
             })}
           </motion.div>
