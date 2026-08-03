@@ -211,7 +211,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: 'lakshnastudio-singapore',
-    title: 'Expanding Digital Brand Presence for Lakshnastudio',
+    title: 'Lakshnastudio',
     client: 'Lakshnastudio',
     industry: 'Creative & Studio',
     category: 'UI/UX & Social Marketing',
