@@ -80,6 +80,58 @@ export const Services: React.FC = () => {
     }),
   };
 
+  const getServiceRelativeIcons = (id: string) => {
+    const iconClass = "w-4 h-4 transition-transform group-hover:scale-110";
+    switch (id) {
+      case 'smm':
+        return [
+          { name: 'Instagram', node: <InstagramIcon className="w-4 h-4 fill-current text-[#E1306C]" />, bg: 'bg-[#E1306C]/15 border-[#E1306C]/30 text-[#E1306C]' },
+          { name: 'Facebook', node: <FacebookIcon className="w-4 h-4 fill-current text-[#1877F2]" />, bg: 'bg-[#1877F2]/15 border-[#1877F2]/30 text-[#1877F2]' },
+          { name: 'Community', node: <MessageSquare className={`${iconClass} text-amber-500`} />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+          { name: 'Publishing', node: <Share2 className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
+        ];
+      case 'meta-ads':
+        return [
+          { name: 'Facebook', node: <FacebookIcon className="w-4 h-4 fill-current text-[#1877F2]" />, bg: 'bg-[#1877F2]/15 border-[#1877F2]/30 text-[#1877F2]' },
+          { name: 'Instagram', node: <InstagramIcon className="w-4 h-4 fill-current text-[#E1306C]" />, bg: 'bg-[#E1306C]/15 border-[#E1306C]/30 text-[#E1306C]' },
+          { name: 'Targeting', node: <Target className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+          { name: 'Ad Scale', node: <Zap className={`${iconClass} text-yellow-400`} />, bg: 'bg-yellow-400/15 border-yellow-400/30 text-yellow-400' },
+        ];
+      case 'google-ads':
+        return [
+          { name: 'Search Ads', node: <Search className={`${iconClass} text-yellow-500`} />, bg: 'bg-yellow-500/15 border-yellow-500/30 text-yellow-500' },
+          { name: 'SEO Globe', node: <Globe className={`${iconClass} text-blue-400`} />, bg: 'bg-blue-400/15 border-blue-400/30 text-blue-400' },
+          { name: 'Bidding', node: <Target className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+          { name: 'Technical', node: <Code2 className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
+        ];
+      case 'graphic-design':
+        return [
+          { name: 'Branding', node: <Palette className={`${iconClass} text-pink-500`} />, bg: 'bg-pink-500/15 border-pink-500/30 text-pink-500' },
+          { name: 'UI Layout', node: <Layout className={`${iconClass} text-indigo-500`} />, bg: 'bg-indigo-500/15 border-indigo-500/30 text-indigo-500' },
+          { name: 'Ad Assets', node: <FileText className={`${iconClass} text-cyan-500`} />, bg: 'bg-cyan-500/15 border-cyan-500/30 text-cyan-500' },
+          { name: 'Creatives', node: <Sparkles className={`${iconClass} text-amber-500`} />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+        ];
+      case 'video-editing':
+        return [
+          { name: 'Reels Video', node: <Video className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+          { name: 'Motion Graphic', node: <Sparkles className={`${iconClass} text-purple-500`} />, bg: 'bg-purple-500/15 border-purple-500/30 text-purple-500' },
+          { name: 'Ad Clips', node: <Zap className={`${iconClass} text-yellow-400`} />, bg: 'bg-yellow-400/15 border-yellow-400/30 text-yellow-400' },
+          { name: 'Post-Prod', node: <Share2 className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
+        ];
+      case 'sales-support':
+        return [
+          { name: 'Headset', node: <Headphones className={`${iconClass} text-blue-500`} />, bg: 'bg-blue-500/15 border-blue-500/30 text-blue-500' },
+          { name: 'CRM Chat', node: <MessageSquare className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
+          { name: 'Leads', node: <Target className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+          { name: 'Nurture', node: <Zap className={`${iconClass} text-amber-500`} />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+        ];
+      default:
+        return [
+          { name: 'Sparkles', node: <Sparkles className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+        ];
+    }
+  };
+
   return (
     <div className={`min-h-screen pt-32 pb-24 transition-colors duration-300 ${
       isDark ? 'bg-[#0B0F19] text-white' : 'bg-[#F5F7FC] text-slate-900'
@@ -112,105 +164,90 @@ export const Services: React.FC = () => {
 
         {/* 6-Column Responsive Grid with 3D Flip Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {SERVICES_DATA.map((service, index) => (
-            <motion.div
-              key={service.id}
-              custom={index}
-              variants={cardVariants}
-              initial="hidden"
-              animate="visible"
-              className="[perspective:1000px] group min-h-[250px]"
-            >
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer">
-                
-                {/* FRONT SIDE */}
-                <div className={`absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-2xl p-6 text-center flex flex-col justify-between transition-all duration-300 ${
-                  isDark
-                    ? 'bg-[#111827] border border-slate-800 shadow-sm group-hover:border-red-500/70'
-                    : 'bg-white border border-slate-200/80 shadow-sm group-hover:border-red-500/70'
-                }`}>
-                  <div>
-                    {/* Outline Icon Top Center */}
-                    <div className="group-hover:text-red-500 transition-colors">
-                      {getServiceIcon(service.iconName)}
+          {SERVICES_DATA.map((service, index) => {
+            const relativeIcons = getServiceRelativeIcons(service.id);
+            return (
+              <motion.div
+                key={service.id}
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                className="[perspective:1000px] group min-h-[250px]"
+              >
+                <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                  
+                  {/* FRONT SIDE */}
+                  <div className={`absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-2xl p-6 text-center flex flex-col justify-between transition-all duration-300 ${
+                    isDark
+                      ? 'bg-[#111827] border border-slate-800 shadow-sm group-hover:border-red-500/70'
+                      : 'bg-white border border-slate-200/80 shadow-sm group-hover:border-red-500/70'
+                  }`}>
+                    <div>
+                      {/* Outline Icon Top Center */}
+                      <div className="group-hover:text-red-500 transition-colors">
+                        {getServiceIcon(service.iconName)}
+                      </div>
+
+                      {/* Service Title */}
+                      <h3 className={`text-base font-bold mb-2.5 leading-snug group-hover:text-red-500 transition-colors ${
+                        isDark ? 'text-white' : 'text-slate-900'
+                      }`}>
+                        {service.title}
+                      </h3>
+
+                      {/* Short Description */}
+                      <p className={`text-xs leading-relaxed font-normal ${
+                        isDark ? 'text-slate-400' : 'text-slate-600'
+                      }`}>
+                        {service.shortDescription}
+                      </p>
                     </div>
 
-                    {/* Service Title */}
-                    <h3 className={`text-base font-bold mb-2.5 leading-snug group-hover:text-red-500 transition-colors ${
-                      isDark ? 'text-white' : 'text-slate-900'
-                    }`}>
-                      {service.title}
-                    </h3>
-
-                    {/* Short Description */}
-                    <p className={`text-xs leading-relaxed font-normal ${
-                      isDark ? 'text-slate-400' : 'text-slate-600'
-                    }`}>
-                      {service.shortDescription}
-                    </p>
-                  </div>
-
-                  <span className="text-[10px] font-mono font-bold text-red-500 tracking-wider uppercase mt-2 block">
-                    Hover to Connect →
-                  </span>
-                </div>
-
-                {/* BACK SIDE (3D Rotated 180deg) */}
-                <div className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl p-5 text-center flex flex-col justify-between border ${
-                  isDark
-                    ? 'bg-neutral-950 border-red-600/60 text-white shadow-[0_0_20px_rgba(222,9,24,0.3)]'
-                    : 'bg-slate-950 text-white border-red-500 shadow-xl'
-                }`}>
-                  <div>
-                    <span className="text-[10px] font-mono font-bold text-red-400 uppercase tracking-widest block mb-1">
-                      Official Channels
+                    <span className="text-[10px] font-mono font-bold text-red-500 tracking-wider uppercase mt-2 block">
+                      Hover to View Features →
                     </span>
-                    <h4 className="text-sm font-extrabold text-white mb-3 line-clamp-1">
-                      {service.title}
-                    </h4>
+                  </div>
 
-                    {/* Social Media Icons Grid: Instagram & Facebook ONLY */}
-                    <div className="grid grid-cols-2 gap-3 py-3 max-w-[170px] mx-auto">
-                      <a
-                        href="https://www.instagram.com/kevorchsbd/?hl=en"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="py-2.5 px-3 rounded-xl bg-[#E1306C]/20 border border-[#E1306C]/40 text-[#E1306C] hover:bg-[#E1306C] hover:text-white transition-all transform hover:scale-105 flex items-center justify-center gap-1.5 font-bold text-xs shadow-xs"
-                        title="Instagram"
-                      >
-                        <InstagramIcon className="w-4 h-4 fill-current shrink-0" />
-                        <span>Insta</span>
-                      </a>
+                  {/* BACK SIDE (3D Rotated 180deg) */}
+                  <div className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl p-4 text-center flex flex-col justify-between border ${
+                    isDark
+                      ? 'bg-neutral-950 border-red-600/60 text-white shadow-[0_0_20px_rgba(222,9,24,0.3)]'
+                      : 'bg-slate-950 text-white border-red-500 shadow-xl'
+                  }`}>
+                    <div>
+                      <span className="text-[10px] font-mono font-bold text-red-400 uppercase tracking-widest block mb-1">
+                        Service Features
+                      </span>
+                      <h4 className="text-sm font-extrabold text-white mb-3 line-clamp-1">
+                        {service.title}
+                      </h4>
 
-                      <a
-                        href="https://www.facebook.com/profile.php?id=61591971660618"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="py-2.5 px-3 rounded-xl bg-[#1877F2]/20 border border-[#1877F2]/40 text-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-all transform hover:scale-105 flex items-center justify-center gap-1.5 font-bold text-xs shadow-xs"
-                        title="Facebook"
-                      >
-                        <FacebookIcon className="w-4 h-4 fill-current shrink-0" />
-                        <span>FB</span>
-                      </a>
+                      {/* Relative Icons Display Grid */}
+                      <div className="grid grid-cols-2 gap-2 py-1">
+                        {relativeIcons.map((item, idx) => (
+                          <div
+                            key={idx}
+                            className={`p-2 rounded-xl border flex flex-col items-center justify-center gap-1 ${item.bg}`}
+                          >
+                            {item.node}
+                            <span className="text-[10px] font-mono font-bold line-clamp-1">{item.name}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="pt-2 border-t border-neutral-800">
+                      <span className="text-[10px] font-mono text-neutral-400 block">
+                        KevorchSBD Core Tech
+                      </span>
                     </div>
                   </div>
 
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      navigate('/contact');
-                    }}
-                    className="w-full py-2 rounded-xl text-xs font-mono font-bold bg-red-600 hover:bg-red-500 text-white transition-colors shadow-md flex items-center justify-center gap-1 cursor-pointer"
-                  >
-                    Consult Strategy <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
                 </div>
-
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Corporate CTA Banner */}

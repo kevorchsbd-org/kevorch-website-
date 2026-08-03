@@ -12,6 +12,12 @@ import {
   Palette,
   Video,
   Headphones,
+  Search,
+  Globe,
+  Code2,
+  Layout,
+  FileText,
+  Zap,
 } from 'lucide-react';
 
 import { MagneticButton } from '../components/MagneticButton';
@@ -384,6 +390,60 @@ export const Home: React.FC = () => {
                 }
               };
 
+              const getHomeServiceRelativeIcons = (id: string) => {
+                const iconClass = "w-4 h-4 transition-transform group-hover:scale-110";
+                switch (id) {
+                  case 'smm':
+                    return [
+                      { name: 'Instagram', node: <InstagramIcon className="w-4 h-4 fill-current text-[#E1306C]" />, bg: 'bg-[#E1306C]/15 border-[#E1306C]/30 text-[#E1306C]' },
+                      { name: 'Facebook', node: <FacebookIcon className="w-4 h-4 fill-current text-[#1877F2]" />, bg: 'bg-[#1877F2]/15 border-[#1877F2]/30 text-[#1877F2]' },
+                      { name: 'Community', node: <MessageSquare className={`${iconClass} text-amber-500`} />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+                      { name: 'Publishing', node: <Share2 className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
+                    ];
+                  case 'meta-ads':
+                    return [
+                      { name: 'Facebook', node: <FacebookIcon className="w-4 h-4 fill-current text-[#1877F2]" />, bg: 'bg-[#1877F2]/15 border-[#1877F2]/30 text-[#1877F2]' },
+                      { name: 'Instagram', node: <InstagramIcon className="w-4 h-4 fill-current text-[#E1306C]" />, bg: 'bg-[#E1306C]/15 border-[#E1306C]/30 text-[#E1306C]' },
+                      { name: 'Targeting', node: <Target className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+                      { name: 'Ad Scale', node: <Zap className={`${iconClass} text-yellow-400`} />, bg: 'bg-yellow-400/15 border-yellow-400/30 text-yellow-400' },
+                    ];
+                  case 'google-ads':
+                    return [
+                      { name: 'Search Ads', node: <Search className={`${iconClass} text-yellow-500`} />, bg: 'bg-yellow-500/15 border-yellow-500/30 text-yellow-500' },
+                      { name: 'SEO Globe', node: <Globe className={`${iconClass} text-blue-400`} />, bg: 'bg-blue-400/15 border-blue-400/30 text-blue-400' },
+                      { name: 'Bidding', node: <Target className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+                      { name: 'Technical', node: <Code2 className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
+                    ];
+                  case 'graphic-design':
+                    return [
+                      { name: 'Branding', node: <Palette className={`${iconClass} text-pink-500`} />, bg: 'bg-pink-500/15 border-pink-500/30 text-pink-500' },
+                      { name: 'UI Layout', node: <Layout className={`${iconClass} text-indigo-500`} />, bg: 'bg-indigo-500/15 border-indigo-500/30 text-indigo-500' },
+                      { name: 'Ad Assets', node: <FileText className={`${iconClass} text-cyan-500`} />, bg: 'bg-cyan-500/15 border-cyan-500/30 text-cyan-500' },
+                      { name: 'Creatives', node: <Sparkles className={`${iconClass} text-amber-500`} />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+                    ];
+                  case 'video-editing':
+                    return [
+                      { name: 'Reels Video', node: <Video className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+                      { name: 'Motion Graphic', node: <Sparkles className={`${iconClass} text-purple-500`} />, bg: 'bg-purple-500/15 border-purple-500/30 text-purple-500' },
+                      { name: 'Ad Clips', node: <Zap className={`${iconClass} text-yellow-400`} />, bg: 'bg-yellow-400/15 border-yellow-400/30 text-yellow-400' },
+                      { name: 'Post-Prod', node: <Share2 className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
+                    ];
+                  case 'sales-support':
+                    return [
+                      { name: 'Headset', node: <Headphones className={`${iconClass} text-blue-500`} />, bg: 'bg-blue-500/15 border-blue-500/30 text-blue-500' },
+                      { name: 'CRM Chat', node: <MessageSquare className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
+                      { name: 'Leads', node: <Target className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+                      { name: 'Nurture', node: <Zap className={`${iconClass} text-amber-500`} />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+                    ];
+                  default:
+                    return [
+                      { name: 'Sparkles', node: <Sparkles className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
+                    ];
+                }
+              };
+
+              const relativeIcons = getHomeServiceRelativeIcons(service.id);
+
               return (
                 <motion.div
                   key={service.id}
@@ -393,7 +453,7 @@ export const Home: React.FC = () => {
                   }}
                   className="[perspective:1000px] group min-h-[260px]"
                 >
-                  <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer">
+                  <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     
                     {/* FRONT SIDE */}
                     <div className={`absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-3xl p-7 border transition-all flex flex-col justify-between space-y-4 ${
@@ -422,7 +482,7 @@ export const Home: React.FC = () => {
                       </div>
 
                       <span className="text-xs font-mono font-bold text-red-500 tracking-wider uppercase block">
-                        Hover to Connect →
+                        Hover to View Features →
                       </span>
                     </div>
 
@@ -434,49 +494,31 @@ export const Home: React.FC = () => {
                     }`}>
                       <div>
                         <span className="text-xs font-mono font-bold text-red-400 uppercase tracking-widest block mb-1">
-                          Official Channels
+                          Service Features
                         </span>
                         <h4 className="text-lg font-heading font-extrabold text-white mb-4">
                           {service.title}
                         </h4>
 
-                        {/* Social Media Icons Grid: Instagram & Facebook ONLY */}
-                        <div className="grid grid-cols-2 gap-3 py-3 max-w-[200px] mx-auto">
-                          <a
-                            href="https://www.instagram.com/kevorchsbd/?hl=en"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="py-3 px-4 rounded-2xl bg-[#E1306C]/20 border border-[#E1306C]/40 text-[#E1306C] hover:bg-[#E1306C] hover:text-white transition-all transform hover:scale-105 flex items-center justify-center gap-2 font-bold text-xs shadow-xs"
-                            title="Instagram"
-                          >
-                            <InstagramIcon className="w-5 h-5 fill-current shrink-0" />
-                            <span>Instagram</span>
-                          </a>
-
-                          <a
-                            href="https://www.facebook.com/profile.php?id=61591971660618"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="py-3 px-4 rounded-2xl bg-[#1877F2]/20 border border-[#1877F2]/40 text-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-all transform hover:scale-105 flex items-center justify-center gap-2 font-bold text-xs shadow-xs"
-                            title="Facebook"
-                          >
-                            <FacebookIcon className="w-5 h-5 fill-current shrink-0" />
-                            <span>Facebook</span>
-                          </a>
+                        {/* Relative Icons Display Grid */}
+                        <div className="grid grid-cols-2 gap-2.5 py-2">
+                          {relativeIcons.map((item, idx) => (
+                            <div
+                              key={idx}
+                              className={`p-2.5 rounded-2xl border flex flex-col items-center justify-center gap-1 ${item.bg}`}
+                            >
+                              {item.node}
+                              <span className="text-xs font-mono font-bold line-clamp-1">{item.name}</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
 
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          navigate('/contact');
-                        }}
-                        className="w-full py-2.5 rounded-2xl text-xs font-mono font-bold bg-red-600 hover:bg-red-500 text-white transition-colors shadow-md flex items-center justify-center gap-1 cursor-pointer"
-                      >
-                        Consult Strategy <ArrowRight className="w-4 h-4" />
-                      </button>
+                      <div className="pt-2 border-t border-neutral-800">
+                        <span className="text-xs font-mono text-neutral-400 block">
+                          KevorchSBD Core Tech
+                        </span>
+                      </div>
                     </div>
 
                   </div>
