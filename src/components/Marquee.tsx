@@ -32,16 +32,16 @@ export const Marquee: React.FC<MarqueeProps> = ({
         {duplicatedItems.map((item, idx) => (
           <div
             key={idx}
-            className="inline-flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity duration-300 group cursor-default"
+            className="inline-flex items-center gap-3 opacity-90 hover:opacity-100 transition-all duration-300 group cursor-default"
           >
             {item.logoImg ? (
               <img
                 src={item.logoImg}
                 alt={item.name}
-                className="h-8 sm:h-10 w-auto object-contain filter brightness-75 group-hover:brightness-110 transition-all duration-300 group-hover:scale-105"
+                className="h-9 sm:h-11 w-auto object-contain filter brightness-100 drop-shadow-md group-hover:brightness-125 transition-all duration-300 group-hover:scale-105"
               />
             ) : null}
-            <span className="text-xl sm:text-2xl font-bold font-heading text-slate-300 group-hover:text-cyan-400 group-hover:scale-105 transition-all duration-300">
+            <span className="text-xl sm:text-2xl font-extrabold font-heading text-neutral-900 dark:text-white group-hover:text-red-500 group-hover:scale-105 transition-all duration-300 tracking-wide">
               {item.logo}
             </span>
           </div>
