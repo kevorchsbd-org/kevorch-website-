@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import {
   Flame,
   ArrowRight,
-  CheckCircle2,
 } from 'lucide-react';
 import { CASE_STUDIES, CLIENT_LOGOS } from '../data/mockData';
 import { Marquee } from '../components/Marquee';
@@ -126,77 +125,7 @@ export const Clients: React.FC = () => {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 4. BEFORE / AFTER COMPARISON SECTION */}
-      {/* ========================================================================= */}
-      <section className={`py-24 border-t mt-20 transition-colors ${
-        isDark ? 'bg-neutral-950 border-red-900/30' : 'bg-stone-50 border-stone-200'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className={`text-xs font-mono uppercase tracking-widest font-semibold ${
-              isDark ? 'text-red-500' : 'text-stone-700'
-            }`}>
-              // Performance Transformation
-            </span>
-            <h2 className={`text-3xl sm:text-4xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-              Before & After KevorchSBD Optimization
-            </h2>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Before */}
-            <div className={`glass-card rounded-3xl p-8 border space-y-4 ${
-              isDark ? 'border-neutral-800 bg-neutral-900/40' : 'border-stone-200 bg-stone-100'
-            }`}>
-              <span className={`px-3 py-1 rounded-full text-xs font-mono border ${
-                isDark ? 'bg-neutral-950 border-neutral-700 text-neutral-400' : 'bg-stone-200 border-stone-300 text-stone-700'
-              }`}>
-                Typical Legacy Agency Setup
-              </span>
-              <ul className={`space-y-3 text-sm ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
-                <li className="flex items-start gap-2.5">
-                  <span className={`font-bold ${isDark ? 'text-red-500' : 'text-stone-500'}`}>•</span>
-                  <span>Average 1.8x ROAS with high acquisition costs ($300+ per lead)</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className={`font-bold ${isDark ? 'text-red-500' : 'text-stone-500'}`}>•</span>
-                  <span>Legacy WordPress site loading in 5.8s with 72% mobile bounce rate</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className={`font-bold ${isDark ? 'text-red-500' : 'text-stone-500'}`}>•</span>
-                  <span>Opaque monthly PDF reports with zero live attribution dashboards</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* After */}
-            <div className={`glass-card rounded-3xl p-8 border space-y-4 ${
-              isDark ? 'border-red-600/40 bg-red-950/20' : 'border-stone-300 bg-white shadow-sm'
-            }`}>
-              <span className={`px-3 py-1 rounded-full text-xs font-mono border ${
-                isDark ? 'bg-red-600/20 text-red-500 border-red-500/30' : 'bg-stone-100 text-slate-900 border-stone-300'
-              }`}>
-                Engineered KevorchSBD Architecture
-              </span>
-              <ul className={`space-y-3 text-sm ${isDark ? 'text-neutral-200' : 'text-stone-800'}`}>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isDark ? 'text-red-500' : 'text-slate-900'}`} />
-                  <span>Sustained 5.4x ROAS with automated real-time CAPI ad bidding</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-                  <span>Sub-second React application with 99/100 Lighthouse performance</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-                  <span>24/7 Live Looker Studio dashboards & direct Slack channel access</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ========================================================================= */}
       {/* 5. FINAL CLIENT CTA */}
