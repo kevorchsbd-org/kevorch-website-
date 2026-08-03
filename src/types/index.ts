@@ -1,7 +1,7 @@
 export interface Service {
   id: string;
   title: string;
-  category: 'SEO' | 'Paid Media' | 'Social & Branding' | 'Design & Dev';
+  category: 'SEO' | 'Paid Media' | 'Social & Branding' | 'Design & Dev' | 'Growth & Sales' | 'Creative Design' | 'Creative Media';
   shortDescription: string;
   fullDescription: string;
   iconName: string;

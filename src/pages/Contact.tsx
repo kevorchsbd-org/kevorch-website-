@@ -58,13 +58,12 @@ export const Contact: React.FC = () => {
   const isDark = theme === 'dark';
 
   const availableServices = [
-    'Search Engine Optimization',
-    'Google & Meta Ads',
-    'Custom Web Development',
-    'Brand Identity',
-    'UI/UX Design',
-    'Local SEO',
-    'E-Commerce Growth',
+    'Social Media Management',
+    'Meta Ads (Facebook & Instagram)',
+    'Google Search & Shopping Ads',
+    'Graphic Design & Visuals',
+    'Video Editing & Reels',
+    'Sales Support & Lead Nurturing',
   ];
 
   const budgetOptions = [

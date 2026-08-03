@@ -18,6 +18,7 @@ import {
   Layout,
   ArrowRight,
   Sparkles,
+  Headphones,
 } from 'lucide-react';
 import { SERVICES_DATA } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
@@ -47,6 +48,7 @@ export const Services: React.FC = () => {
       case 'Zap': return <Zap className={iconClass} />;
       case 'ShoppingCart': return <ShoppingCart className={iconClass} />;
       case 'Layout': return <Layout className={iconClass} />;
+      case 'Headphones': return <Headphones className={iconClass} />;
       default: return <Sparkles className={iconClass} />;
     }
   };
