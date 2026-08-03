@@ -37,7 +37,7 @@ export const About: React.FC = () => {
           }`}
         >
           <Flame className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
-          <span>About NEXUS Agency</span>
+          <span>About KevorchSBD Agency</span>
         </motion.div>
 
         <motion.h1
@@ -55,7 +55,7 @@ export const About: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}
         >
-          NEXUS is a modern performance marketing and web development agency. We replace outdated marketing methods with clear strategy, fast web development, and measurable ROI.
+          KevorchSBD is a modern performance marketing and web development agency. We replace outdated marketing methods with clear strategy, fast web development, and measurable ROI.
         </motion.p>
       </section>
 

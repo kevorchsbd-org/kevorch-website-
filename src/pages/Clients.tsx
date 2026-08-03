@@ -151,7 +151,7 @@ export const Clients: React.FC = () => {
               // Performance Transformation
             </span>
             <h2 className={`text-3xl sm:text-4xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-              Before & After NEXUS Optimization
+              Before & After KevorchSBD Optimization
             </h2>
           </div>
 
@@ -188,7 +188,7 @@ export const Clients: React.FC = () => {
               <span className={`px-3 py-1 rounded-full text-xs font-mono border ${
                 isDark ? 'bg-red-600/20 text-red-500 border-red-500/30' : 'bg-stone-100 text-slate-900 border-stone-300'
               }`}>
-                Engineered NEXUS Architecture
+                Engineered KevorchSBD Architecture
               </span>
               <ul className={`space-y-3 text-sm ${isDark ? 'text-neutral-200' : 'text-stone-800'}`}>
                 <li className="flex items-start gap-2.5">

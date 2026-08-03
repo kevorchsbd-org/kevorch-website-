@@ -92,7 +92,7 @@ export const ProjectModal = ({ project, onClose, onConsultationClick }: ProjectM
               <div>
                 <h3 className={`text-base font-heading font-semibold mb-1 ${
                   isDark ? 'text-white' : 'text-neutral-900'
-                }`}>The NEXUS Engineering Solution</h3>
+                }`}>The KevorchSBD Engineering Solution</h3>
                 <p className={isDark ? 'text-neutral-400' : 'text-stone-600'}>{project.solution}</p>
               </div>
             </div>

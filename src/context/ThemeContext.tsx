@@ -15,7 +15,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem('nexus_theme', newTheme);
+    localStorage.setItem('kevorchsbd_theme', newTheme);
   };
 
   const toggleTheme = () => {
