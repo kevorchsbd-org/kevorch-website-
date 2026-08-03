@@ -56,7 +56,7 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     id: 'video-editing',
-    title: 'Video Editing & Reels',
+    title: 'Video Editing',
     category: 'Creative Media',
     shortDescription: 'Professional short-form video editing, Reels, motion graphics, and social ad post-production.',
     fullDescription: 'Engaging short-form video editing, Reels, TikTok formats, motion graphics, and ad creative post-production.',
