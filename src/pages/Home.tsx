@@ -56,6 +56,22 @@ const AdobeXdIcon = ({ className = "w-4 h-4" }: IconProps) => (
   <span className={`${className} inline-flex items-center justify-center font-extrabold text-[11px] leading-none tracking-tighter`}>Xd</span>
 );
 
+const PremiereIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <span className={`${className} inline-flex items-center justify-center font-extrabold text-[11px] leading-none tracking-tighter`}>Pr</span>
+);
+
+const CapCutIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <span className={`${className} inline-flex items-center justify-center font-extrabold text-[10px] leading-none tracking-tighter`}>CC</span>
+);
+
+const DaVinciIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <span className={`${className} inline-flex items-center justify-center font-extrabold text-[10px] leading-none tracking-tighter`}>Dv</span>
+);
+
+const AfterEffectsIcon = ({ className = "w-4 h-4" }: IconProps) => (
+  <span className={`${className} inline-flex items-center justify-center font-extrabold text-[11px] leading-none tracking-tighter`}>Ae</span>
+);
+
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -439,10 +455,10 @@ export const Home: React.FC = () => {
                     ];
                   case 'video-editing':
                     return [
-                      { name: 'Reels Video', node: <Video className={`${iconClass} text-red-500`} />, bg: 'bg-red-500/15 border-red-500/30 text-red-500' },
-                      { name: 'Motion Graphic', node: <Sparkles className={`${iconClass} text-purple-500`} />, bg: 'bg-purple-500/15 border-purple-500/30 text-purple-500' },
-                      { name: 'Ad Clips', node: <Zap className={`${iconClass} text-yellow-400`} />, bg: 'bg-yellow-400/15 border-yellow-400/30 text-yellow-400' },
-                      { name: 'Post-Prod', node: <Share2 className={`${iconClass} text-emerald-500`} />, bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-500' },
+                      { name: 'Premiere Pro', node: <PremiereIcon className="w-4 h-4 text-purple-400 font-extrabold" />, bg: 'bg-purple-500/15 border-purple-500/30 text-purple-400' },
+                      { name: 'CapCut Pro', node: <CapCutIcon className="w-4 h-4 text-cyan-400 font-extrabold" />, bg: 'bg-cyan-500/15 border-cyan-500/30 text-cyan-400' },
+                      { name: 'DaVinci', node: <DaVinciIcon className="w-4 h-4 text-amber-500 font-extrabold" />, bg: 'bg-amber-500/15 border-amber-500/30 text-amber-500' },
+                      { name: 'After Effects', node: <AfterEffectsIcon className="w-4 h-4 text-indigo-400 font-extrabold" />, bg: 'bg-indigo-500/15 border-indigo-500/30 text-indigo-400' },
                     ];
                   case 'sales-support':
                     return [
