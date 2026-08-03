@@ -7,8 +7,6 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { CASE_STUDIES, CLIENT_LOGOS } from '../data/mockData';
-import type { CaseStudy } from '../types';
-import { ProjectModal } from '../components/ProjectModal';
 import { Marquee } from '../components/Marquee';
 import { MagneticButton } from '../components/MagneticButton';
 import { useTheme } from '../context/ThemeContext';
@@ -16,7 +14,6 @@ import { useTheme } from '../context/ThemeContext';
 export const Clients: React.FC = () => {
   const navigate = useNavigate();
   const [selectedTag, setSelectedTag] = useState<string>('All');
-  const [selectedProject, setSelectedProject] = useState<CaseStudy | null>(null);
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
@@ -98,8 +95,7 @@ export const Clients: React.FC = () => {
           {filteredCaseStudies.map((study) => (
             <div
               key={study.id}
-              onClick={() => setSelectedProject(study)}
-              className={`rounded-3xl p-7 border transition-all duration-300 group cursor-pointer flex flex-col justify-between space-y-6 ${
+              className={`rounded-3xl p-7 border transition-all duration-300 group flex flex-col justify-between space-y-6 ${
                 isDark ? 'bg-neutral-950 border-red-900/30 hover:border-red-500/50' : 'bg-white border-stone-200 hover:border-stone-400 shadow-sm'
               }`}
             >
@@ -129,13 +125,6 @@ export const Clients: React.FC = () => {
           ))}
         </div>
       </section>
-
-      {/* Case Study Detail Modal */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-        onConsultationClick={() => navigate('/contact')}
-      />
 
       {/* ========================================================================= */}
       {/* 4. BEFORE / AFTER COMPARISON SECTION */}

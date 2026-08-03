@@ -18,9 +18,7 @@ import {
 import { MagneticButton } from '../components/MagneticButton';
 import { TiltCard } from '../components/TiltCard';
 import { Marquee } from '../components/Marquee';
-import { ProjectModal } from '../components/ProjectModal';
 import { CLIENT_LOGOS, SERVICES_DATA, CASE_STUDIES, TESTIMONIALS } from '../data/mockData';
-import type { CaseStudy } from '../types';
 import { useTheme } from '../context/ThemeContext';
 import bgLightVideo from '../assets/bglight1.mp4';
 import bgDarkVideo from '../assets/bgdark1.mp4';
@@ -29,7 +27,6 @@ import bgDarkVideo from '../assets/bgdark1.mp4';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
-  const [selectedProject, setSelectedProject] = useState<CaseStudy | null>(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const { theme } = useTheme();
   const isDark = theme === 'dark';
@@ -643,8 +640,7 @@ export const Home: React.FC = () => {
           {CASE_STUDIES.map((study) => (
             <div
               key={study.id}
-              onClick={() => setSelectedProject(study)}
-              className={`rounded-3xl p-7 border transition-all duration-300 group cursor-pointer flex flex-col justify-between space-y-6 ${
+              className={`rounded-3xl p-7 border transition-all duration-300 group flex flex-col justify-between space-y-6 ${
                 isDark ? 'bg-neutral-950 border-neutral-800 hover:border-red-500/50' : 'bg-white border-stone-200 hover:border-stone-400 shadow-sm'
               }`}
             >
@@ -688,12 +684,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Case Study Modal */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-        onConsultationClick={() => navigate('/contact')}
-      />
+
 
       {/* ========================================================================= */}
       {/* 7. TESTIMONIALS */}
