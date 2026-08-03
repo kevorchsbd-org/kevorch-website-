@@ -233,7 +233,7 @@ export const Home: React.FC = () => {
               { icon: '🎯', title: 'Direct Partnership', badge: 'High Impact' },
               { icon: '📈', title: 'ROI-First Mindset', badge: 'Revenue Driven' },
               { icon: '⚡', title: 'Fast Execution', badge: '24-48h Delivery' },
-              { icon: '🔍', title: 'Technical SEO', badge: 'Page 1 Rank' },
+              { icon: '🔍', title: 'Technical', badge: 'High Precision' },
               { icon: '💻', title: 'Modern Web Dev', badge: 'Ultra Fast' },
               { icon: '📊', title: 'Transparent Reporting', badge: 'Real-time' },
             ].map(({ icon, title, badge }) => (
