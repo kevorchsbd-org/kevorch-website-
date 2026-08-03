@@ -182,8 +182,8 @@ export const Contact: React.FC = () => {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className={`text-xs font-mono ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Direct Toll-Free Line</span>
-                    <p className={`font-semibold ${isDark ? 'text-white' : 'text-neutral-900'}`}>+1 (800) 459-KEVORCH</p>
+                    <span className={`text-xs font-mono ${isDark ? 'text-red-500' : 'text-stone-600'}`}>Direct Mobile / WhatsApp</span>
+                    <a href="tel:+918438358405" className={`font-semibold block hover:underline ${isDark ? 'text-white' : 'text-neutral-900'}`}>+91 84383 58405</a>
                   </div>
                 </div>
 
