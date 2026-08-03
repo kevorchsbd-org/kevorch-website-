@@ -5,7 +5,6 @@ import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
-import { NavAssistant } from './components/NavAssistant';
 
 import { Home } from './pages/Home';
 import { About } from './pages/About';
@@ -31,7 +30,6 @@ export function App() {
         <ScrollToTop />
         <ScrollProgress />
         <Navbar />
-        <NavAssistant />
         <main className="min-h-screen">
           <Routes>
             <Route path="/" element={<Home />} />
