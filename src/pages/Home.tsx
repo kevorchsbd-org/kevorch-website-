@@ -32,11 +32,30 @@ export const Home: React.FC = () => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
+  // Typewriter effect state
+  const targetText = "Make Your Mark.";
+  const [typedText, setTypedText] = useState("");
+
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
     }, 5000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    let index = 0;
+    setTypedText("");
+    const typeInterval = setInterval(() => {
+      if (index < targetText.length) {
+        setTypedText(targetText.slice(0, index + 1));
+        index++;
+      } else {
+        clearInterval(typeInterval);
+      }
+    }, 110);
+
+    return () => clearInterval(typeInterval);
   }, []);
 
 
@@ -91,16 +110,21 @@ export const Home: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="font-heading font-extrabold tracking-tight space-y-4"
             >
-              {/* Single Line Animated Title */}
+              {/* Single Line Typewriter Animated Title */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="text-4xl sm:text-6xl lg:text-7xl font-black block tracking-tight"
+                className="text-4xl sm:text-6xl lg:text-7xl font-black flex items-center justify-center tracking-tight min-h-[1.2em]"
               >
-                <span className={isDark ? "text-transparent bg-clip-text bg-linear-to-r from-red-500 via-rose-500 to-red-700 drop-shadow-[0_0_25px_rgba(222,9,24,0.4)]" : "text-red-600 font-black"}>
-                  Make Your Mark.
+                <span className={isDark ? "text-transparent bg-clip-text bg-linear-to-r from-red-500 via-rose-500 to-red-700 drop-shadow-[0_0_25px_rgba(222,9,24,0.4)] font-black" : "text-red-600 font-black"}>
+                  {typedText}
                 </span>
+                <motion.span
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
+                  className="inline-block w-1.5 h-9 sm:h-14 bg-red-500 rounded-full ml-1 sm:ml-2 shadow-[0_0_12px_#DE0918]"
+                />
               </motion.div>
 
               {/* Sub-headline on Next Line in slightly smaller size */}
