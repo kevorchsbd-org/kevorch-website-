@@ -45,7 +45,7 @@ export const SERVICES_DATA: Service[] = [
   },
   {
     id: 'graphic-design',
-    title: 'Graphic Design & Visuals',
+    title: 'Graphic Design',
     category: 'Creative Design',
     shortDescription: 'Eye-catching visual designs, ad banners, social media posts, and marketing collateral.',
     fullDescription: 'Custom ad banner design, social media graphics, promotional materials, and marketing collateral built to grab attention.',

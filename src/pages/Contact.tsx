@@ -61,7 +61,7 @@ export const Contact: React.FC = () => {
     'Social Media Management',
     'Meta Ads (Facebook & Instagram)',
     'Google Search & Shopping Ads',
-    'Graphic Design & Visuals',
+    'Graphic Design',
     'Video Editing',
     'Sales Support & Lead Nurturing',
   ];
