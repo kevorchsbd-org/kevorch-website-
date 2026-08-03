@@ -173,12 +173,12 @@ export const Services: React.FC = () => {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                className="[perspective:1000px] group min-h-[250px]"
+                className="perspective-[1000px] group min-h-[250px]"
               >
-                <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                <div className="relative w-full h-full transition-transform duration-700 transform-3d group-hover:transform-[rotateY(180deg)]">
                   
                   {/* FRONT SIDE */}
-                  <div className={`absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-2xl p-6 text-center flex flex-col justify-between transition-all duration-300 ${
+                  <div className={`absolute inset-0 w-full h-full backface-hidden rounded-2xl p-6 text-center flex flex-col justify-between transition-all duration-300 ${
                     isDark
                       ? 'bg-[#111827] border border-slate-800 shadow-sm group-hover:border-red-500/70'
                       : 'bg-white border border-slate-200/80 shadow-sm group-hover:border-red-500/70'
@@ -210,7 +210,7 @@ export const Services: React.FC = () => {
                   </div>
 
                   {/* BACK SIDE (3D Rotated 180deg) */}
-                  <div className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl p-4 text-center flex flex-col justify-between border ${
+                  <div className={`absolute inset-0 w-full h-full backface-hidden transform-[rotateY(180deg)] rounded-2xl p-4 text-center flex flex-col justify-between border ${
                     isDark
                       ? 'bg-neutral-950 border-red-600/60 text-white shadow-[0_0_20px_rgba(222,9,24,0.3)]'
                       : 'bg-slate-950 text-white border-red-500 shadow-xl'

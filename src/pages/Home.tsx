@@ -451,12 +451,12 @@ export const Home: React.FC = () => {
                     hidden: { opacity: 0, y: 30, scale: 0.95 },
                     visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
                   }}
-                  className="[perspective:1000px] group min-h-[260px]"
+                  className="perspective-[1000px] group min-h-[260px]"
                 >
-                  <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                  <div className="relative w-full h-full transition-transform duration-700 transform-3d group-hover:transform-[rotateY(180deg)]">
                     
                     {/* FRONT SIDE */}
-                    <div className={`absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-3xl p-7 border transition-all flex flex-col justify-between space-y-4 ${
+                    <div className={`absolute inset-0 w-full h-full backface-hidden rounded-3xl p-7 border transition-all flex flex-col justify-between space-y-4 ${
                       isDark
                         ? 'bg-neutral-900/80 border-neutral-800 group-hover:border-red-500/60 shadow-sm'
                         : 'bg-white border-stone-200 group-hover:border-red-300 shadow-sm'
@@ -487,7 +487,7 @@ export const Home: React.FC = () => {
                     </div>
 
                     {/* BACK SIDE (3D Rotated 180deg) */}
-                    <div className={`absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-3xl p-6 text-center flex flex-col justify-between border ${
+                    <div className={`absolute inset-0 w-full h-full backface-hidden transform-[rotateY(180deg)] rounded-3xl p-6 text-center flex flex-col justify-between border ${
                       isDark
                         ? 'bg-neutral-950 border-red-600/60 text-white shadow-[0_0_25px_rgba(222,9,24,0.3)]'
                         : 'bg-slate-950 text-white border-red-500 shadow-xl'
