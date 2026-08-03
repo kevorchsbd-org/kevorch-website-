@@ -99,7 +99,7 @@ export const Navbar: React.FC = () => {
                     layoutId="activeNavTab"
                     className={`absolute inset-0 rounded-full -z-10 ${
                       isDark
-                        ? 'bg-gradient-to-r from-red-600/30 to-red-900/20 border border-red-500/40 shadow-[0_0_12px_rgba(222,9,24,0.3)]'
+                        ? 'bg-linear-to-r from-red-600/30 to-red-900/20 border border-red-500/40 shadow-[0_0_12px_rgba(222,9,24,0.3)]'
                         : 'bg-stone-100 border border-stone-300 shadow-sm'
                     }`}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
