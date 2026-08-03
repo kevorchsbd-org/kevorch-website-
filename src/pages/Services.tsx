@@ -198,7 +198,7 @@ export const Services: React.FC = () => {
         </div>
 
         {/* 6-Column Responsive Grid with 3D Flip Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6" style={{ gridAutoRows: '280px' }}>
           {SERVICES_DATA.map((service, index) => {
             const relativeIcons = getServiceRelativeIcons(service.id);
             return (
@@ -208,7 +208,7 @@ export const Services: React.FC = () => {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                className="perspective-[1000px] group min-h-[250px]"
+                className="perspective-[1000px] group h-[280px]"
               >
                 <div className="relative w-full h-full transition-transform duration-700 transform-3d group-hover:transform-[rotateY(180deg)]">
                   

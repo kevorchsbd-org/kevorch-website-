@@ -407,7 +407,7 @@ export const Home: React.FC = () => {
                 },
               },
             }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ gridAutoRows: '320px' }}
           >
             {SERVICES_DATA.slice(0, 6).map((service) => {
               const getHomeServiceIcon = (id: string) => {
@@ -484,7 +484,7 @@ export const Home: React.FC = () => {
                     hidden: { opacity: 0, y: 30, scale: 0.95 },
                     visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
                   }}
-                  className="perspective-[1000px] group min-h-[260px]"
+                  className="perspective-[1000px] group h-[320px]"
                 >
                   <div className="relative w-full h-full transition-transform duration-700 transform-3d group-hover:transform-[rotateY(180deg)]">
                     
