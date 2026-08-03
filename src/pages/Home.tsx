@@ -7,7 +7,6 @@ import {
   Target,
   Share2,
   Star,
-  ChevronRight,
   Play,
   MessageSquare,
   Palette,
@@ -404,17 +403,6 @@ export const Home: React.FC = () => {
                     <p className={`text-sm leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
                       {service.shortDescription}
                     </p>
-                  </div>
-
-                  <div className={`pt-4 border-t flex items-center justify-between text-xs relative z-10 ${
-                    isDark ? 'border-neutral-800' : 'border-stone-200'
-                  }`}>
-                    <span className={`font-mono font-bold ${isDark ? 'text-red-500' : 'text-slate-900'}`}>{service.metrics.avgGrowth} Avg Lift</span>
-                    <NavLink to="/services" className={`flex items-center gap-1 font-bold ${
-                      isDark ? 'text-neutral-300 group-hover:text-red-400' : 'text-stone-700 group-hover:text-red-600'
-                    }`}>
-                      Explore <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </NavLink>
                   </div>
                 </motion.div>
               );
