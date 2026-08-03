@@ -214,77 +214,89 @@ export const Home: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Feature cards grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Feature cards grid - Clean Animated Cards without description */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.08,
+                },
+              },
+            }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          >
             {[
-              {
-                icon: '🎯',
-                title: 'Direct Partnership',
-                desc: 'You work with experienced leads — not interns or account managers passing messages.',
-                delay: 0.1,
-              },
-              {
-                icon: '📈',
-                title: 'ROI-First Mindset',
-                desc: 'Every campaign is measured by revenue impact. We optimize for ROAS, not vanity metrics.',
-                delay: 0.2,
-              },
-              {
-                icon: '⚡',
-                title: 'Fast Execution',
-                desc: 'Campaigns live in 24–48 hrs. SEO momentum builds in weeks, not quarters.',
-                delay: 0.3,
-              },
-              {
-                icon: '🔍',
-                title: 'Technical SEO',
-                desc: 'We audit, fix, and build authority that puts your brand on Page 1 and keeps it there.',
-                delay: 0.4,
-              },
-              {
-                icon: '💻',
-                title: 'Modern Web Dev',
-                desc: 'React-powered sites that are blazing fast, fully responsive, and built to convert.',
-                delay: 0.5,
-              },
-              {
-                icon: '📊',
-                title: 'Transparent Reporting',
-                desc: 'Real-time dashboards and weekly updates. You always know where your budget goes.',
-                delay: 0.6,
-              },
-            ].map(({ icon, title, desc, delay }) => (
+              { icon: '🎯', title: 'Direct Partnership', badge: 'High Impact' },
+              { icon: '📈', title: 'ROI-First Mindset', badge: 'Revenue Driven' },
+              { icon: '⚡', title: 'Fast Execution', badge: '24-48h Delivery' },
+              { icon: '🔍', title: 'Technical SEO', badge: 'Page 1 Rank' },
+              { icon: '💻', title: 'Modern Web Dev', badge: 'Ultra Fast' },
+              { icon: '📊', title: 'Transparent Reporting', badge: 'Real-time' },
+            ].map(({ icon, title, badge }) => (
               <motion.div
                 key={title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -4, scale: 1.01 }}
-                className={`group relative rounded-2xl p-6 border cursor-default transition-all duration-300 ${
+                variants={{
+                  hidden: { opacity: 0, y: 25, scale: 0.95 },
+                  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+                }}
+                whileHover={{ y: -8, scale: 1.04 }}
+                whileTap={{ scale: 0.98 }}
+                className={`group relative rounded-2xl p-6 border overflow-hidden cursor-default transition-all duration-300 ${
                   isDark
-                    ? 'bg-neutral-900/60 border-neutral-800 hover:border-red-800/60 hover:bg-neutral-900'
-                    : 'bg-white border-stone-200 hover:border-red-200 hover:shadow-lg shadow-sm'
+                    ? 'bg-neutral-950/80 border-neutral-800/80 hover:border-red-600/70 hover:shadow-[0_10px_30px_rgba(222,9,24,0.25)]'
+                    : 'bg-white border-stone-200 hover:border-red-400 hover:shadow-xl'
                 }`}
               >
-                {/* Subtle glow on hover */}
+                {/* Glow backdrop on hover */}
                 {isDark && (
-                  <div className="absolute inset-0 rounded-2xl bg-red-600/0 group-hover:bg-red-600/5 transition-colors duration-300 pointer-events-none" />
+                  <div className="absolute -inset-1 rounded-2xl bg-linear-to-r from-red-600/0 via-red-600/10 to-red-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none blur-sm" />
                 )}
 
-                <div className="text-3xl mb-4">{icon}</div>
-                <h3 className={`text-base font-heading font-bold mb-2 ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                  {title}
-                </h3>
-                <p className={`text-sm leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-500'}`}>
-                  {desc}
-                </p>
+                <div className="relative z-10 flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <motion.div
+                      whileHover={{ rotate: 12, scale: 1.2 }}
+                      transition={{ type: 'spring', stiffness: 400 }}
+                      className={`text-3xl p-3 rounded-2xl border transition-colors ${
+                        isDark
+                          ? 'bg-neutral-900 border-neutral-800 group-hover:border-red-800/60 group-hover:bg-red-950/30'
+                          : 'bg-stone-100 border-stone-200 group-hover:bg-red-50'
+                      }`}
+                    >
+                      {icon}
+                    </motion.div>
+                    <div>
+                      <h3 className={`text-base font-heading font-extrabold transition-colors ${
+                        isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'
+                      }`}>
+                        {title}
+                      </h3>
+                      <span className={`text-[10px] font-mono tracking-wider uppercase font-semibold block mt-0.5 ${
+                        isDark ? 'text-neutral-500 group-hover:text-red-500' : 'text-stone-400 group-hover:text-red-600'
+                      }`}>
+                        {badge}
+                      </span>
+                    </div>
+                  </div>
 
-                {/* Bottom accent line */}
-                <div className="mt-5 h-0.5 w-8 rounded-full bg-red-500/0 group-hover:bg-red-500 group-hover:w-16 transition-all duration-500" />
+                  <span className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    isDark ? 'bg-neutral-800 group-hover:bg-red-500 group-hover:shadow-[0_0_10px_#DE0918]' : 'bg-stone-300 group-hover:bg-red-600'
+                  }`} />
+                </div>
+
+                {/* Animated progress bar bottom line */}
+                <div className="mt-5 h-1 w-full rounded-full overflow-hidden bg-neutral-900/40">
+                  <motion.div
+                    className="h-full rounded-full bg-linear-to-r from-red-600 to-rose-500 w-0 group-hover:w-full transition-all duration-500 ease-out"
+                  />
+                </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Bottom CTA row */}
           <motion.div
