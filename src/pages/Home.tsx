@@ -9,7 +9,6 @@ import {
   Star,
   ChevronRight,
   Play,
-  Flame,
   MessageSquare,
   Palette,
   Video,
@@ -90,17 +89,7 @@ export const Home: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-left">
           <div className="space-y-8">
             
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono font-medium ${
-                isDark ? 'border-red-900/40 bg-neutral-900/60 text-red-400' : 'border-stone-300 bg-stone-100 text-stone-800'
-              }`}
-            >
-              <Flame className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
-              <span>Make Your Mark.</span>
-            </motion.div>
+
 
             {/* Large Statement Heading */}
             <motion.h1
