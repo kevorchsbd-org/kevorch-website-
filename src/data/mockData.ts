@@ -136,6 +136,25 @@ export const CASE_STUDIES: CaseStudy[] = [
     imageUrl: 'https://images.unsplash.com/photo-1542744094-3a3121699499?auto=format&fit=crop&w=1200&q=80',
     accentColor: '#DE0918',
   },
+  {
+    id: 'puredrops',
+    title: 'Pure Drops',
+    client: 'Pure Drops',
+    industry: 'Consumer Goods & Purification',
+    category: 'Brand Strategy & Meta Ads',
+    summary: 'Social Media Management, Meta Ads, Brand Identity & Poster Design to elevate brand trust and drive sales.',
+    challenge: 'Building high brand awareness and establishing market authority in the consumer purification space.',
+    solution: 'Designed sleek visual marketing collateral, custom ad banners, and launched targeted Meta conversion campaigns.',
+    results: {
+      roi: '+380%',
+      revenue: '$18.2M',
+      trafficIncrease: '+410%',
+      conversionRate: '7.2%',
+    },
+    tags: ['Social Media Management', 'Meta Ads', 'Poster Design', 'Brand Identity'],
+    imageUrl: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4e?auto=format&fit=crop&w=1200&q=80',
+    accentColor: '#DE0918',
+  },
 ];
 
 export const TEAM_MEMBERS: TeamMember[] = [
