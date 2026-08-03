@@ -523,16 +523,6 @@ export const Home: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* ── BOTTOM FOOTER STRIP ── */}
-                      <div className={`px-7 py-3 flex items-center gap-2 shrink-0 border-t transition-colors duration-300 ${
-                        isDark ? 'bg-slate-900/60 border-slate-800' : 'bg-stone-50 border-stone-200'
-                      }`}>
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 inline-block animate-pulse" />
-                        <span className="text-[9px] font-mono font-bold text-red-500 tracking-widest uppercase">
-                          Hover to Flip
-                        </span>
-                      </div>
-
                     </div>
 
                     {/* BACK SIDE — Animated Premium Layout */}
