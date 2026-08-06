@@ -34,6 +34,7 @@ export const Navbar: React.FC = () => {
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Clients', path: '/clients' },
+    { name: 'Who We Are', path: '/who-we-are' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -125,6 +126,7 @@ export const Navbar: React.FC = () => {
           <MagneticButton
             variant="primary"
             size="sm"
+            data-cursor="GO"
             onClick={() => navigate('/contact')}
           >
             Start Project <ArrowRight className="w-4 h-4 ml-1" />

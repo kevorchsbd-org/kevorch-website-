@@ -5,6 +5,8 @@ import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
+import { SmoothScroll } from './components/SmoothScroll';
+import { Preloader } from './components/Preloader';
 
 import { Home } from './pages/Home';
 import { About } from './pages/About';
@@ -26,21 +28,25 @@ const ScrollToTop: React.FC = () => {
 export function App() {
   return (
     <ThemeProvider>
-      <Router>
-        <ScrollToTop />
-        <ScrollProgress />
-        <Navbar />
-        <main className="min-h-screen">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/clients" element={<Clients />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </Router>
+      <SmoothScroll>
+        <Preloader />
+        <Router>
+          <ScrollToTop />
+          <ScrollProgress />
+          <Navbar />
+          <main className="min-h-screen">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/who-we-are" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/clients" element={<Clients />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+        </Router>
+      </SmoothScroll>
     </ThemeProvider>
   );
 }

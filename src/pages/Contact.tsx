@@ -60,7 +60,7 @@ export const Contact: React.FC = () => {
     'Social Media Management',
     'Meta Ads (Facebook & Instagram)',
     'Google Ads & SEO',
-    'Graphic Design',
+    'Graphic & Logo Design',
     'Video Editing',
     'Sales Support & Lead Nurturing',
   ];
@@ -508,6 +508,7 @@ export const Contact: React.FC = () => {
                   <MagneticButton
                     variant="primary"
                     size="lg"
+                    data-cursor="SUBMIT"
                     className="w-full"
                   >
                     {isSubmitting ? (

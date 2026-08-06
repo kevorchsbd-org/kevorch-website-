@@ -9,7 +9,6 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { MagneticButton } from '../components/MagneticButton';
-import { MILESTONES_DATA } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
 
 export const About: React.FC = () => {
@@ -57,30 +56,6 @@ export const About: React.FC = () => {
         >
           KevorchSBD is a modern performance marketing and web development agency. We replace outdated marketing methods with clear strategy, fast web development, and measurable ROI.
         </motion.p>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 2. COMPANY STATS */}
-      {/* ========================================================================= */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className={`p-6 rounded-3xl border text-center ${isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200'}`}>
-            <span className={`text-3xl font-bold font-number ${isDark ? 'text-red-500' : 'text-slate-950'}`}>100+</span>
-            <p className={`text-xs mt-1 font-medium ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>Successful Projects</p>
-          </div>
-          <div className={`p-6 rounded-3xl border text-center ${isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200'}`}>
-            <span className={`text-3xl font-bold font-number ${isDark ? 'text-red-500' : 'text-slate-950'}`}>98%</span>
-            <p className={`text-xs mt-1 font-medium ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>Client Retention Rate</p>
-          </div>
-          <div className={`p-6 rounded-3xl border text-center ${isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200'}`}>
-            <span className={`text-3xl font-bold font-number ${isDark ? 'text-red-500' : 'text-slate-950'}`}>4.9/5</span>
-            <p className={`text-xs mt-1 font-medium ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>Average Rating</p>
-          </div>
-          <div className={`p-6 rounded-3xl border text-center ${isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200'}`}>
-            <span className={`text-3xl font-bold font-number ${isDark ? 'text-red-500' : 'text-slate-950'}`}>4.8x</span>
-            <p className={`text-xs mt-1 font-medium ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>Average Campaign ROAS</p>
-          </div>
-        </div>
       </section>
 
       {/* ========================================================================= */}
@@ -139,69 +114,6 @@ export const About: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 4. COMPANY TIMELINE */}
-      {/* ========================================================================= */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className={`text-xs font-mono uppercase tracking-widest font-semibold ${
-            isDark ? 'text-red-500' : 'text-stone-700'
-          }`}>
-            // History
-          </span>
-          <h2 className={`text-3xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-            Company Journey
-          </h2>
-        </div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-40px' }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-6"
-        >
-          {MILESTONES_DATA.map((item, idx) => (
-            <motion.div
-              key={idx}
-              variants={{
-                hidden: { opacity: 0, y: 25, scale: 0.95 },
-                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
-              }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              className={`rounded-3xl p-6 border space-y-3 transition-all duration-300 group overflow-hidden relative ${
-                isDark
-                  ? 'bg-neutral-950/80 border-neutral-800 hover:border-red-600/70 hover:shadow-[0_10px_30px_rgba(222,9,24,0.2)]'
-                  : 'bg-white border-stone-200 hover:border-red-300 hover:shadow-xl shadow-xs'
-              }`}
-            >
-              <span className={`inline-block text-xs font-mono font-bold px-3.5 py-1 rounded-full border transition-colors ${
-                isDark
-                  ? 'bg-red-600/20 text-red-400 border-red-500/40 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_12px_#DE0918]'
-                  : 'bg-stone-100 text-slate-900 border-stone-300 group-hover:bg-red-600 group-hover:text-white group-hover:border-red-600'
-              }`}>
-                {item.year}
-              </span>
-              <h3 className={`text-base font-heading font-extrabold pt-1 transition-colors ${
-                isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'
-              }`}>
-                {item.title}
-              </h3>
-              <p className={`text-xs leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
       </section>
 
       {/* ========================================================================= */}

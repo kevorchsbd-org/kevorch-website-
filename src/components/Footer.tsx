@@ -144,10 +144,11 @@ export const Footer: React.FC = () => {
             }`}>Navigation</h4>
             <ul className="flex flex-col gap-2.5 text-sm">
               <li><NavLink to="/" className="hover:text-red-500 transition-colors">Home</NavLink></li>
-              <li><NavLink to="/about" className="hover:text-red-500 transition-colors">About Agency</NavLink></li>
-              <li><NavLink to="/services" className="hover:text-red-500 transition-colors">Growth Services</NavLink></li>
-              <li><NavLink to="/clients" className="hover:text-red-500 transition-colors">Case Studies</NavLink></li>
-              <li><NavLink to="/contact" className="hover:text-red-500 transition-colors">Contact Us</NavLink></li>
+              <li><NavLink to="/about" className="hover:text-red-500 transition-colors">About</NavLink></li>
+              <li><NavLink to="/services" className="hover:text-red-500 transition-colors">Services</NavLink></li>
+              <li><NavLink to="/clients" className="hover:text-red-500 transition-colors">Clients</NavLink></li>
+              <li><NavLink to="/who-we-are" className="hover:text-red-500 transition-colors">Who We Are</NavLink></li>
+              <li><NavLink to="/contact" className="hover:text-red-500 transition-colors">Contact</NavLink></li>
             </ul>
           </div>
 
