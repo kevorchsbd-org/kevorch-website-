@@ -17,9 +17,8 @@ export const About: React.FC = () => {
   const isDark = theme === 'dark';
 
   return (
-    <div className={`relative min-h-screen pt-32 pb-24 transition-colors duration-400 ${
-      isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
-    }`}>
+    <div className={`relative min-h-screen pt-32 pb-24 transition-colors duration-400 ${isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
+      }`}>
       {/* Background Red Glows in Dark Mode Only */}
       {isDark && <div className="absolute top-20 right-10 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />}
 
@@ -31,9 +30,8 @@ export const About: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono ${
-            isDark ? 'border-red-900/40 bg-neutral-900/60 text-red-400' : 'border-stone-300 bg-stone-100 text-stone-800'
-          }`}
+          className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono ${isDark ? 'border-red-900/40 bg-neutral-900/60 text-red-400' : 'border-stone-300 bg-stone-100 text-stone-800'
+            }`}
         >
           <Flame className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
           <span>About KevorchSBD Agency</span>
@@ -61,14 +59,12 @@ export const About: React.FC = () => {
       {/* ========================================================================= */}
       {/* 3. MISSION, VISION & VALUES */}
       {/* ========================================================================= */}
-      <section className={`py-16 border-y transition-colors ${
-        isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200'
-      }`}>
+      <section className={`py-16 border-y transition-colors ${isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200'
+        }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className={`text-xs font-mono uppercase tracking-widest font-semibold ${
-              isDark ? 'text-red-500' : 'text-stone-700'
-            }`}>
+            <span className={`text-xs font-mono uppercase tracking-widest font-semibold ${isDark ? 'text-red-500' : 'text-stone-700'
+              }`}>
               // Core Foundations
             </span>
             <h2 className={`text-3xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
@@ -78,9 +74,8 @@ export const About: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className={`rounded-3xl p-8 border space-y-4 ${isDark ? 'bg-black border-neutral-800' : 'bg-white border-stone-200 shadow-xs'}`}>
-              <div className={`w-10 h-10 rounded-2xl border flex items-center justify-center ${
-                isDark ? 'bg-red-600/15 border-red-500/30 text-red-500' : 'bg-stone-100 border-stone-200 text-slate-800'
-              }`}>
+              <div className={`w-10 h-10 rounded-2xl border flex items-center justify-center ${isDark ? 'bg-red-600/15 border-red-500/30 text-red-500' : 'bg-stone-100 border-stone-200 text-slate-800'
+                }`}>
                 <Target className="w-5 h-5" />
               </div>
               <h3 className={`text-xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>Our Mission</h3>
@@ -90,9 +85,8 @@ export const About: React.FC = () => {
             </div>
 
             <div className={`rounded-3xl p-8 border space-y-4 ${isDark ? 'bg-black border-neutral-800' : 'bg-white border-stone-200 shadow-xs'}`}>
-              <div className={`w-10 h-10 rounded-2xl border flex items-center justify-center ${
-                isDark ? 'bg-red-600/15 border-red-500/30 text-red-500' : 'bg-stone-100 border-stone-200 text-slate-800'
-              }`}>
+              <div className={`w-10 h-10 rounded-2xl border flex items-center justify-center ${isDark ? 'bg-red-600/15 border-red-500/30 text-red-500' : 'bg-stone-100 border-stone-200 text-slate-800'
+                }`}>
                 <Eye className="w-5 h-5" />
               </div>
               <h3 className={`text-xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>Our Vision</h3>
@@ -102,9 +96,8 @@ export const About: React.FC = () => {
             </div>
 
             <div className={`rounded-3xl p-8 border space-y-4 ${isDark ? 'bg-black border-neutral-800' : 'bg-white border-stone-200 shadow-xs'}`}>
-              <div className={`w-10 h-10 rounded-2xl border flex items-center justify-center ${
-                isDark ? 'bg-red-600/15 border-red-500/30 text-red-500' : 'bg-stone-100 border-stone-200 text-slate-800'
-              }`}>
+              <div className={`w-10 h-10 rounded-2xl border flex items-center justify-center ${isDark ? 'bg-red-600/15 border-red-500/30 text-red-500' : 'bg-stone-100 border-stone-200 text-slate-800'
+                }`}>
                 <Shield className="w-5 h-5" />
               </div>
               <h3 className={`text-xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>Our Values</h3>
@@ -120,9 +113,8 @@ export const About: React.FC = () => {
       {/* 5. FINAL ABOUT CTA */}
       {/* ========================================================================= */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`rounded-3xl p-8 sm:p-12 border text-center space-y-6 ${
-          isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200 shadow-sm'
-        }`}>
+        <div className={`rounded-3xl p-8 sm:p-12 border text-center space-y-6 ${isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200 shadow-sm'
+          }`}>
           <h2 className={`text-3xl sm:text-4xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
             Ready to Work Together?
           </h2>

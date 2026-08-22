@@ -7,7 +7,6 @@ import {
   Target,
   Share2,
   Star,
-  Play,
   MessageSquare,
   Palette,
   Video,
@@ -192,10 +191,10 @@ export const Home: React.FC = () => {
               <MagneticButton
                 variant="secondary"
                 size="lg"
-                data-cursor="PLAY"
-                onClick={() => navigate('/clients')}
+                data-cursor="ABOUT"
+                onClick={() => navigate('/about')}
               >
-                View Our Work <Play className="w-4 h-4 ml-1 fill-current" />
+                About Us <Sparkles className="w-4 h-4 ml-1 text-red-500" />
               </MagneticButton>
             </motion.div>
 

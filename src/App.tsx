@@ -38,7 +38,6 @@ export function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/who-we-are" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/clients" element={<Clients />} />
               <Route path="/contact" element={<Contact />} />
