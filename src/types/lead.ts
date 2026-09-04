@@ -12,6 +12,6 @@ export interface Lead {
   budget: string;
   goals: string;
   status: LeadStatus;
-  createdAt?: any;
-  updatedAt?: any;
+  createdAt?: Date | string | number;
+  updatedAt?: Date | string | number;
 }

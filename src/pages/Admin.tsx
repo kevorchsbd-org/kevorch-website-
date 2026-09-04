@@ -104,8 +104,9 @@ export const Admin: React.FC = () => {
       if (selectedLead && selectedLead.id === leadId) {
         setSelectedLead((prev) => prev ? { ...prev, status: newStatus } : null);
       }
-    } catch (err: any) {
-      alert('Failed to update lead status: ' + err.message);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err);
+      alert('Failed to update lead status: ' + message);
     } finally {
       setUpdatingId(null);
     }
@@ -121,8 +122,9 @@ export const Admin: React.FC = () => {
         setSelectedLead(null);
       }
       setLeadToDelete(null);
-    } catch (err: any) {
-      alert('Failed to delete lead: ' + err.message);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err);
+      alert('Failed to delete lead: ' + message);
     } finally {
       setIsDeleting(false);
     }
@@ -146,10 +148,12 @@ export const Admin: React.FC = () => {
         );
       })
       .sort((a, b) => {
+        const timeA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+        const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
         if (sortBy === 'newest') {
-          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          return timeB - timeA;
         } else if (sortBy === 'oldest') {
-          return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+          return timeA - timeB;
         } else if (sortBy === 'name') {
           return a.fullName.localeCompare(b.fullName);
         } else if (sortBy === 'status') {
@@ -303,7 +307,7 @@ export const Admin: React.FC = () => {
               <ArrowUpDown className="w-3.5 h-3.5 text-neutral-400" />
               <select
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as any)}
+                onChange={(e) => setSortBy(e.target.value as 'newest' | 'oldest' | 'name' | 'status')}
                 className={`py-2 px-3 rounded-xl border outline-none text-xs ${
                   isDark
                     ? 'bg-neutral-900 border-neutral-800 text-white'
