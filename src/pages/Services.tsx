@@ -197,20 +197,33 @@ export const Services: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className={`text-3xl sm:text-5xl font-heading font-extrabold tracking-tight ${
-              isDark ? 'text-white' : 'text-slate-950'
-            }`}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono font-semibold uppercase tracking-widest bg-red-500/10 border-red-500/30 text-[#DE0918]"
           >
-            Digital Marketing Services
-          </motion.h1>
+            <Sparkles className="w-3.5 h-3.5 text-[#DE0918]" />
+            <span>OUR SERVICES</span>
+          </motion.div>
+
+          <div className="overflow-hidden py-1">
+            <motion.h1
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: "0%", opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className={`text-3xl sm:text-5xl font-heading font-extrabold tracking-tight ${
+                isDark ? 'text-white' : 'text-slate-950'
+              }`}
+            >
+              Digital Marketing Services
+            </motion.h1>
+          </div>
+
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
             className={`text-base sm:text-lg leading-relaxed font-normal ${
               isDark ? 'text-slate-400' : 'text-slate-600'
             }`}

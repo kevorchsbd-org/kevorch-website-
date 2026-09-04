@@ -1,6 +1,6 @@
 # 🚀 Kevorch - Premium Corporate & Agency Web Application
 
-Welcome to the **Kevorch Official Website** project repository. This is a modern, high-performance, ultra-responsive web application designed with rich aesthetics, interactive GSAP animations, dynamic dark/light themes, and liquid smooth scrolling.
+Welcome to the **Kevorch Official Website** project repository. This is a modern, high-performance, ultra-responsive web application designed with rich aesthetics, interactive GSAP animations, dynamic dark/light themes, and fast native browser scrolling.
 
 ---
 
@@ -19,12 +19,12 @@ Welcome to the **Kevorch Official Website** project repository. This is a modern
 
 ## 🌟 Features Overview
 
-* **Liquid Smooth Scroll**: Powered by Lenis smooth scrolling engine for a fluid desktop and mobile browsing experience.
-* **GSAP & Framer Motion Animations**: High-end scroll triggers, magnetic cursor effects, text splitting, parallax scroll, and counter animations.
-* **Interactive Preloader**: Pre-mount animated loading screen with progress percentage.
-* **Dynamic Theme Switcher**: Full Dark Mode / Light Mode support with smooth transitions, powered by React Context and Tailwind CSS v4.
-* **Responsive Architecture**: Pixel-perfect grid & flex layouts optimized for desktop, tablet, and mobile devices.
-* **Firebase Hosting Ready**: Configured for single-command zero-downtime deployment to Firebase Hosting with custom domain support.
+- **Fast Native Scrolling**: Fast, responsive, natural native browser scrolling experience with smooth route restoration.
+- **GSAP & Framer Motion Animations**: High-end scroll triggers, magnetic cursor effects, text splitting, parallax scroll, and counter animations.
+- **Interactive Preloader**: Pre-mount animated loading screen with progress percentage.
+- **Dynamic Theme Switcher**: Full Dark Mode / Light Mode support with smooth transitions, powered by React Context and Tailwind CSS v4.
+- **Responsive Architecture**: Pixel-perfect grid & flex layouts optimized for desktop, tablet, and mobile devices.
+- **Firebase Hosting Ready**: Configured for single-command zero-downtime deployment to Firebase Hosting with custom domain support.
 
 ---
 
@@ -36,7 +36,7 @@ Welcome to the **Kevorch Official Website** project repository. This is a modern
 | **Build Tool** | [Vite 8](https://vitejs.dev/) | Lightning-fast HMR and bundle optimizer |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) | Modern utility-first CSS engine |
 | **Animations** | [GSAP 3](https://greensock.com/gsap/) + [Framer Motion](https://www.framer.com/motion/) | Professional timeline, scroll trigger & UI animations |
-| **Smooth Scroll** | [Lenis](https://lenis.darkroom.engineering/) | Inertial smooth scrolling |
+| **Scrolling** | Native Browser Engine | Fast, zero-lag native scrolling |
 | **Icons** | [Lucide React](https://lucide.dev/) | Modern SVG icons set |
 | **Routing** | [React Router v7](https://reactrouter.com/) | Client-side page navigation |
 | **Data Viz** | [Recharts](https://recharts.org/) | Data visualization graphs & charts |
@@ -46,7 +46,7 @@ Welcome to the **Kevorch Official Website** project repository. This is a modern
 
 ## 📁 Project Structure
 
-```
+```text
 web1/
 ├── .agents/                 # Workspace Agent configuration and custom skills
 ├── .firebase/               # Firebase hosting build cache
@@ -64,7 +64,7 @@ web1/
 │   │   ├── Navbar.tsx       # Main header navigation bar
 │   │   ├── Footer.tsx       # Page footer with links & newsletter
 │   │   ├── Preloader.tsx    # Initial splash screen preloader
-│   │   ├── SmoothScroll.tsx # Lenis smooth scrolling container wrapper
+│   │   ├── SmoothScroll.tsx # Native route scroll restoration component
 │   │   ├── ScrollProgress.tsx # Top reading/scroll progress bar
 │   │   ├── MagneticButton.tsx # Interactive cursor magnet wrapper
 │   │   ├── Marquee.tsx      # Infinite looping logo/text ticker
@@ -102,36 +102,44 @@ web1/
 ## 🧩 Components Breakdown
 
 ### 1. 🧭 `Navbar.tsx`
-* **Purpose**: Top header navigation bar.
-* **Features**: Dynamic background blur on scroll, mobile responsive drawer menu, brand logo, navigation links (`Home`, `About`, `Services`, `Clients`, `Contact`), and embedded `ThemeToggle`.
+
+- **Purpose**: Top header navigation bar.
+- **Features**: Dynamic background blur on scroll, mobile responsive drawer menu, brand logo, navigation links (`Home`, `About`, `Services`, `Clients`, `Contact`), and embedded `ThemeToggle`.
 
 ### 2. 🔻 `Footer.tsx`
-* **Purpose**: Comprehensive site footer container.
-* **Features**: Quick links, office location addresses, interactive newsletter subscription, copyright notice, social media channels, and back-to-top button.
+
+- **Purpose**: Comprehensive site footer container.
+- **Features**: Quick links, office location addresses, interactive newsletter subscription, copyright notice, social media channels, and back-to-top button.
 
 ### 3. ⏳ `Preloader.tsx`
-* **Purpose**: Initial website loading curtain.
-* **Features**: Displays progress counter (0% to 100%) and smooth curtain reveal animation using GSAP before showing main page content.
+
+- **Purpose**: Initial website loading curtain.
+- **Features**: Displays progress counter (0% to 100%) and smooth curtain reveal animation using GSAP before showing main page content.
 
 ### 4. 📜 `SmoothScroll.tsx`
-* **Purpose**: Wrapper component for Lenis Smooth Scroll.
-* **Features**: Eliminates jarring browser scrolling, delivering sleek inertial scrolling across all pages.
+
+- **Purpose**: Native route scroll restoration component.
+- **Features**: Ensures instant top-of-page scroll positioning on route navigation using native browser APIs.
 
 ### 5. 📊 `ScrollProgress.tsx`
-* **Purpose**: Fixed top reading bar.
-* **Features**: Dynamically calculates document scroll percentage and renders a subtle highlight line at the very top of the screen.
+
+- **Purpose**: Fixed top reading bar.
+- **Features**: Dynamically calculates document scroll percentage and renders a subtle highlight line at the very top of the screen.
 
 ### 6. 🧲 `MagneticButton.tsx`
-* **Purpose**: Micro-interaction UI wrapper.
-* **Features**: Pulls buttons slightly towards the user's cursor on hover for a tactile, futuristic feel.
+
+- **Purpose**: Micro-interaction UI wrapper.
+- **Features**: Pulls buttons slightly towards the user's cursor on hover for a tactile, futuristic feel.
 
 ### 7. 🔄 `Marquee.tsx`
-* **Purpose**: Infinite sliding ticker container.
-* **Features**: Seamlessly scrolls client logos, technology tags, and key highlight badges horizontally.
+
+- **Purpose**: Infinite sliding ticker container.
+- **Features**: Seamlessly scrolls client logos, technology tags, and key highlight badges horizontally.
 
 ### 8. 🌓 `ThemeToggle.tsx`
-* **Purpose**: Dark/Light mode theme switch button.
-* **Features**: Smooth icon toggle between Sun and Moon, persisting user preference in `localStorage`.
+
+- **Purpose**: Dark/Light mode theme switch button.
+- **Features**: Smooth icon toggle between Sun and Moon, persisting user preference in `localStorage`.
 
 ---
 
@@ -149,10 +157,10 @@ web1/
 
 ## ✨ Animations & Hooks
 
-* **`useMagnetic`**: Uses mouse position relative to container bounding rect to apply spring physics offset.
-* **`useReveal`**: Automatically attaches GSAP ScrollTrigger to elements with `.reveal` class for fading in on scroll down.
-* **`useCounter`**: Animates numbers from zero to target value when scrolled into view.
-* **`useParallax`**: Moves background cards or images slower than the page scroll speed to generate depth perception.
+- **`useMagnetic`**: Uses mouse position relative to container bounding rect to apply spring physics offset.
+- **`useReveal`**: Automatically attaches GSAP ScrollTrigger to elements with `.reveal` class for fading in on scroll down.
+- **`useCounter`**: Animates numbers from zero to target value when scrolled into view.
+- **`useParallax`**: Moves background cards or images slower than the page scroll speed to generate depth perception.
 
 ---
 
@@ -160,12 +168,13 @@ web1/
 
 This project is deployed using **Firebase Hosting**.
 
-* **Default Hosting Domains**:
-  * `https://kevorch-website.web.app`
-  * `https://kevorch-website.firebaseapp.com`
-* **Custom Domain**: `https://kevorch.online`
+- **Default Hosting Domains**:
+  - `https://kevorch-website.web.app`
+  - `https://kevorch-website.firebaseapp.com`
+- **Custom Domain**: `https://kevorch.online`
 
-### Deploying Updates to Firebase:
+### Deploying Updates to Firebase
+
 ```bash
 # 1. Build the production application
 npm run build
@@ -179,24 +188,33 @@ firebase deploy --only hosting
 ## 🚀 Quick Start Guide
 
 ### 1. Installation
+
 Clone the project directory and install node packages:
+
 ```bash
 npm install
 ```
 
 ### 2. Development Mode
+
 Run the Vite development server with Hot Module Replacement (HMR):
+
 ```bash
 npm run dev
 ```
+
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### 3. Production Build
+
 Compile TypeScript and bundle assets with Vite:
+
 ```bash
 npm run build
 ```
+
 Preview the built distribution locally:
+
 ```bash
 npm run preview
 ```

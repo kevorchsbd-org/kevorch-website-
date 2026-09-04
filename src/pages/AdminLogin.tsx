@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { motion } from 'framer-motion';
-import { Lock, Mail, ShieldAlert, ArrowRight, Loader2 } from 'lucide-react';
+import { Lock, Mail, ShieldAlert, ArrowRight, Loader2, ArrowLeft, Eye, EyeOff } from 'lucide-react';
 import { auth } from '../services/firebase';
 import { useTheme } from '../context/ThemeContext';
 import whiteLogo from '../assets/whitelogo.png';
@@ -12,6 +12,7 @@ import { SEO } from '../components/SEO';
 export const AdminLogin: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   
@@ -34,7 +35,7 @@ export const AdminLogin: React.FC = () => {
     setError(null);
 
     if (!auth) {
-      setError('Firebase API Key is missing. Please add VITE_FIREBASE_API_KEY from Firebase Console to your .env file.');
+      setError('Firebase configuration is missing. Please check VITE_FIREBASE_API_KEY in your environment configuration.');
       return;
     }
 
@@ -51,13 +52,13 @@ export const AdminLogin: React.FC = () => {
     } catch (err: any) {
       console.error('Firebase Auth Error:', err);
       if (err.code === 'auth/invalid-api-key' || err.code === 'auth/api-key-not-valid.-please-pass-a-valid-api-key.') {
-        setError('Firebase API Key is invalid. Please update VITE_FIREBASE_API_KEY in your .env file with your real key from Firebase Console.');
+        setError('Firebase API Key is invalid. Please verify VITE_FIREBASE_API_KEY in your environment configuration.');
       } else if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
-        setError('Invalid admin credentials. Please check your email and password.');
+        setError('Unable to sign in. Please check your email and password.');
       } else if (err.code === 'auth/too-many-requests') {
-        setError('Too many failed attempts. Please try again later.');
+        setError('Too many failed sign-in attempts. Please try again later.');
       } else {
-        setError(err.message || 'Failed to sign in. Please try again.');
+        setError('Unable to sign in. Please check your credentials and try again.');
       }
     } finally {
       setLoading(false);
@@ -65,7 +66,7 @@ export const AdminLogin: React.FC = () => {
   };
 
   return (
-    <div className={`min-h-screen flex items-center justify-center p-4 transition-colors duration-400 ${
+    <div className={`min-h-screen relative flex items-center justify-center p-4 transition-colors duration-400 ${
       isDark ? 'bg-black text-white' : 'bg-stone-50 text-neutral-900'
     }`}>
       <SEO
@@ -73,6 +74,22 @@ export const AdminLogin: React.FC = () => {
         description="Kevorch Authorized Admin Login Portal"
         canonical="/admin/login"
       />
+
+      {/* TOP-LEFT NAVIGATION LINK */}
+      <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-10">
+        <Link
+          to="/"
+          className={`group inline-flex items-center gap-2 text-xs font-mono font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DE0918] rounded-lg px-2 py-1.5 ${
+            isDark
+              ? 'text-neutral-400 hover:text-[#DE0918]'
+              : 'text-neutral-600 hover:text-[#DE0918]'
+          }`}
+          aria-label="Return to Kevorch public website"
+        >
+          <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-200 group-hover:-translate-x-1" />
+          <span>Back to Website</span>
+        </Link>
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -131,8 +148,8 @@ export const AdminLogin: React.FC = () => {
                   required
                   className={`w-full pl-10 pr-4 py-3 text-sm rounded-xl border transition-colors outline-none ${
                     isDark
-                      ? 'bg-neutral-900 border-neutral-800 focus:border-red-500 text-white placeholder-neutral-500'
-                      : 'bg-stone-100 border-stone-300 focus:border-red-600 text-stone-900 placeholder-stone-400'
+                      ? 'bg-neutral-900 border-neutral-800 focus:border-[#DE0918] text-white placeholder-neutral-500'
+                      : 'bg-stone-100 border-stone-300 focus:border-[#DE0918] text-stone-900 placeholder-stone-400'
                   }`}
                 />
               </div>
@@ -145,28 +162,45 @@ export const AdminLogin: React.FC = () => {
               <div className="relative">
                 <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
                 <input
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
                   required
-                  className={`w-full pl-10 pr-4 py-3 text-sm rounded-xl border transition-colors outline-none ${
+                  className={`w-full pl-10 pr-12 py-3 text-sm rounded-xl border transition-colors outline-none ${
                     isDark
-                      ? 'bg-neutral-900 border-neutral-800 focus:border-red-500 text-white placeholder-neutral-500'
-                      : 'bg-stone-100 border-stone-300 focus:border-red-600 text-stone-900 placeholder-stone-400'
+                      ? 'bg-neutral-900 border-neutral-800 focus:border-[#DE0918] text-white placeholder-neutral-500'
+                      : 'bg-stone-100 border-stone-300 focus:border-[#DE0918] text-stone-900 placeholder-stone-400'
                   }`}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  title={showPassword ? 'Hide password' : 'Show password'}
+                  className={`absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 rounded-lg transition-colors flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DE0918] ${
+                    isDark
+                      ? 'text-neutral-400 hover:text-[#DE0918] bg-neutral-800/40 hover:bg-neutral-800'
+                      : 'text-neutral-500 hover:text-[#DE0918] bg-stone-200/60 hover:bg-stone-200'
+                  }`}
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-4.5 h-4.5" />
+                  ) : (
+                    <Eye className="w-4.5 h-4.5" />
+                  )}
+                </button>
               </div>
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 px-4 rounded-xl font-heading font-semibold text-sm bg-red-600 hover:bg-red-700 active:bg-red-800 text-white shadow-lg shadow-red-600/30 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+              className="w-full py-3 px-4 rounded-xl font-heading font-semibold text-sm bg-[#DE0918] hover:bg-[#C00714] active:bg-[#A00510] text-white shadow-lg shadow-[#DE0918]/30 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin" /> Authenticating...
+                  <Loader2 className="w-4 h-4 animate-spin" /> Signing in...
                 </>
               ) : (
                 <>
@@ -183,3 +217,4 @@ export const AdminLogin: React.FC = () => {
 };
 
 export default AdminLogin;
+

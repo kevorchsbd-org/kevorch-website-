@@ -47,30 +47,34 @@ export const Clients: React.FC = () => {
       {/* ========================================================================= */}
       {/* 1. HERO & STATS COUNTER */}
       {/* ========================================================================= */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border text-xs font-mono ${
-            isDark ? 'border-red-900/40 text-red-400' : 'border-stone-300 bg-stone-100 text-stone-800'
-          }`}
+          transition={{ duration: 0.4 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono font-semibold uppercase tracking-widest bg-red-500/10 border-red-500/30 text-[#DE0918]"
         >
-          <Flame className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
-          <span>Case Studies & Track Record</span>
+          <Flame className="w-3.5 h-3.5 text-[#DE0918]" />
+          <span>FEATURED WORK</span>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          initial={{ clipPath: 'inset(0 100% 0 0)', opacity: 0, y: 10 }}
+          animate={{ clipPath: 'inset(0 0% 0 0)', opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, delay: 0.15, ease: [0.25, 1, 0.5, 1] }}
           className="text-4xl sm:text-6xl font-heading font-extrabold tracking-tight leading-tight"
         >
           Real Business Impact, <span className={isDark ? "text-transparent bg-clip-text bg-linear-to-r from-red-500 via-rose-500 to-red-800" : "text-slate-950 font-extrabold"}>Audited Results</span>
         </motion.h1>
 
-        <p className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
+          className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}
+        >
           Explore how we helped enterprise tech companies, fintech unicorns, and D2C brands break revenue ceilings.
-        </p>
+        </motion.p>
 
       </section>
 

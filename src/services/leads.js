@@ -1,4 +1,4 @@
-import {
+ function _optionalChain(ops) { let lastAccessLHS = undefined; let value = ops[0]; let i = 1; while (i < ops.length) { const op = ops[i]; const fn = ops[i + 1]; i += 2; if ((op === 'optionalAccess' || op === 'optionalCall') && value == null) { return undefined; } if (op === 'access' || op === 'optionalAccess') { lastAccessLHS = value; value = fn(value); } else if (op === 'call' || op === 'optionalCall') { value = fn((...args) => value.call(lastAccessLHS, ...args)); lastAccessLHS = undefined; } } return value; }import {
   collection,
   addDoc,
   updateDoc,
@@ -10,11 +10,11 @@ import {
   onSnapshot
 } from 'firebase/firestore';
 import { db } from './firebase';
-import type { Lead, LeadStatus } from '../types/lead';
+
 
 const LEADS_COLLECTION = 'leads';
 
-export const createLead = async (leadData: Omit<Lead, 'id' | 'status' | 'createdAt' | 'updatedAt'>): Promise<string> => {
+export const createLead = async (leadData) => {
   if (!leadData.fullName.trim()) throw new Error('Full name is required.');
   if (!leadData.email.trim()) throw new Error('Valid email address is required.');
   if (!leadData.mobile.trim()) throw new Error('Mobile number is required.');
@@ -28,13 +28,13 @@ export const createLead = async (leadData: Omit<Lead, 'id' | 'status' | 'created
     fullName: leadData.fullName.trim(),
     email: leadData.email.trim(),
     mobile: leadData.mobile.trim(),
-    companyName: leadData.companyName?.trim() || '',
-    website: leadData.website?.trim() || '',
+    companyName: _optionalChain([leadData, 'access', _ => _.companyName, 'optionalAccess', _2 => _2.trim, 'call', _3 => _3()]) || '',
+    website: _optionalChain([leadData, 'access', _4 => _4.website, 'optionalAccess', _5 => _5.trim, 'call', _6 => _6()]) || '',
     services: leadData.services || [],
-    customService: leadData.customService?.trim() || '',
+    customService: _optionalChain([leadData, 'access', _7 => _7.customService, 'optionalAccess', _8 => _8.trim, 'call', _9 => _9()]) || '',
     budget: leadData.budget || 'Under ₹50K',
-    goals: leadData.goals?.trim() || '',
-    status: 'New' as LeadStatus,
+    goals: _optionalChain([leadData, 'access', _10 => _10.goals, 'optionalAccess', _11 => _11.trim, 'call', _12 => _12()]) || '',
+    status: 'New' ,
     isRead: false,
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
@@ -44,9 +44,9 @@ export const createLead = async (leadData: Omit<Lead, 'id' | 'status' | 'created
 };
 
 export const subscribeToLeads = (
-  callback: (leads: Lead[]) => void,
-  onNewLead?: (lead: Lead) => void,
-  onError?: (error: Error) => void
+  callback,
+  onNewLead,
+  onError
 ) => {
   if (!db) {
     callback([]);
@@ -59,7 +59,7 @@ export const subscribeToLeads = (
   return onSnapshot(
     q,
     (snapshot) => {
-      const leads: Lead[] = snapshot.docs.map((docSnap) => {
+      const leads = snapshot.docs.map((docSnap) => {
         const data = docSnap.data();
         return {
           id: docSnap.id,
@@ -72,7 +72,7 @@ export const subscribeToLeads = (
           customService: data.customService || '',
           budget: data.budget || '',
           goals: data.goals || '',
-          status: (data.status || 'New') as LeadStatus,
+          status: (data.status || 'New') ,
           isRead: data.isRead !== undefined ? Boolean(data.isRead) : false,
           createdAt: data.createdAt ? data.createdAt.toDate() : new Date(),
           updatedAt: data.updatedAt ? data.updatedAt.toDate() : new Date(),
@@ -85,7 +85,7 @@ export const subscribeToLeads = (
         snapshot.docChanges().forEach((change) => {
           if (change.type === 'added') {
             const data = change.doc.data();
-            const newLead: Lead = {
+            const newLead = {
               id: change.doc.id,
               fullName: data.fullName || '',
               email: data.email || '',
@@ -96,7 +96,7 @@ export const subscribeToLeads = (
               customService: data.customService || '',
               budget: data.budget || '',
               goals: data.goals || '',
-              status: (data.status || 'New') as LeadStatus,
+              status: (data.status || 'New') ,
               isRead: false,
               createdAt: data.createdAt ? data.createdAt.toDate() : new Date(),
               updatedAt: data.updatedAt ? data.updatedAt.toDate() : new Date(),
@@ -115,7 +115,7 @@ export const subscribeToLeads = (
   );
 };
 
-export const markLeadAsRead = async (leadId: string): Promise<void> => {
+export const markLeadAsRead = async (leadId) => {
   if (!db) return;
   try {
     const leadRef = doc(db, LEADS_COLLECTION, leadId);
@@ -128,13 +128,13 @@ export const markLeadAsRead = async (leadId: string): Promise<void> => {
   }
 };
 
-export const markAllLeadsAsRead = async (leads: Lead[]): Promise<void> => {
+export const markAllLeadsAsRead = async (leads) => {
   if (!db) return;
   try {
     const unreadLeads = leads.filter((l) => l.id && l.isRead === false);
     await Promise.all(
       unreadLeads.map((l) =>
-        updateDoc(doc(db, LEADS_COLLECTION, l.id!), {
+        updateDoc(doc(db, LEADS_COLLECTION, l.id), {
           isRead: true,
           updatedAt: serverTimestamp(),
         })
@@ -145,7 +145,7 @@ export const markAllLeadsAsRead = async (leads: Lead[]): Promise<void> => {
   }
 };
 
-export const updateLeadStatus = async (leadId: string, newStatus: LeadStatus): Promise<void> => {
+export const updateLeadStatus = async (leadId, newStatus) => {
   if (!db) throw new Error('Firestore is not initialized.');
   const leadRef = doc(db, LEADS_COLLECTION, leadId);
   await updateDoc(leadRef, {
@@ -154,7 +154,7 @@ export const updateLeadStatus = async (leadId: string, newStatus: LeadStatus): P
   });
 };
 
-export const deleteLead = async (leadId: string): Promise<void> => {
+export const deleteLead = async (leadId) => {
   if (!db) throw new Error('Firestore is not initialized.');
   const leadRef = doc(db, LEADS_COLLECTION, leadId);
   await deleteDoc(leadRef);

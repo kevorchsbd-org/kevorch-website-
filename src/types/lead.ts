@@ -12,6 +12,8 @@ export interface Lead {
   budget: string;
   goals: string;
   status: LeadStatus;
+  isRead?: boolean;
   createdAt?: Date | string | number;
   updatedAt?: Date | string | number;
 }
+

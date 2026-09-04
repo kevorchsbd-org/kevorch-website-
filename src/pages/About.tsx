@@ -43,29 +43,55 @@ export const About: React.FC = () => {
       {/* ========================================================================= */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono ${isDark ? 'border-red-900/40 bg-neutral-900/60 text-red-400' : 'border-stone-300 bg-stone-100 text-stone-800'
-            }`}
+          transition={{ duration: 0.45 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono font-semibold uppercase tracking-widest bg-red-500/10 border-red-500/30 text-[#DE0918]"
         >
-          <Flame className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
-          <span>About Kevorch SBD Marketing & Development</span>
+          <Flame className="w-3.5 h-3.5 text-[#DE0918]" />
+          <span>ABOUT KEVORCH</span>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl sm:text-6xl font-heading font-extrabold tracking-tight leading-tight"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.04, delayChildren: 0.12 } },
+          }}
+          className="text-4xl sm:text-6xl font-heading font-extrabold tracking-tight leading-tight flex flex-wrap justify-center gap-x-3 gap-y-1"
         >
-          Building Modern <span className={isDark ? "text-red-500" : "text-slate-950 font-extrabold"}>Digital Experiences</span> & Driving Growth
+          {[
+            { text: "Building", highlight: false },
+            { text: "Modern", highlight: false },
+            { text: "Digital", highlight: true },
+            { text: "Experiences", highlight: true },
+            { text: "&", highlight: false },
+            { text: "Driving", highlight: false },
+            { text: "Growth", highlight: false },
+          ].map((word, i) => (
+            <motion.span
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 18, filter: 'blur(4px)' },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  filter: 'blur(0px)',
+                  transition: { duration: 0.45, ease: [0.215, 0.61, 0.355, 1] },
+                },
+              }}
+              className={word.highlight ? (isDark ? "text-red-500" : "text-slate-950 font-extrabold") : ""}
+            >
+              {word.text}
+            </motion.span>
+          ))}
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.55 }}
           className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}
         >
           Kevorch SBD Marketing & Development is a modern performance marketing and web development agency. We replace outdated marketing methods with clear strategy, fast web development, and measurable ROI.

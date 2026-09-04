@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import { ThemeProvider } from './context/ThemeContext';
@@ -17,24 +17,12 @@ import { AdminLogin } from './pages/AdminLogin';
 import { Admin } from './pages/Admin';
 import { ProtectedRoute } from './components/admin/ProtectedRoute';
 
-// Scroll to top on route change
-const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
-
 const AppContent: React.FC = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
 
   return (
     <>
-      <ScrollToTop />
       {!isAdminRoute && <ScrollProgress />}
       {!isAdminRoute && <Navbar />}
       <main className="min-h-screen">
@@ -63,12 +51,12 @@ const AppContent: React.FC = () => {
 export function App() {
   return (
     <ThemeProvider>
-      <SmoothScroll>
-        <Preloader />
-        <Router>
+      <Router>
+        <SmoothScroll>
+          <Preloader />
           <AppContent />
-        </Router>
-      </SmoothScroll>
+        </SmoothScroll>
+      </Router>
     </ThemeProvider>
   );
 }

@@ -107,7 +107,7 @@ export const Home: React.FC = () => {
     <div className={`relative min-h-screen transition-colors duration-400 overflow-hidden ${isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
       }`}>
       <SEO
-        title="Make Your Mark. | Kevorch SBD Marketing & Development"
+        title="Kevorch SBD Marketing & Development | Digital Marketing"
         description="Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, development, and high-converting digital experiences."
         canonical="/"
         structuredData={[

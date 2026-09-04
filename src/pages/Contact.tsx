@@ -197,28 +197,32 @@ export const Contact: React.FC = () => {
       {/* ========================================================================= */}
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border text-xs font-mono ${
-            isDark ? 'border-red-900/40 text-red-400' : 'border-stone-300 bg-stone-100 text-stone-800'
-          }`}
+          transition={{ duration: 0.4 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-mono font-semibold uppercase tracking-widest bg-red-500/10 border-red-500/30 text-[#DE0918]"
         >
-          <Flame className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
-          <span>Strategic Inquiry</span>
+          <Flame className="w-3.5 h-3.5 text-[#DE0918]" />
+          <span>LET'S TALK</span>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          initial={{ opacity: 0, y: 22, filter: 'blur(10px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.75, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="text-4xl sm:text-6xl font-heading font-extrabold tracking-tight leading-tight"
         >
           Make Your Mark. <span className={isDark ? "text-transparent bg-clip-text bg-linear-to-r from-red-500 via-rose-500 to-red-800" : "text-slate-950 font-extrabold"}>Engineer Your Growth Strategy</span>
         </motion.h1>
 
-        <p className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
+          className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}
+        >
           Fill out the consultation request below. A senior growth partner will review your current digital footprint and respond within 12 business hours.
-        </p>
+        </motion.p>
       </section>
 
       {/* ========================================================================= */}
@@ -237,16 +241,16 @@ export const Contact: React.FC = () => {
           >
             {/* Header Block */}
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-600 dark:text-red-500">
+              <div className="flex items-center gap-3 flex-wrap">
+                <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#DE0918]">
                   LET'S TALK
                 </span>
-                <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-500/10 border border-red-500/20">
-                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_6px_#DE0918]" />
-                  <span className="text-[10px] font-mono font-bold text-red-500 uppercase tracking-wider">Available Now</span>
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_6px_#10B981]" />
+                  <span className="text-[11px] font-mono font-bold text-emerald-500 uppercase tracking-wider">Available Now</span>
                 </div>
               </div>
-              <h2 className={`text-3xl sm:text-5xl font-heading font-extrabold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+              <h2 className={`text-3xl sm:text-5xl font-bold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-neutral-900'}`}>
                 Start a Conversation.
               </h2>
               <p className={`text-sm sm:text-base leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
@@ -258,47 +262,51 @@ export const Contact: React.FC = () => {
             <div className={`border-t border-b divide-y ${isDark ? 'border-neutral-800/80 divide-neutral-800/80' : 'border-stone-200 divide-stone-200'}`}>
               
               {/* EMAIL */}
-              <div className="py-5 flex items-center justify-between group">
+              <a
+                href="mailto:kevorchsbd@gmail.com"
+                className="py-5 flex items-center justify-between group cursor-pointer transition-colors"
+              >
                 <div className="space-y-1">
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-neutral-400 block font-semibold">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-neutral-400 block font-bold">
                     EMAIL
                   </span>
-                  <a
-                    href="mailto:kevorchsbd@gmail.com"
+                  <span
                     className={`text-base sm:text-lg font-bold transition-colors block ${
-                      isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'
+                      isDark ? 'text-white group-hover:text-[#DE0918]' : 'text-neutral-900 group-hover:text-[#DE0918]'
                     }`}
                   >
                     kevorchsbd@gmail.com
-                  </a>
+                  </span>
                 </div>
-                <Mail className={`w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110 ${isDark ? 'text-neutral-500 group-hover:text-red-500' : 'text-stone-400 group-hover:text-red-600'}`} />
-              </div>
+                <Mail className={`w-5 h-5 shrink-0 transition-all duration-300 group-hover:translate-x-1 ${isDark ? 'text-neutral-500 group-hover:text-[#DE0918]' : 'text-stone-400 group-hover:text-[#DE0918]'}`} />
+              </a>
 
               {/* WHATSAPP */}
-              <div className="py-5 flex items-center justify-between group">
+              <a
+                href="https://wa.me/918681838373"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-5 flex items-center justify-between group cursor-pointer transition-colors"
+              >
                 <div className="space-y-1">
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-neutral-400 block font-semibold">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-neutral-400 block font-bold">
                     WHATSAPP
                   </span>
-                  <a
-                    href="https://wa.me/918681838373"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <span
                     className={`text-base sm:text-lg font-bold transition-colors block ${
-                      isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'
+                      isDark ? 'text-white group-hover:text-[#DE0918]' : 'text-neutral-900 group-hover:text-[#DE0918]'
                     }`}
                   >
                     +91 86818 38373
-                  </a>
+                  </span>
                 </div>
-                <Phone className={`w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110 ${isDark ? 'text-neutral-500 group-hover:text-red-500' : 'text-stone-400 group-hover:text-red-600'}`} />
-              </div>
+                <Phone className={`w-5 h-5 shrink-0 transition-all duration-300 group-hover:translate-x-1 ${isDark ? 'text-neutral-500 group-hover:text-[#DE0918]' : 'text-stone-400 group-hover:text-[#DE0918]'}`} />
+              </a>
 
               {/* RESPONSE TIME */}
               <div className="py-5 flex items-center justify-between group">
                 <div className="space-y-1">
-                  <span className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-neutral-400 block font-semibold">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-neutral-400 block font-bold">
                     RESPONSE TIME
                   </span>
                   <p className={`text-base sm:text-lg font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
@@ -310,20 +318,20 @@ export const Contact: React.FC = () => {
 
             </div>
 
-            {/* Social Links */}
+            {/* Official Social Channels */}
             <div className="space-y-3 pt-2">
               <span className={`text-[11px] font-mono uppercase tracking-widest font-bold block ${isDark ? 'text-neutral-400' : 'text-stone-500'}`}>
                 OFFICIAL CHANNELS
               </span>
-              <div className="flex flex-wrap gap-2 text-xs font-mono font-semibold">
+              <div className="flex flex-wrap gap-2 text-xs font-medium">
                 <a
                   href="https://www.instagram.com/kevorchsbd/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border transition-all ${
                     isDark
-                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-red-500/50'
-                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-red-600/50'
+                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-[#DE0918]'
+                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-[#DE0918]'
                   }`}
                 >
                   <InstagramIcon className="w-4 h-4 text-[#E1306C]" />
@@ -336,8 +344,8 @@ export const Contact: React.FC = () => {
                   rel="noopener noreferrer"
                   className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border transition-all ${
                     isDark
-                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-red-500/50'
-                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-red-600/50'
+                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-[#DE0918]'
+                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-[#DE0918]'
                   }`}
                 >
                   <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
@@ -350,8 +358,8 @@ export const Contact: React.FC = () => {
                   rel="noopener noreferrer"
                   className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border transition-all ${
                     isDark
-                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-red-500/50'
-                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-red-600/50'
+                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-[#DE0918]'
+                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-[#DE0918]'
                   }`}
                 >
                   <FacebookIcon className="w-4 h-4 text-[#1877F2]" />
@@ -364,8 +372,8 @@ export const Contact: React.FC = () => {
                   rel="noopener noreferrer"
                   className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border transition-all ${
                     isDark
-                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-red-500/50'
-                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-red-600/50'
+                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-[#DE0918]'
+                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-[#DE0918]'
                   }`}
                 >
                   <GmailIcon className="w-4 h-4 text-[#EA4335]" />
@@ -375,7 +383,7 @@ export const Contact: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE — STEP-BASED EDITORIAL CONSULTATION FLOW */}
+          {/* RIGHT SIDE — 5-STEP CONSULTATION FORM */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -392,11 +400,11 @@ export const Contact: React.FC = () => {
                 }`}
               >
                 <div className={`w-16 h-16 rounded-full border flex items-center justify-center mx-auto shadow-xl ${
-                  isDark ? 'bg-red-600/20 border-red-500/40 text-red-500 shadow-red-600/30' : 'bg-red-50 border-red-200 text-red-600'
+                  isDark ? 'bg-[#DE0918]/20 border-[#DE0918]/40 text-[#DE0918] shadow-red-600/30' : 'bg-red-50 border-red-200 text-[#DE0918]'
                 }`}>
                   <CheckCircle2 className="w-8 h-8 animate-bounce" />
                 </div>
-                <h3 className={`text-3xl font-heading font-extrabold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                <h3 className={`text-3xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-neutral-900'}`}>
                   Strategy Request Received!
                 </h3>
                 <p className={`text-sm max-w-md mx-auto leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
@@ -417,7 +425,7 @@ export const Contact: React.FC = () => {
                       message: '',
                     });
                   }}
-                  className={`px-8 py-3 rounded-full text-xs font-mono font-bold transition-all hover:scale-105 ${
+                  className={`px-8 py-3 rounded-full text-xs font-semibold transition-all hover:scale-105 cursor-pointer ${
                     isDark ? 'bg-neutral-900 text-neutral-200 hover:text-white border border-neutral-800' : 'bg-stone-100 text-stone-800 hover:text-black border border-stone-300'
                   }`}
                 >
@@ -428,21 +436,21 @@ export const Contact: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-10">
                 {/* Consultation Header */}
                 <div className="space-y-2 border-b pb-6 border-stone-200 dark:border-neutral-800/80">
-                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-600 dark:text-red-500 block">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#DE0918] block">
                     PROJECT CONSULTATION
                   </span>
-                  <h3 className={`text-2xl sm:text-4xl font-heading font-extrabold tracking-tight ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                  <h3 className={`text-2xl sm:text-4xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-neutral-900'}`}>
                     Let's understand your project.
                   </h3>
-                  <p className={`text-sm ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-                    Share a few details and we'll get back to you with the right next step.
+                  <p className={`text-sm leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+                    Share a few details and we'll help you find the right next step.
                   </p>
                 </div>
 
-                {/* GROUP 01: ABOUT YOU */}
+                {/* STEP 01: ABOUT YOU */}
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-extrabold text-red-600 dark:text-red-500">01</span>
+                    <span className="text-xs font-mono font-extrabold text-[#DE0918]">01</span>
                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500 dark:text-neutral-400">
                       / ABOUT YOU
                     </span>
@@ -450,7 +458,7 @@ export const Contact: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className={`text-xs font-mono font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                      <label className={`text-xs font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Full Name *
                       </label>
                       <input
@@ -460,15 +468,15 @@ export const Contact: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
-                        } ${errors.name ? 'border-red-600' : ''}`}
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                        } ${errors.name ? 'border-[#DE0918]' : ''}`}
                       />
-                      {errors.name && <span className="text-[11px] text-red-500 font-mono block mt-0.5">{errors.name}</span>}
+                      {errors.name && <span className="text-xs text-[#DE0918] font-medium block mt-0.5">{errors.name}</span>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className={`text-xs font-mono font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                      <label className={`text-xs font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Work Email *
                       </label>
                       <input
@@ -478,15 +486,15 @@ export const Contact: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
-                        } ${errors.email ? 'border-red-600' : ''}`}
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                        } ${errors.email ? 'border-[#DE0918]' : ''}`}
                       />
-                      {errors.email && <span className="text-[11px] text-red-500 font-mono block mt-0.5">{errors.email}</span>}
+                      {errors.email && <span className="text-xs text-[#DE0918] font-medium block mt-0.5">{errors.email}</span>}
                     </div>
 
                     <div className="space-y-1.5 sm:col-span-2">
-                      <label className={`text-xs font-mono font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                      <label className={`text-xs font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Mobile Number *
                       </label>
                       <input
@@ -496,19 +504,19 @@ export const Contact: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
-                        } ${errors.phone ? 'border-red-600' : ''}`}
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                        } ${errors.phone ? 'border-[#DE0918]' : ''}`}
                       />
-                      {errors.phone && <span className="text-[11px] text-red-500 font-mono block mt-0.5">{errors.phone}</span>}
+                      {errors.phone && <span className="text-xs text-[#DE0918] font-medium block mt-0.5">{errors.phone}</span>}
                     </div>
                   </div>
                 </div>
 
-                {/* GROUP 02: YOUR BUSINESS */}
+                {/* STEP 02: YOUR BUSINESS */}
                 <div className="space-y-4 pt-4 border-t border-stone-200 dark:border-neutral-800/80">
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-extrabold text-red-600 dark:text-red-500">02</span>
+                    <span className="text-xs font-mono font-extrabold text-[#DE0918]">02</span>
                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500 dark:text-neutral-400">
                       / YOUR BUSINESS
                     </span>
@@ -516,7 +524,7 @@ export const Contact: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className={`text-xs font-mono font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                      <label className={`text-xs font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Company Name *
                       </label>
                       <input
@@ -526,15 +534,15 @@ export const Contact: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
-                        } ${errors.company ? 'border-red-600' : ''}`}
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                        } ${errors.company ? 'border-[#DE0918]' : ''}`}
                       />
-                      {errors.company && <span className="text-[11px] text-red-500 font-mono block mt-0.5">{errors.company}</span>}
+                      {errors.company && <span className="text-xs text-[#DE0918] font-medium block mt-0.5">{errors.company}</span>}
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className={`text-xs font-mono font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                      <label className={`text-xs font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Company Website (Optional)
                       </label>
                       <input
@@ -544,18 +552,18 @@ export const Contact: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, website: e.target.value })}
                         className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
                         }`}
                       />
                     </div>
                   </div>
                 </div>
 
-                {/* GROUP 03: WHAT DO YOU NEED? */}
+                {/* STEP 03: WHAT DO YOU NEED? */}
                 <div className="space-y-4 pt-4 border-t border-stone-200 dark:border-neutral-800/80">
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-extrabold text-red-600 dark:text-red-500">03</span>
+                    <span className="text-xs font-mono font-extrabold text-[#DE0918]">03</span>
                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500 dark:text-neutral-400">
                       / WHAT DO YOU NEED?
                     </span>
@@ -569,12 +577,12 @@ export const Contact: React.FC = () => {
                           type="button"
                           key={srv}
                           onClick={() => handleServiceToggle(srv)}
-                          className={`px-4 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer border ${
+                          className={`px-4 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer border ${
                             isSelected
-                              ? 'bg-red-600 text-white border-red-600 font-bold shadow-sm'
+                              ? 'bg-[#DE0918] text-white border-[#DE0918] font-bold shadow-md shadow-[#DE0918]/20 scale-102'
                               : isDark
-                                ? 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:text-white'
-                                : 'bg-stone-100 border-stone-200 text-stone-700 hover:border-stone-400 hover:text-neutral-900'
+                                ? 'bg-neutral-900/90 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:text-white'
+                                : 'bg-[#F7F7F5] border-[#E7E5E4] text-stone-800 hover:border-stone-300 hover:text-black'
                           }`}
                         >
                           {isSelected ? '✓ ' : '+ '}{srv}
@@ -598,18 +606,18 @@ export const Contact: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, customService: e.target.value })}
                         className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600'
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-[#DE0918]'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-[#DE0918]'
                         }`}
                       />
                     </motion.div>
                   )}
                 </div>
 
-                {/* GROUP 04: MONTHLY GROWTH BUDGET */}
+                {/* STEP 04: MONTHLY GROWTH BUDGET */}
                 <div className="space-y-4 pt-4 border-t border-stone-200 dark:border-neutral-800/80">
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-extrabold text-red-600 dark:text-red-500">04</span>
+                    <span className="text-xs font-mono font-extrabold text-[#DE0918]">04</span>
                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500 dark:text-neutral-400">
                       / MONTHLY GROWTH BUDGET
                     </span>
@@ -621,12 +629,12 @@ export const Contact: React.FC = () => {
                         type="button"
                         key={b}
                         onClick={() => setFormData({ ...formData, budget: b })}
-                        className={`py-2.5 px-3 rounded-xl text-xs font-mono font-semibold transition-all text-center cursor-pointer border ${
+                        className={`py-3 px-3 rounded-xl text-xs font-semibold transition-all text-center cursor-pointer border ${
                           formData.budget === b
-                            ? 'bg-red-600 text-white border-red-600 font-bold shadow-sm'
+                            ? 'bg-[#DE0918] text-white border-[#DE0918] font-bold shadow-md shadow-[#DE0918]/20'
                             : isDark
-                              ? 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:text-white'
-                              : 'bg-stone-100 border-stone-200 text-stone-700 hover:border-stone-300 hover:text-neutral-900'
+                              ? 'bg-neutral-900/90 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:text-white'
+                              : 'bg-[#F7F7F5] border-[#E7E5E4] text-stone-800 hover:border-stone-300 hover:text-black'
                         }`}
                       >
                         {b}
@@ -635,10 +643,10 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                {/* GROUP 05: YOUR GOAL */}
+                {/* STEP 05: YOUR GOAL */}
                 <div className="space-y-4 pt-4 border-t border-stone-200 dark:border-neutral-800/80">
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-extrabold text-red-600 dark:text-red-500">05</span>
+                    <span className="text-xs font-mono font-extrabold text-[#DE0918]">05</span>
                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500 dark:text-neutral-400">
                       / YOUR GOAL
                     </span>
@@ -650,13 +658,13 @@ export const Contact: React.FC = () => {
                       placeholder="Tell us about your business, current challenge, goals, and timeline..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className={`w-full border rounded-xl p-4 text-sm focus:outline-none transition-all ${
+                      className={`w-full border rounded-2xl p-4 text-sm leading-relaxed focus:outline-none transition-all ${
                         isDark
-                          ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
-                          : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
-                      } ${errors.message ? 'border-red-600' : ''}`}
+                          ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                          : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-[#DE0918] focus:ring-1 focus:ring-[#DE0918]/20'
+                      } ${errors.message ? 'border-[#DE0918]' : ''}`}
                     />
-                    {errors.message && <span className="text-[11px] text-red-500 font-mono block mt-0.5">{errors.message}</span>}
+                    {errors.message && <span className="text-xs text-[#DE0918] font-medium block mt-0.5">{errors.message}</span>}
                   </div>
                 </div>
 
@@ -665,10 +673,10 @@ export const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full py-4 rounded-full text-base font-heading font-extrabold transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 shadow-md ${
+                    className={`w-full py-4 rounded-xl text-base font-semibold transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 shadow-lg ${
                       isDark
-                        ? 'bg-white text-neutral-950 hover:bg-red-600 hover:text-white'
-                        : 'bg-neutral-900 text-white hover:bg-red-600'
+                        ? 'bg-white text-neutral-950 hover:bg-[#DE0918] hover:text-white shadow-white/10 hover:shadow-[#DE0918]/30'
+                        : 'bg-neutral-900 text-white hover:bg-[#DE0918] shadow-neutral-900/10 hover:shadow-[#DE0918]/30'
                     }`}
                   >
                     {isSubmitting ? (
@@ -681,7 +689,7 @@ export const Contact: React.FC = () => {
                     )}
                   </button>
 
-                  <p className={`text-xs text-center font-mono ${isDark ? 'text-neutral-500' : 'text-stone-500'}`}>
+                  <p className={`text-xs text-center font-medium ${isDark ? 'text-neutral-500' : 'text-stone-500'}`}>
                     🔒 Your information is private. No spam.
                   </p>
                 </div>
