@@ -20,6 +20,7 @@ export const AdminLogin: React.FC = () => {
   const isDark = theme === 'dark';
 
   useEffect(() => {
+    if (!auth) return;
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         navigate('/admin', { replace: true });
@@ -31,6 +32,11 @@ export const AdminLogin: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
+    if (!auth) {
+      setError('Firebase API Key is missing. Please add VITE_FIREBASE_API_KEY from Firebase Console to your .env file.');
+      return;
+    }
 
     if (!email.trim() || !password.trim()) {
       setError('Please enter both email and password.');
@@ -44,7 +50,9 @@ export const AdminLogin: React.FC = () => {
       navigate('/admin', { replace: true });
     } catch (err: any) {
       console.error('Firebase Auth Error:', err);
-      if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
+      if (err.code === 'auth/invalid-api-key' || err.code === 'auth/api-key-not-valid.-please-pass-a-valid-api-key.') {
+        setError('Firebase API Key is invalid. Please update VITE_FIREBASE_API_KEY in your .env file with your real key from Firebase Console.');
+      } else if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password' || err.code === 'auth/invalid-credential') {
         setError('Invalid admin credentials. Please check your email and password.');
       } else if (err.code === 'auth/too-many-requests') {
         setError('Too many failed attempts. Please try again later.');
