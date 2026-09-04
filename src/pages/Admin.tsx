@@ -71,7 +71,7 @@ export const Admin: React.FC = () => {
   // 2. Handle Logout
   const handleLogout = async () => {
     try {
-      await signOut(auth);
+      if (auth) await signOut(auth);
       navigate('/admin/login', { replace: true });
     } catch (err) {
       console.error('Logout error:', err);
@@ -202,7 +202,7 @@ export const Admin: React.FC = () => {
           <div className="flex items-center gap-3">
             <ThemeToggle />
             <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-neutral-400 border-r pr-4 border-neutral-800">
-              <span>{auth.currentUser?.email || 'Admin'}</span>
+              <span>{auth?.currentUser?.email || 'Admin'}</span>
             </div>
             <button
               onClick={handleLogout}

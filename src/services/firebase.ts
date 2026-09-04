@@ -18,31 +18,24 @@ const firebaseConfig = {
   appId,
 };
 
-let app: FirebaseApp;
-let auth: Auth;
-let db: Firestore;
+let app: FirebaseApp | undefined;
+let auth: Auth | null = null;
+let db: Firestore | null = null;
 
-if (!getApps().length) {
-  if (!apiKey) {
-    console.warn("⚠️ Kevorch Web App: VITE_FIREBASE_API_KEY is not configured in .env file. Please add your real Firebase API Key from Firebase Console to .env file.");
+if (apiKey) {
+  app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+  try {
+    auth = getAuth(app);
+  } catch (e) {
+    console.warn("Firebase Auth error:", e);
   }
-  app = initializeApp(firebaseConfig);
+  try {
+    db = getFirestore(app);
+  } catch (e) {
+    console.warn("Firestore error:", e);
+  }
 } else {
-  app = getApp();
-}
-
-try {
-  auth = getAuth(app);
-} catch (e) {
-  console.warn("Firebase Auth initialization waiting for valid VITE_FIREBASE_API_KEY in .env:", e);
-  auth = null as unknown as Auth;
-}
-
-try {
-  db = getFirestore(app);
-} catch (e) {
-  console.warn("Firestore initialization waiting for valid VITE_FIREBASE_API_KEY in .env:", e);
-  db = null as unknown as Firestore;
+  console.info("ℹ️ Kevorch Web App: VITE_FIREBASE_API_KEY is not set in .env. Firebase Auth & Firestore will activate when .env is configured.");
 }
 
 export { auth, db, app };

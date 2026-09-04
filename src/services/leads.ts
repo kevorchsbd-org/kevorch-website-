@@ -19,6 +19,11 @@ export const createLead = async (leadData: Omit<Lead, 'id' | 'status' | 'created
   if (!leadData.email.trim()) throw new Error('Valid email address is required.');
   if (!leadData.mobile.trim()) throw new Error('Mobile number is required.');
 
+  if (!db) {
+    console.warn("Firestore database is not initialized. Add VITE_FIREBASE_API_KEY to .env to save submissions to cloud.");
+    return 'demo-id';
+  }
+
   const docRef = await addDoc(collection(db, LEADS_COLLECTION), {
     fullName: leadData.fullName.trim(),
     email: leadData.email.trim(),
@@ -38,6 +43,11 @@ export const createLead = async (leadData: Omit<Lead, 'id' | 'status' | 'created
 };
 
 export const subscribeToLeads = (callback: (leads: Lead[]) => void, onError?: (error: Error) => void) => {
+  if (!db) {
+    callback([]);
+    return () => {};
+  }
+
   const q = query(collection(db, LEADS_COLLECTION), orderBy('createdAt', 'desc'));
   
   return onSnapshot(
@@ -71,6 +81,7 @@ export const subscribeToLeads = (callback: (leads: Lead[]) => void, onError?: (e
 };
 
 export const updateLeadStatus = async (leadId: string, newStatus: LeadStatus): Promise<void> => {
+  if (!db) throw new Error('Firestore is not initialized.');
   const leadRef = doc(db, LEADS_COLLECTION, leadId);
   await updateDoc(leadRef, {
     status: newStatus,
@@ -79,6 +90,7 @@ export const updateLeadStatus = async (leadId: string, newStatus: LeadStatus): P
 };
 
 export const deleteLead = async (leadId: string): Promise<void> => {
+  if (!db) throw new Error('Firestore is not initialized.');
   const leadRef = doc(db, LEADS_COLLECTION, leadId);
   await deleteDoc(leadRef);
 };
