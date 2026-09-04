@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { MagneticButton } from '../components/MagneticButton';
 import { useTheme } from '../context/ThemeContext';
+import { SEO } from '../components/SEO';
 
 export const About: React.FC = () => {
   const navigate = useNavigate();
@@ -19,6 +20,21 @@ export const About: React.FC = () => {
   return (
     <div className={`relative min-h-screen pt-32 pb-24 transition-colors duration-400 ${isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
       }`}>
+      <SEO
+        title="About Kevorch SBD Marketing & Development | Performance Marketing Team"
+        description="Learn about Kevorch SBD Marketing & Development mission, leadership team, and executive strategy driving digital marketing performance, brand identity creation, and client growth."
+        canonical="/about"
+        structuredData={{
+          "@type": "AboutPage",
+          "@id": "https://kevorch.online/about#webpage",
+          "url": "https://kevorch.online/about",
+          "name": "About Kevorch SBD Marketing & Development",
+          "description": "Kevorch SBD Marketing & Development is a performance digital marketing agency delivering strategic growth, Meta Ads, Google Ads & SEO, and brand design.",
+          "isPartOf": {
+            "@id": "https://kevorch.online/#website"
+          }
+        }}
+      />
       {/* Background Red Glows in Dark Mode Only */}
       {isDark && <div className="absolute top-20 right-10 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />}
 
@@ -34,7 +50,7 @@ export const About: React.FC = () => {
             }`}
         >
           <Flame className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
-          <span>About KevorchSBD Agency</span>
+          <span>About Kevorch SBD Marketing & Development</span>
         </motion.div>
 
         <motion.h1
@@ -52,7 +68,7 @@ export const About: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}
         >
-          KevorchSBD is a modern performance marketing and web development agency. We replace outdated marketing methods with clear strategy, fast web development, and measurable ROI.
+          Kevorch SBD Marketing & Development is a modern performance marketing and web development agency. We replace outdated marketing methods with clear strategy, fast web development, and measurable ROI.
         </motion.p>
       </section>
 

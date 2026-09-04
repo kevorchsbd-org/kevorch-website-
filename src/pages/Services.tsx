@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { SERVICES_DATA } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
+import { SEO } from '../components/SEO';
 
 interface IconProps { className?: string }
 
@@ -168,9 +169,30 @@ export const Services: React.FC = () => {
   };
 
   return (
-    <div className={`min-h-screen pt-32 pb-24 transition-colors duration-300 ${
-      isDark ? 'bg-[#0B0F19] text-white' : 'bg-[#F5F7FC] text-slate-900'
-    }`}>
+    <div className={`relative min-h-screen pt-32 pb-24 transition-colors duration-400 ${isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
+      }`}>
+      <SEO
+        title="Digital Marketing Services | Kevorch SBD Marketing & Development"
+        description="Explore Kevorch SBD Marketing & Development services including Meta Ads management, Google Ads & SEO campaigns, social media management, graphic logo design, and video editing."
+        canonical="/services"
+        structuredData={{
+          "@type": "ItemList",
+          "itemListElement": SERVICES_DATA.map((service, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+              "@type": "Service",
+              "name": service.title,
+              "description": service.fullDescription,
+              "provider": {
+                "@type": "Organization",
+                "name": "Kevorch SBD Marketing & Development",
+                "url": "https://kevorch.online"
+              }
+            }
+          }))
+        }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

@@ -214,7 +214,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <p>© {new Date().getFullYear()} KevorchSBD Agency Inc. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Kevorch SBD Marketing & Development. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-red-500 transition-colors">Privacy Policy</a>

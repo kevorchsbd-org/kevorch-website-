@@ -21,6 +21,7 @@ import {
 import { MagneticButton } from '../components/MagneticButton';
 import { SERVICES_DATA, CASE_STUDIES, TESTIMONIALS } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
+import { SEO } from '../components/SEO';
 
 interface IconProps { className?: string }
 
@@ -105,6 +106,35 @@ export const Home: React.FC = () => {
   return (
     <div className={`relative min-h-screen transition-colors duration-400 overflow-hidden ${isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
       }`}>
+      <SEO
+        title="Make Your Mark. | Kevorch SBD Marketing & Development"
+        description="Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, development, and high-converting digital experiences."
+        canonical="/"
+        structuredData={[
+          {
+            "@type": "Organization",
+            "@id": "https://kevorch.online/#organization",
+            "name": "Kevorch SBD Marketing & Development",
+            "slogan": "Make Your Mark.",
+            "url": "https://kevorch.online",
+            "logo": "https://kevorch.online/favicon.png",
+            "description": "Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, development, and high-converting digital experiences.",
+            "sameAs": [
+              "https://www.instagram.com/kevorchsbd/?hl=en",
+              "https://wa.me/918681838373"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://kevorch.online/#website",
+            "url": "https://kevorch.online",
+            "name": "Kevorch SBD Marketing & Development",
+            "publisher": {
+              "@id": "https://kevorch.online/#organization"
+            }
+          }
+        ]}
+      />
 
       {/* ========================================================================= */}
       {/* CONTAINER 1: HERO SECTION */}
@@ -131,7 +161,7 @@ export const Home: React.FC = () => {
                 className="text-4xl sm:text-6xl lg:text-7xl font-black flex items-center justify-center tracking-tight min-h-[1.2em]"
               >
                 <span className={isDark ? "text-transparent bg-clip-text bg-linear-to-r from-red-500 via-rose-500 to-red-700 drop-shadow-[0_0_25px_rgba(222,9,24,0.4)] font-black" : "text-red-600 font-black"}>
-                  {typedText}
+                  {typedText || targetText}
                 </span>
                 <motion.span
                   animate={{ opacity: [1, 0, 1] }}

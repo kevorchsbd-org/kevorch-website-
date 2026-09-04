@@ -11,6 +11,8 @@ import {
 } from 'lucide-react';
 import { FAQS_DATA } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
+import { SEO } from '../components/SEO';
+import { createLead } from '../services/leads';
 
 interface IconProps { className?: string }
 
@@ -121,13 +123,27 @@ export const Contact: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      await createLead({
+        fullName: formData.name,
+        email: formData.email,
+        mobile: formData.phone,
+        companyName: formData.company,
+        website: formData.website,
+        services: formData.selectedServices,
+        customService: formData.customService,
+        budget: formData.budget,
+        goals: formData.message,
+      });
+    } catch (err) {
+      console.error('Firestore submission warning (proceeding with local user feedback):', err);
+    } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
 
@@ -137,13 +153,42 @@ export const Contact: React.FC = () => {
         origin: { y: 0.6 },
         colors: ['#DE0918', '#FF3B4A', '#690A0F', '#F8F8F8'],
       });
-    }, 1500);
+    }
   };
 
   return (
     <div className={`relative min-h-screen pt-32 pb-24 overflow-hidden transition-colors duration-400 ${
       isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
     }`}>
+      <SEO
+        title="Contact Kevorch SBD Marketing & Development | Strategy Consultation"
+        description="Get in touch with Kevorch SBD Marketing & Development. Book a strategy consultation for Meta Ads, Google Ads & SEO, or custom visual media production."
+        canonical="/contact"
+        structuredData={[
+          {
+            "@type": "ContactPage",
+            "@id": "https://kevorch.online/contact#webpage",
+            "url": "https://kevorch.online/contact",
+            "name": "Contact Kevorch SBD Marketing & Development",
+            "description": "Book a digital marketing strategy consultation with Kevorch SBD Marketing & Development.",
+            "isPartOf": {
+              "@id": "https://kevorch.online/#website"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://kevorch.online/contact#faq",
+            "mainEntity": FAQS_DATA.map((faq) => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          }
+        ]}
+      />
       {/* Background Red Glows in Dark Mode Only */}
       {isDark && <div className="absolute top-20 left-10 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />}
 

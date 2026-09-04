@@ -8,6 +8,7 @@ import {
 import { CASE_STUDIES } from '../data/mockData';
 import { MagneticButton } from '../components/MagneticButton';
 import { useTheme } from '../context/ThemeContext';
+import { SEO } from '../components/SEO';
 
 export const Clients: React.FC = () => {
   const navigate = useNavigate();
@@ -25,6 +26,21 @@ export const Clients: React.FC = () => {
     <div className={`relative min-h-screen pt-32 pb-24 overflow-hidden transition-colors duration-400 ${
       isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
     }`}>
+      <SEO
+        title="Clients & Case Studies | Kevorch SBD Marketing & Development"
+        description="Discover Kevorch SBD Marketing & Development client success stories and portfolio case studies showing high ROI growth through Meta Ads, lead generation, and social media marketing."
+        canonical="/clients"
+        structuredData={{
+          "@type": "CollectionPage",
+          "@id": "https://kevorch.online/clients#webpage",
+          "url": "https://kevorch.online/clients",
+          "name": "Kevorch SBD Marketing & Development Clients & Case Studies",
+          "description": "Portfolio of digital marketing case studies, Meta Ads results, and lead generation success stories by Kevorch SBD Marketing & Development.",
+          "isPartOf": {
+            "@id": "https://kevorch.online/#website"
+          }
+        }}
+      />
       {/* Background Red Lights in Dark Mode Only */}
       {isDark && <div className="absolute top-20 right-10 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />}
 

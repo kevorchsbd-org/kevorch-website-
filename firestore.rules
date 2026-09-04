@@ -1,0 +1,22 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Leads collection security rules
+    match /leads/{leadId} {
+      // 1. Allow anyone to submit a new lead from the public contact form
+      allow create: if request.resource.data.fullName is string
+                    && request.resource.data.email is string
+                    && request.resource.data.mobile is string;
+
+      // 2. Allow only authenticated admin users to read, update, or delete leads
+      allow read, update, delete: if request.auth != null;
+    }
+
+    // Default rule: block all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
