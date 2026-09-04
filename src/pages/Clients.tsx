@@ -5,8 +5,7 @@ import {
   Flame,
   ArrowRight,
 } from 'lucide-react';
-import { CASE_STUDIES, CLIENT_LOGOS } from '../data/mockData';
-import { Marquee } from '../components/Marquee';
+import { CASE_STUDIES } from '../data/mockData';
 import { MagneticButton } from '../components/MagneticButton';
 import { useTheme } from '../context/ThemeContext';
 
@@ -60,15 +59,6 @@ export const Clients: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. INFINITE LOGO TICKER */}
-      {/* ========================================================================= */}
-      <section className={`py-12 my-12 border-y transition-colors ${
-        isDark ? 'bg-neutral-950 border-red-900/30' : 'bg-stone-50 border-stone-200'
-      }`}>
-        <Marquee items={CLIENT_LOGOS} speed={25} />
-      </section>
-
-      {/* ========================================================================= */}
       {/* 3. CASE STUDIES GRID WITH TAG FILTERS */}
       {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -115,11 +105,23 @@ export const Clients: React.FC = () => {
                 }`}>
                   {study.title}
                 </h3>
-                <p className={`text-xs line-clamp-3 leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-                  {study.summary}
-                </p>
-              </div>
 
+                {/* Service Tags */}
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {study.tags.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className={`text-[10px] font-mono px-2.5 py-1 rounded-lg border transition-all ${
+                        isDark
+                          ? 'bg-neutral-900/90 border-red-950/60 text-red-300 hover:border-red-500/40'
+                          : 'bg-stone-100 border-stone-200 text-stone-700 hover:bg-stone-200'
+                      }`}
+                    >
+                      ✓ {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>

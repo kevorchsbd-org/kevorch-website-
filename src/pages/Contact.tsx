@@ -5,35 +5,56 @@ import {
   Flame,
   Mail,
   Phone,
-  Send,
   CheckCircle2,
   ChevronDown,
   Clock,
-  ShieldCheck,
 } from 'lucide-react';
 import { FAQS_DATA } from '../data/mockData';
-import { MagneticButton } from '../components/MagneticButton';
 import { useTheme } from '../context/ThemeContext';
 
 interface IconProps { className?: string }
 
 const WhatsAppIcon = ({ className = "w-5 h-5" }: IconProps) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.157 4.228 4.228-1.157zm11.391-4.707c-.305-.153-1.805-.89-2.085-.99-.28-.101-.484-.153-.689.153-.204.305-.79 1.018-.968 1.222-.178.204-.356.229-.661.076-.305-.153-1.288-.475-2.453-1.514-.908-.81-1.52-1.81-1.698-2.115-.178-.305-.019-.47.133-.622.137-.137.305-.356.457-.534.153-.178.204-.305.305-.509.102-.204.051-.382-.025-.534-.076-.153-.689-1.658-.945-2.273-.249-.597-.502-.516-.689-.525l-.585-.01c-.204 0-.534.076-.814.382-.28.305-1.07 1.045-1.07 2.549 0 1.504 1.096 2.955 1.248 3.159.153.204 2.158 3.296 5.228 4.622.73.316 1.3.504 1.744.645.733.234 1.399.2 1.926.121.587-.088 1.805-.738 2.06-1.45.254-.712.254-1.323.178-1.45-.076-.127-.28-.203-.585-.356z"/>
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M12 2C6.477 2 2 6.477 2 12c0 2.152.68 4.144 1.838 5.776L2.5 21.5l3.864-1.282A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm5.472 12.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"
+      fill="currentColor"
+    />
   </svg>
 );
 
 const FacebookIcon = ({ className = "w-5 h-5" }: IconProps) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+      fill="currentColor"
+    />
   </svg>
 );
 
-
-
 const InstagramIcon = ({ className = "w-5 h-5" }: IconProps) => (
-  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="contact-insta-clean" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#f09433" />
+        <stop offset="25%" stopColor="#e6683c" />
+        <stop offset="50%" stopColor="#dc2743" />
+        <stop offset="75%" stopColor="#cc2366" />
+        <stop offset="100%" stopColor="#bc1888" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+const GmailIcon = ({ className = "w-5 h-5" }: IconProps) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor" />
   </svg>
 );
 
@@ -41,10 +62,12 @@ export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: '',
     website: '',
-    budget: '$15k - $30k/mo',
+    budget: 'Under ₹50K',
     selectedServices: [] as string[],
+    customService: '',
     message: '',
   });
 
@@ -57,19 +80,25 @@ export const Contact: React.FC = () => {
   const isDark = theme === 'dark';
 
   const availableServices = [
-    'Social Media Management',
-    'Meta Ads (Facebook & Instagram)',
-    'Google Ads & SEO',
-    'Graphic & Logo Design',
+    'Social Media',
+    'Meta Ads',
+    'Google Ads',
+    'Graphic Design',
     'Video Editing',
-    'Sales Support & Lead Nurturing',
+    'Sales Support',
+    'Website Development',
+    'App Development',
+    'SEO & Content Strategy',
+    'UI/UX Design',
+    'Branding & Identity',
+    'Others',
   ];
 
   const budgetOptions = [
-    '< $10k/mo',
-    '$10k - $25k/mo',
-    '$25k - $50k/mo',
-    '$50k+/mo',
+    'Under ₹50K',
+    '₹50K–₹1L',
+    '₹1L–₹3L',
+    '₹3L+',
   ];
 
   const handleServiceToggle = (serviceName: string): void => {
@@ -85,6 +114,7 @@ export const Contact: React.FC = () => {
     const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = 'Full name is required';
     if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Valid work email is required';
+    if (!formData.phone.trim()) newErrors.phone = 'Mobile number is required';
     if (!formData.company.trim()) newErrors.company = 'Company name is required';
     if (!formData.message.trim()) newErrors.message = 'Please briefly describe your growth goals';
     setErrors(newErrors);
@@ -147,232 +177,253 @@ export const Contact: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. FORM & DIRECT DETAILS GRID */}
+      {/* 2. SPLIT EDITORIAL CONTACT & CONSULTATION FLOW */}
       {/* ========================================================================= */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <section className="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Direct Details & Social Links */}
+          {/* LEFT SIDE — AGENCY CONTACT AREA */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 space-y-8"
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 space-y-10"
           >
-            <div className={`rounded-3xl p-8 border space-y-6 transition-all duration-300 relative overflow-hidden ${
-              isDark ? 'bg-neutral-950/90 border-neutral-800 shadow-[0_10px_30px_rgba(222,9,24,0.15)]' : 'bg-white border-stone-200 shadow-xl'
-            }`}>
-              {/* Header with live status */}
-              <div className="flex items-center justify-between border-b pb-4 border-neutral-200 dark:border-neutral-800/80">
-                <h3 className={`text-2xl font-heading font-extrabold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                  Direct Agency Contact
-                </h3>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30">
-                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_#DE0918]" />
+            {/* Header Block */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-600 dark:text-red-500">
+                  LET'S TALK
+                </span>
+                <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-500/10 border border-red-500/20">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_6px_#DE0918]" />
                   <span className="text-[10px] font-mono font-bold text-red-500 uppercase tracking-wider">Available Now</span>
                 </div>
               </div>
+              <h2 className={`text-3xl sm:text-5xl font-heading font-extrabold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                Start a Conversation.
+              </h2>
+              <p className={`text-sm sm:text-base leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+                Have a project in mind? Tell us what you need and let's build something that works.
+              </p>
+            </div>
+
+            {/* Clean Horizontal Contact Rows */}
+            <div className={`border-t border-b divide-y ${isDark ? 'border-neutral-800/80 divide-neutral-800/80' : 'border-stone-200 divide-stone-200'}`}>
               
-              <div className="space-y-5 text-sm">
-                {/* Email Contact Item */}
-                <motion.div
-                  whileHover={{ x: 4 }}
-                  transition={{ type: 'spring', stiffness: 400 }}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center shrink-0 transition-all duration-300 ${
-                    isDark ? 'bg-red-600/15 text-red-500 border-red-500/30 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_15px_#DE0918]' : 'bg-stone-100 text-slate-900 border-stone-200 group-hover:bg-slate-900 group-hover:text-white'
-                  }`}>
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className={`text-xs font-mono block ${isDark ? 'text-red-400 font-semibold' : 'text-stone-500'}`}>Inquiries & Proposals</span>
-                    <a href="mailto:kevorchsbd@gmail.com" className={`font-bold transition-colors block ${isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'}`}>
-                      kevorchsbd@gmail.com
-                    </a>
-                  </div>
-                </motion.div>
-
-                {/* Mobile / WhatsApp Contact Item */}
-                <motion.div
-                  whileHover={{ x: 4 }}
-                  transition={{ type: 'spring', stiffness: 400 }}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center shrink-0 transition-all duration-300 ${
-                    isDark ? 'bg-red-600/15 text-red-500 border-red-500/30 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_15px_#DE0918]' : 'bg-stone-100 text-slate-900 border-stone-200 group-hover:bg-slate-900 group-hover:text-white'
-                  }`}>
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className={`text-xs font-mono block ${isDark ? 'text-red-400 font-semibold' : 'text-stone-500'}`}>Direct Mobile / WhatsApp</span>
-                    <a href="tel:+918438358405" className={`font-bold transition-colors block ${isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'}`}>
-                      +91 84383 58405
-                    </a>
-                  </div>
-                </motion.div>
-
-                {/* Response Time Item */}
-                <motion.div
-                  whileHover={{ x: 4 }}
-                  transition={{ type: 'spring', stiffness: 400 }}
-                  className="flex items-center gap-4 group"
-                >
-                  <div className={`w-12 h-12 rounded-2xl border flex items-center justify-center shrink-0 transition-all duration-300 ${
-                    isDark ? 'bg-red-600/15 text-red-500 border-red-500/30 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_15px_#DE0918]' : 'bg-stone-100 text-slate-900 border-stone-200 group-hover:bg-slate-900 group-hover:text-white'
-                  }`}>
-                    <Clock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className={`text-xs font-mono block ${isDark ? 'text-red-400 font-semibold' : 'text-stone-500'}`}>Guaranteed Response Time</span>
-                    <p className={`font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>Under 12 Hours</p>
-                  </div>
-                </motion.div>
+              {/* EMAIL */}
+              <div className="py-5 flex items-center justify-between group">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-neutral-400 block font-semibold">
+                    EMAIL
+                  </span>
+                  <a
+                    href="mailto:kevorchsbd@gmail.com"
+                    className={`text-base sm:text-lg font-bold transition-colors block ${
+                      isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'
+                    }`}
+                  >
+                    kevorchsbd@gmail.com
+                  </a>
+                </div>
+                <Mail className={`w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110 ${isDark ? 'text-neutral-500 group-hover:text-red-500' : 'text-stone-400 group-hover:text-red-600'}`} />
               </div>
 
-              {/* Social Media Channels */}
-              <div className="pt-5 border-t border-stone-200 dark:border-neutral-800 space-y-4">
-                <span className={`text-xs font-mono font-bold uppercase tracking-wider block ${
-                  isDark ? 'text-red-400' : 'text-stone-600'
-                }`}>
-                  Official Social Channels
-                </span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-                  <motion.a
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    href="https://www.instagram.com/kevorchsbd/?hl=en"
+              {/* WHATSAPP */}
+              <div className="py-5 flex items-center justify-between group">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-neutral-400 block font-semibold">
+                    WHATSAPP
+                  </span>
+                  <a
+                    href="https://wa.me/918681838373"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 p-3 rounded-2xl border font-bold transition-all bg-[#E1306C]/10 border-[#E1306C]/30 text-[#E1306C] hover:bg-[#E1306C] hover:text-white shadow-xs"
+                    className={`text-base sm:text-lg font-bold transition-colors block ${
+                      isDark ? 'text-white group-hover:text-red-400' : 'text-neutral-900 group-hover:text-red-600'
+                    }`}
                   >
-                    <InstagramIcon className="w-4 h-4 fill-current" />
-                    <span>Instagram</span>
-                  </motion.a>
-
-                  <motion.a
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    href="https://wa.me/918438358405"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 p-3 rounded-2xl border font-bold transition-all bg-[#25D366]/10 border-[#25D366]/30 text-[#25D366] hover:bg-[#25D366] hover:text-white shadow-xs"
-                  >
-                    <WhatsAppIcon className="w-4 h-4 fill-current" />
-                    <span>WhatsApp</span>
-                  </motion.a>
-
-                  <motion.a
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    href="https://www.facebook.com/profile.php?id=61591971660618"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 p-3 rounded-2xl border font-bold transition-all bg-[#1877F2]/10 border-[#1877F2]/30 text-[#1877F2] hover:bg-[#1877F2] hover:text-white shadow-xs"
-                  >
-                    <FacebookIcon className="w-4 h-4 fill-current" />
-                    <span>Facebook</span>
-                  </motion.a>
-
-                  <motion.a
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    href="https://mail.google.com/mail/?view=cm&to=kevorchsbd@gmail.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 p-3 rounded-2xl border font-bold transition-all bg-[#EA4335]/10 border-[#EA4335]/30 text-[#EA4335] hover:bg-[#EA4335] hover:text-white shadow-xs"
-                  >
-                    <Mail className="w-4 h-4 stroke-[2.2]" />
-                    <span>Email</span>
-                  </motion.a>
+                    +91 86818 38373
+                  </a>
                 </div>
+                <Phone className={`w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110 ${isDark ? 'text-neutral-500 group-hover:text-red-500' : 'text-stone-400 group-hover:text-red-600'}`} />
+              </div>
+
+              {/* RESPONSE TIME */}
+              <div className="py-5 flex items-center justify-between group">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-stone-500 dark:text-neutral-400 block font-semibold">
+                    RESPONSE TIME
+                  </span>
+                  <p className={`text-base sm:text-lg font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                    Under 12 Hours
+                  </p>
+                </div>
+                <Clock className={`w-5 h-5 shrink-0 ${isDark ? 'text-neutral-500' : 'text-stone-400'}`} />
+              </div>
+
+            </div>
+
+            {/* Social Links */}
+            <div className="space-y-3 pt-2">
+              <span className={`text-[11px] font-mono uppercase tracking-widest font-bold block ${isDark ? 'text-neutral-400' : 'text-stone-500'}`}>
+                OFFICIAL CHANNELS
+              </span>
+              <div className="flex flex-wrap gap-2 text-xs font-mono font-semibold">
+                <a
+                  href="https://www.instagram.com/kevorchsbd/?hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border transition-all ${
+                    isDark
+                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-red-500/50'
+                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-red-600/50'
+                  }`}
+                >
+                  <InstagramIcon className="w-4 h-4 text-[#E1306C]" />
+                  <span>Instagram</span>
+                </a>
+
+                <a
+                  href="https://wa.me/918681838373"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border transition-all ${
+                    isDark
+                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-red-500/50'
+                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-red-600/50'
+                  }`}
+                >
+                  <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
+                  <span>WhatsApp</span>
+                </a>
+
+                <a
+                  href="https://www.facebook.com/profile.php?id=61591971660618"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border transition-all ${
+                    isDark
+                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-red-500/50'
+                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-red-600/50'
+                  }`}
+                >
+                  <FacebookIcon className="w-4 h-4 text-[#1877F2]" />
+                  <span>Facebook</span>
+                </a>
+
+                <a
+                  href="https://mail.google.com/mail/?view=cm&to=kevorchsbd@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border transition-all ${
+                    isDark
+                      ? 'border-neutral-800 bg-neutral-950 text-neutral-300 hover:text-white hover:border-red-500/50'
+                      : 'border-stone-200 bg-stone-50 text-stone-700 hover:text-black hover:border-red-600/50'
+                  }`}
+                >
+                  <GmailIcon className="w-4 h-4 text-[#EA4335]" />
+                  <span>Email</span>
+                </a>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Interactive Consultation Form */}
+          {/* RIGHT SIDE — STEP-BASED EDITORIAL CONSULTATION FLOW */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <div className={`rounded-3xl p-8 sm:p-10 border relative overflow-hidden transition-all duration-300 ${
-              isDark ? 'bg-neutral-950/90 border-neutral-800 shadow-[0_15px_40px_rgba(222,9,24,0.15)]' : 'bg-white border-stone-200 shadow-2xl'
-            }`}>
-              
-              {isSubmitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12 space-y-6"
+            {isSubmitted ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className={`p-10 rounded-3xl border text-center space-y-6 ${
+                  isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200'
+                }`}
+              >
+                <div className={`w-16 h-16 rounded-full border flex items-center justify-center mx-auto shadow-xl ${
+                  isDark ? 'bg-red-600/20 border-red-500/40 text-red-500 shadow-red-600/30' : 'bg-red-50 border-red-200 text-red-600'
+                }`}>
+                  <CheckCircle2 className="w-8 h-8 animate-bounce" />
+                </div>
+                <h3 className={`text-3xl font-heading font-extrabold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                  Strategy Request Received!
+                </h3>
+                <p className={`text-sm max-w-md mx-auto leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+                  Thank you, <strong className={isDark ? 'text-white' : 'text-black'}>{formData.name}</strong>. Our growth team is analyzing <strong className={isDark ? 'text-white' : 'text-black'}>{formData.company}</strong>'s details and will get back to you within 12 hours.
+                </p>
+                <button
+                  onClick={() => {
+                    setIsSubmitted(false);
+                    setFormData({
+                      name: '',
+                      email: '',
+                      phone: '',
+                      company: '',
+                      website: '',
+                      budget: 'Under ₹50K',
+                      selectedServices: [],
+                      customService: '',
+                      message: '',
+                    });
+                  }}
+                  className={`px-8 py-3 rounded-full text-xs font-mono font-bold transition-all hover:scale-105 ${
+                    isDark ? 'bg-neutral-900 text-neutral-200 hover:text-white border border-neutral-800' : 'bg-stone-100 text-stone-800 hover:text-black border border-stone-300'
+                  }`}
                 >
-                  <div className={`w-20 h-20 rounded-full border flex items-center justify-center mx-auto shadow-xl ${
-                    isDark ? 'bg-red-600/20 border-red-500/40 text-red-500 shadow-red-600/30' : 'bg-red-50 border-red-200 text-red-600'
-                  }`}>
-                    <CheckCircle2 className="w-10 h-10 animate-bounce" />
-                  </div>
-                  <h3 className={`text-3xl font-heading font-extrabold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                    Strategy Request Received!
+                  Send Another Inquiry
+                </button>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-10">
+                {/* Consultation Header */}
+                <div className="space-y-2 border-b pb-6 border-stone-200 dark:border-neutral-800/80">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-600 dark:text-red-500 block">
+                    PROJECT CONSULTATION
+                  </span>
+                  <h3 className={`text-2xl sm:text-4xl font-heading font-extrabold tracking-tight ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                    Let's understand your project.
                   </h3>
-                  <p className={`text-sm max-w-md mx-auto leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-                    Thank you, <strong className={isDark ? 'text-white' : 'text-black'}>{formData.name}</strong>. Our senior growth leads are reviewing <strong className={isDark ? 'text-white' : 'text-black'}>{formData.company}</strong>'s market data and will deliver your custom audit within 12 hours.
+                  <p className={`text-sm ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+                    Share a few details and we'll get back to you with the right next step.
                   </p>
-                  <button
-                    onClick={() => {
-                      setIsSubmitted(false);
-                      setFormData({
-                        name: '',
-                        email: '',
-                        company: '',
-                        website: '',
-                        budget: '$10k - $25k/mo',
-                        selectedServices: [],
-                        message: '',
-                      });
-                    }}
-                    className={`px-8 py-3 rounded-full text-xs font-mono font-bold transition-all hover:scale-105 ${
-                      isDark ? 'bg-neutral-900 text-neutral-200 hover:text-white border border-neutral-800' : 'bg-stone-100 text-stone-800 hover:text-black border border-stone-300'
-                    }`}
-                  >
-                    Send Another Inquiry
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className={`border-b pb-5 ${isDark ? 'border-neutral-900' : 'border-stone-200'}`}>
-                    <h3 className={`text-2xl font-heading font-extrabold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
-                      Project Consultation Form
-                    </h3>
-                    <p className={`text-xs mt-1 ${isDark ? 'text-neutral-400' : 'text-stone-500'}`}>
-                      Select your target services and share your growth objectives.
-                    </p>
+                </div>
+
+                {/* GROUP 01: ABOUT YOU */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono font-extrabold text-red-600 dark:text-red-500">01</span>
+                    <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500 dark:text-neutral-400">
+                      / ABOUT YOU
+                    </span>
                   </div>
 
-                  {/* Name & Email */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
-                        Your Full Name *
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <label className={`text-xs font-mono font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                        Full Name *
                       </label>
                       <input
                         type="text"
                         placeholder="Alex Vance"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className={`w-full border rounded-2xl px-4 py-3.5 text-sm focus:outline-none transition-all ${
+                        className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600/20'
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
                         } ${errors.name ? 'border-red-600' : ''}`}
                       />
-                      {errors.name && <span className="text-[11px] text-red-500 font-mono font-bold">{errors.name}</span>}
+                      {errors.name && <span className="text-[11px] text-red-500 font-mono block mt-0.5">{errors.name}</span>}
                     </div>
 
-                    <div className="space-y-2">
-                      <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                    <div className="space-y-1.5">
+                      <label className={`text-xs font-mono font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Work Email *
                       </label>
                       <input
@@ -380,20 +431,47 @@ export const Contact: React.FC = () => {
                         placeholder="alex@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className={`w-full border rounded-2xl px-4 py-3.5 text-sm focus:outline-none transition-all ${
+                        className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600/20'
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
                         } ${errors.email ? 'border-red-600' : ''}`}
                       />
-                      {errors.email && <span className="text-[11px] text-red-500 font-mono font-bold">{errors.email}</span>}
+                      {errors.email && <span className="text-[11px] text-red-500 font-mono block mt-0.5">{errors.email}</span>}
+                    </div>
+
+                    <div className="space-y-1.5 sm:col-span-2">
+                      <label className={`text-xs font-mono font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                        Mobile Number *
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="+91 98765 43210"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
+                          isDark
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
+                        } ${errors.phone ? 'border-red-600' : ''}`}
+                      />
+                      {errors.phone && <span className="text-[11px] text-red-500 font-mono block mt-0.5">{errors.phone}</span>}
                     </div>
                   </div>
+                </div>
 
-                  {/* Company & Website */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                {/* GROUP 02: YOUR BUSINESS */}
+                <div className="space-y-4 pt-4 border-t border-stone-200 dark:border-neutral-800/80">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono font-extrabold text-red-600 dark:text-red-500">02</span>
+                    <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500 dark:text-neutral-400">
+                      / YOUR BUSINESS
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <label className={`text-xs font-mono font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
                         Company Name *
                       </label>
                       <input
@@ -401,138 +479,169 @@ export const Contact: React.FC = () => {
                         placeholder="Aurora Capital"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className={`w-full border rounded-2xl px-4 py-3.5 text-sm focus:outline-none transition-all ${
+                        className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600/20'
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
                         } ${errors.company ? 'border-red-600' : ''}`}
                       />
-                      {errors.company && <span className="text-[11px] text-red-500 font-mono font-bold">{errors.company}</span>}
+                      {errors.company && <span className="text-[11px] text-red-500 font-mono block mt-0.5">{errors.company}</span>}
                     </div>
 
-                    <div className="space-y-2">
-                      <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
-                        Company Website
+                    <div className="space-y-1.5">
+                      <label className={`text-xs font-mono font-semibold ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
+                        Company Website (Optional)
                       </label>
                       <input
                         type="url"
                         placeholder="https://company.com"
                         value={formData.website}
                         onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                        className={`w-full border rounded-2xl px-4 py-3.5 text-sm focus:outline-none transition-all ${
+                        className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
                           isDark
-                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
-                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600/20'
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
                         }`}
                       />
                     </div>
                   </div>
+                </div>
 
-                  {/* Service Chips Selection */}
-                  <div className="space-y-2">
-                    <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
-                      Required Growth Services
-                    </label>
-                    <div className="flex flex-wrap gap-2.5 pt-1">
-                      {availableServices.map((srv) => {
-                        const isSelected = formData.selectedServices.includes(srv);
-                        return (
-                          <motion.button
-                            whileHover={{ scale: 1.04 }}
-                            whileTap={{ scale: 0.96 }}
-                            type="button"
-                            key={srv}
-                            onClick={() => handleServiceToggle(srv)}
-                            className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                              isSelected
-                                ? isDark ? 'bg-red-600 text-white border border-red-500 shadow-[0_0_15px_#DE0918]' : 'bg-red-600 text-white border border-red-600 shadow-md'
-                                : isDark
-                                  ? 'bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white hover:border-neutral-700'
-                                  : 'bg-stone-100 border border-stone-200 text-stone-700 hover:text-black hover:border-stone-300'
-                            }`}
-                          >
-                            {isSelected ? '✓ ' : '+ '}{srv}
-                          </motion.button>
-                        );
-                      })}
-                    </div>
+                {/* GROUP 03: WHAT DO YOU NEED? */}
+                <div className="space-y-4 pt-4 border-t border-stone-200 dark:border-neutral-800/80">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono font-extrabold text-red-600 dark:text-red-500">03</span>
+                    <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500 dark:text-neutral-400">
+                      / WHAT DO YOU NEED?
+                    </span>
                   </div>
 
-                  {/* Budget Selection Pills */}
-                  <div className="space-y-2">
-                    <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
-                      Estimated Monthly Ad / Growth Budget
-                    </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                      {budgetOptions.map((b) => (
-                        <motion.button
-                          whileHover={{ scale: 1.03 }}
-                          whileTap={{ scale: 0.97 }}
+                  <div className="flex flex-wrap gap-2.5 pt-1">
+                    {availableServices.map((srv) => {
+                      const isSelected = formData.selectedServices.includes(srv);
+                      return (
+                        <button
                           type="button"
-                          key={b}
-                          onClick={() => setFormData({ ...formData, budget: b })}
-                          className={`py-2.5 rounded-2xl text-xs font-mono transition-all cursor-pointer ${
-                            formData.budget === b
-                              ? isDark ? 'bg-red-600/20 text-red-400 border border-red-500 font-bold shadow-[0_0_12px_rgba(222,9,24,0.3)]' : 'bg-red-600 text-white border border-red-600 font-bold shadow-md'
+                          key={srv}
+                          onClick={() => handleServiceToggle(srv)}
+                          className={`px-4 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer border ${
+                            isSelected
+                              ? 'bg-red-600 text-white border-red-600 font-bold shadow-sm'
                               : isDark
-                                ? 'bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white'
-                                : 'bg-stone-100 border border-stone-200 text-stone-700 hover:text-black'
+                                ? 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:text-white'
+                                : 'bg-stone-100 border-stone-200 text-stone-700 hover:border-stone-400 hover:text-neutral-900'
                           }`}
                         >
-                          {b}
-                        </motion.button>
-                      ))}
-                    </div>
+                          {isSelected ? '✓ ' : '+ '}{srv}
+                        </button>
+                      );
+                    })}
                   </div>
 
-                  {/* Message Input */}
-                  <div className="space-y-2">
-                    <label className={`text-xs font-mono font-bold uppercase tracking-wider ${isDark ? 'text-neutral-300' : 'text-stone-700'}`}>
-                      Growth Goals & Project Details *
-                    </label>
+                  {/* Custom Service Input when "Others" is selected */}
+                  {formData.selectedServices.includes('Others') && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      className="pt-2"
+                    >
+                      <input
+                        type="text"
+                        placeholder="Please specify your custom service requirement..."
+                        value={formData.customService}
+                        onChange={(e) => setFormData({ ...formData, customService: e.target.value })}
+                        className={`w-full h-11 border rounded-xl px-4 text-sm focus:outline-none transition-all ${
+                          isDark
+                            ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500'
+                            : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600'
+                        }`}
+                      />
+                    </motion.div>
+                  )}
+                </div>
+
+                {/* GROUP 04: MONTHLY GROWTH BUDGET */}
+                <div className="space-y-4 pt-4 border-t border-stone-200 dark:border-neutral-800/80">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono font-extrabold text-red-600 dark:text-red-500">04</span>
+                    <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500 dark:text-neutral-400">
+                      / MONTHLY GROWTH BUDGET
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    {budgetOptions.map((b) => (
+                      <button
+                        type="button"
+                        key={b}
+                        onClick={() => setFormData({ ...formData, budget: b })}
+                        className={`py-2.5 px-3 rounded-xl text-xs font-mono font-semibold transition-all text-center cursor-pointer border ${
+                          formData.budget === b
+                            ? 'bg-red-600 text-white border-red-600 font-bold shadow-sm'
+                            : isDark
+                              ? 'bg-neutral-900 border-neutral-800 text-neutral-300 hover:border-neutral-700 hover:text-white'
+                              : 'bg-stone-100 border-stone-200 text-stone-700 hover:border-stone-300 hover:text-neutral-900'
+                        }`}
+                      >
+                        {b}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* GROUP 05: YOUR GOAL */}
+                <div className="space-y-4 pt-4 border-t border-stone-200 dark:border-neutral-800/80">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono font-extrabold text-red-600 dark:text-red-500">05</span>
+                    <span className="text-xs font-mono font-bold uppercase tracking-widest text-stone-500 dark:text-neutral-400">
+                      / YOUR GOAL
+                    </span>
+                  </div>
+
+                  <div className="space-y-1.5">
                     <textarea
                       rows={4}
-                      placeholder="Tell us about your current CPA, targets, or timelines..."
+                      placeholder="Tell us about your business, current challenge, goals, and timeline..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className={`w-full border rounded-2xl p-4 text-sm focus:outline-none transition-all ${
+                      className={`w-full border rounded-xl p-4 text-sm focus:outline-none transition-all ${
                         isDark
-                          ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20'
-                          : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-2 focus:ring-red-600/20'
+                          ? 'bg-neutral-900/80 border-neutral-800 text-white placeholder-neutral-500 focus:border-red-500 focus:ring-1 focus:ring-red-500/20'
+                          : 'bg-stone-50 border-stone-300 text-neutral-900 placeholder-stone-400 focus:border-red-600 focus:ring-1 focus:ring-red-600/20'
                       } ${errors.message ? 'border-red-600' : ''}`}
                     />
-                    {errors.message && <span className="text-[11px] text-red-500 font-mono font-bold">{errors.message}</span>}
+                    {errors.message && <span className="text-[11px] text-red-500 font-mono block mt-0.5">{errors.message}</span>}
                   </div>
+                </div>
 
-                  {/* Submit Button */}
-                  <MagneticButton
-                    variant="primary"
-                    size="lg"
-                    data-cursor="SUBMIT"
-                    className="w-full"
+                {/* CTA AREA */}
+                <div className="space-y-3 pt-6 border-t border-stone-200 dark:border-neutral-800/80">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full py-4 rounded-full text-base font-heading font-extrabold transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 shadow-md ${
+                      isDark
+                        ? 'bg-white text-neutral-950 hover:bg-red-600 hover:text-white'
+                        : 'bg-neutral-900 text-white hover:bg-red-600'
+                    }`}
                   >
                     {isSubmitting ? (
-                      <span className="flex items-center justify-center gap-2 font-extrabold">
+                      <span className="flex items-center justify-center gap-2">
                         <span className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin"></span>
-                        Transmitting Audit Request...
+                        Processing...
                       </span>
                     ) : (
-                      <span className="flex items-center justify-center gap-2 font-extrabold">
-                        Submit Audit Request <Send className="w-4 h-4" />
-                      </span>
+                      <span>Get Free Consultation →</span>
                     )}
-                  </MagneticButton>
+                  </button>
 
-                  <div className={`flex items-center justify-center gap-2 text-[11px] font-mono text-center pt-1 ${
-                    isDark ? 'text-neutral-500' : 'text-stone-500'
-                  }`}>
-                    <ShieldCheck className={`w-3.5 h-3.5 ${isDark ? 'text-red-500' : 'text-slate-800'}`} />
-                    <span>100% NDA Protection & Zero Spam Guarantee</span>
-                  </div>
-                </form>
-              )}
-
-            </div>
+                  <p className={`text-xs text-center font-mono ${isDark ? 'text-neutral-500' : 'text-stone-500'}`}>
+                    🔒 Your information is private. No spam.
+                  </p>
+                </div>
+              </form>
+            )}
           </motion.div>
 
         </div>
