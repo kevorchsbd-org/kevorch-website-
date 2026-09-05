@@ -118,7 +118,14 @@ export const Home: React.FC = () => {
             "slogan": "Make Your Mark.",
             "url": "https://kevorch.online",
             "logo": "https://kevorch.online/favicon.png",
+            "email": "kevorchsbd@gmail.com",
             "description": "Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, development, and high-converting digital experiences.",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-8681838373",
+              "contactType": "customer service",
+              "email": "kevorchsbd@gmail.com"
+            },
             "sameAs": [
               "https://www.instagram.com/kevorchsbd/?hl=en",
               "https://wa.me/918681838373"
