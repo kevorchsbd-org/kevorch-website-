@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
   Flame,
   Target,
@@ -21,15 +21,15 @@ export const About: React.FC = () => {
     <div className={`relative min-h-screen pt-32 pb-24 transition-colors duration-400 ${isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
       }`}>
       <SEO
-        title="About Kevorch SBD Marketing & Development | Performance Marketing Team"
-        description="Learn about Kevorch SBD Marketing & Development mission, leadership team, and executive strategy driving digital marketing performance, brand identity creation, and client growth."
+        title="About Kevorch SBD | Digital Marketing Company"
+        description="Learn about Kevorch SBD Marketing & Development, a performance digital marketing company driving growth through digital strategy, branding, and web development."
         canonical="/about"
         structuredData={{
           "@type": "AboutPage",
           "@id": "https://kevorch.online/about#webpage",
           "url": "https://kevorch.online/about",
           "name": "About Kevorch SBD Marketing & Development",
-          "description": "Kevorch SBD Marketing & Development is a performance digital marketing agency delivering strategic growth, Meta Ads, Google Ads & SEO, and brand design.",
+          "description": "Kevorch SBD Marketing & Development is a performance digital marketing company delivering strategic growth, Meta Ads, Google Ads & SEO, branding, and web development.",
           "isPartOf": {
             "@id": "https://kevorch.online/#website"
           }
@@ -94,8 +94,14 @@ export const About: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.55 }}
           className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}
         >
-          Kevorch SBD Marketing & Development is a modern performance marketing and web development agency. We replace outdated marketing methods with clear strategy, fast web development, and measurable ROI.
+          Kevorch SBD Marketing & Development is a results-focused digital marketing company. We replace outdated marketing methods with clear digital strategy, modern web development, and measurable ROI.
         </motion.p>
+
+        <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-heading font-semibold">
+          <NavLink to="/services" className={`inline-flex items-center gap-1.5 transition-colors ${isDark ? 'text-red-400 hover:text-red-300' : 'text-slate-900 hover:text-red-600'}`}>
+            Explore our digital marketing services <ArrowRight className="w-3.5 h-3.5" />
+          </NavLink>
+        </div>
       </section>
 
       {/* ========================================================================= */}
@@ -122,7 +128,7 @@ export const About: React.FC = () => {
               </div>
               <h3 className={`text-xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>Our Mission</h3>
               <p className={`text-xs leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-                Empower growing brands with high-converting ad strategies and modern React web solutions.
+                Empower growing brands with high-converting ad strategies, brand design, and modern web development solutions.
               </p>
             </div>
 
@@ -133,7 +139,7 @@ export const About: React.FC = () => {
               </div>
               <h3 className={`text-xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>Our Vision</h3>
               <p className={`text-xs leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-                Set the benchmark for digital marketing clarity, transparent reporting, and technical web speed.
+                Set the benchmark for digital marketing clarity, transparent campaign reporting, and technical web performance.
               </p>
             </div>
 
@@ -144,7 +150,7 @@ export const About: React.FC = () => {
               </div>
               <h3 className={`text-xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>Our Values</h3>
               <p className={`text-xs leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-                Direct communication, measurable performance, clean design, and continuous optimization.
+                Direct communication, measurable growth, clean branding design, and continuous optimization.
               </p>
             </div>
           </div>
@@ -161,10 +167,10 @@ export const About: React.FC = () => {
             Ready to Work Together?
           </h2>
           <p className={`max-w-xl mx-auto text-sm sm:text-base ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-            Get in touch with our agency leads to discuss your campaign targets and digital project.
+            Get in touch with our digital marketing company leads to discuss your project requirements and strategy.
           </p>
           <MagneticButton variant="primary" size="lg" onClick={() => navigate('/contact')}>
-            Schedule Strategy Call <ArrowRight className="w-5 h-5 ml-1" />
+            Book a Digital Marketing Consultation <ArrowRight className="w-5 h-5 ml-1" />
           </MagneticButton>
         </div>
       </section>

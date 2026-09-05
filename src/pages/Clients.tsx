@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
   Flame,
   ArrowRight,
@@ -27,14 +27,14 @@ export const Clients: React.FC = () => {
       isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
     }`}>
       <SEO
-        title="Clients & Case Studies | Kevorch SBD Marketing & Development"
-        description="Discover Kevorch SBD Marketing & Development client success stories and portfolio case studies showing high ROI growth through Meta Ads, lead generation, and social media marketing."
+        title="Digital Marketing Case Studies & Portfolio | Kevorch SBD"
+        description="Explore Kevorch SBD digital marketing portfolio and client case studies showcasing performance marketing results, web development, and branding projects."
         canonical="/clients"
         structuredData={{
           "@type": "CollectionPage",
           "@id": "https://kevorch.online/clients#webpage",
           "url": "https://kevorch.online/clients",
-          "name": "Kevorch SBD Marketing & Development Clients & Case Studies",
+          "name": "Kevorch SBD Marketing & Development Digital Marketing Portfolio",
           "description": "Portfolio of digital marketing case studies, Meta Ads results, and lead generation success stories by Kevorch SBD Marketing & Development.",
           "isPartOf": {
             "@id": "https://kevorch.online/#website"
@@ -73,9 +73,14 @@ export const Clients: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.45 }}
           className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}
         >
-          Explore how we helped enterprise tech companies, fintech unicorns, and D2C brands break revenue ceilings.
+          Explore our digital marketing portfolio and case studies demonstrating client growth, Meta & Google Ads performance, and custom web development projects.
         </motion.p>
 
+        <div className="pt-1 flex flex-wrap items-center justify-center gap-4 text-xs font-heading font-semibold">
+          <NavLink to="/services" className={`inline-flex items-center gap-1.5 transition-colors ${isDark ? 'text-red-400 hover:text-red-300' : 'text-slate-900 hover:text-red-600'}`}>
+            Explore digital marketing services <ArrowRight className="w-3.5 h-3.5" />
+          </NavLink>
+        </div>
       </section>
 
       {/* ========================================================================= */}
@@ -102,7 +107,7 @@ export const Clients: React.FC = () => {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredCaseStudies.map((study) => (
-            <div
+            <article
               key={study.id}
               className={`rounded-3xl p-7 border transition-all duration-300 group flex flex-col justify-between space-y-6 ${
                 isDark ? 'bg-neutral-950 border-red-900/30 hover:border-red-500/50' : 'bg-white border-stone-200 hover:border-stone-400 shadow-sm'
@@ -126,6 +131,21 @@ export const Clients: React.FC = () => {
                   {study.title}
                 </h3>
 
+                <p className={`text-xs leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+                  {study.summary}
+                </p>
+
+                <div className="space-y-2 pt-1 border-t border-red-900/20 text-xs">
+                  <div>
+                    <strong className={isDark ? 'text-neutral-300 font-mono text-[11px]' : 'text-slate-900 font-mono text-[11px]'}>Challenge: </strong>
+                    <span className={isDark ? 'text-neutral-400' : 'text-stone-600'}>{study.challenge}</span>
+                  </div>
+                  <div>
+                    <strong className={isDark ? 'text-neutral-300 font-mono text-[11px]' : 'text-slate-900 font-mono text-[11px]'}>Execution: </strong>
+                    <span className={isDark ? 'text-neutral-400' : 'text-stone-600'}>{study.solution}</span>
+                  </div>
+                </div>
+
                 {/* Service Tags */}
                 <div className="flex flex-wrap gap-1.5 pt-2">
                   {study.tags.map((tag, idx) => (
@@ -142,12 +162,10 @@ export const Clients: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </section>
-
-
 
       {/* ========================================================================= */}
       {/* 5. FINAL CLIENT CTA */}
@@ -159,9 +177,19 @@ export const Clients: React.FC = () => {
           <h2 className={`text-3xl sm:text-4xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
             Ready to Become Our Next Success Story?
           </h2>
-          <MagneticButton variant="primary" size="lg" onClick={() => navigate('/contact')}>
-            Schedule Performance Consultation <ArrowRight className="w-5 h-5 ml-1" />
-          </MagneticButton>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <MagneticButton variant="primary" size="lg" onClick={() => navigate('/contact')}>
+              Book a Digital Marketing Consultation <ArrowRight className="w-5 h-5 ml-1" />
+            </MagneticButton>
+            <NavLink
+              to="/services"
+              className={`inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-semibold text-sm transition-colors border ${
+                isDark ? 'border-neutral-800 text-neutral-300 hover:text-white hover:border-neutral-600' : 'border-stone-300 text-stone-700 hover:text-black hover:border-stone-400'
+              }`}
+            >
+              View All Services <ArrowRight className="w-4 h-4" />
+            </NavLink>
+          </div>
         </div>
       </section>
     </div>

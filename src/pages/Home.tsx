@@ -108,7 +108,7 @@ export const Home: React.FC = () => {
       }`}>
       <SEO
         title="Kevorch SBD Marketing & Development | Digital Marketing"
-        description="Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, and development."
+        description="Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, development, and high-converting digital experiences."
         canonical="/"
         structuredData={[
           {
@@ -118,7 +118,7 @@ export const Home: React.FC = () => {
             "slogan": "Make Your Mark.",
             "url": "https://kevorch.online",
             "logo": "https://kevorch.online/favicon.png",
-            "description": "Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, and development.",
+            "description": "Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, development, and high-converting digital experiences.",
             "sameAs": [
               "https://www.instagram.com/kevorchsbd/?hl=en",
               "https://wa.me/918681838373"
@@ -454,7 +454,7 @@ export const Home: React.FC = () => {
 
           <NavLink to="/clients" className={`text-sm font-heading font-semibold flex items-center gap-1 ${isDark ? 'text-red-500 hover:text-red-400' : 'text-slate-900 hover:text-black'
             }`}>
-            View All Clients <ArrowRight className="w-4 h-4" />
+            Explore Digital Marketing Case Studies <ArrowRight className="w-4 h-4" />
           </NavLink>
         </div>
 
@@ -536,7 +536,11 @@ export const Home: React.FC = () => {
             <div className="flex items-center justify-center gap-4 pt-4">
               <img
                 src={TESTIMONIALS[activeTestimonial].avatar}
-                alt={TESTIMONIALS[activeTestimonial].author}
+                alt={`${TESTIMONIALS[activeTestimonial].author} - Client Review`}
+                width="48"
+                height="48"
+                loading="lazy"
+                decoding="async"
                 className={`w-12 h-12 rounded-full object-cover border ${isDark ? 'border-red-500/40' : 'border-stone-300'}`}
               />
               <div className="text-left">

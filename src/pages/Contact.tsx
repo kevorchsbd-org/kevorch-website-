@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import {
   Flame,
@@ -8,6 +9,7 @@ import {
   CheckCircle2,
   ChevronDown,
   Clock,
+  ArrowRight,
 } from 'lucide-react';
 import { FAQS_DATA } from '../data/mockData';
 import { useTheme } from '../context/ThemeContext';
@@ -48,7 +50,7 @@ const InstagramIcon = ({ className = "w-5 h-5" }: IconProps) => (
       </linearGradient>
     </defs>
     <path
-      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.162c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
       fill="currentColor"
     />
   </svg>
@@ -161,8 +163,8 @@ export const Contact: React.FC = () => {
       isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
     }`}>
       <SEO
-        title="Contact Kevorch SBD Marketing & Development | Strategy Consultation"
-        description="Get in touch with Kevorch SBD Marketing & Development. Book a strategy consultation for Meta Ads, Google Ads & SEO, or custom visual media production."
+        title="Book a Digital Marketing Consultation | Kevorch SBD"
+        description="Book a digital marketing consultation with Kevorch SBD Marketing & Development. Strategic growth advice for Meta Ads, Google Ads, SEO, branding, and web development."
         canonical="/contact"
         structuredData={[
           {
@@ -170,7 +172,7 @@ export const Contact: React.FC = () => {
             "@id": "https://kevorch.online/contact#webpage",
             "url": "https://kevorch.online/contact",
             "name": "Contact Kevorch SBD Marketing & Development",
-            "description": "Book a digital marketing strategy consultation with Kevorch SBD Marketing & Development.",
+            "description": "Book a digital marketing consultation with Kevorch SBD Marketing & Development.",
             "isPartOf": {
               "@id": "https://kevorch.online/#website"
             }
@@ -212,7 +214,7 @@ export const Contact: React.FC = () => {
           transition={{ duration: 0.75, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="text-4xl sm:text-6xl font-heading font-extrabold tracking-tight leading-tight"
         >
-          Make Your Mark. <span className={isDark ? "text-transparent bg-clip-text bg-linear-to-r from-red-500 via-rose-500 to-red-800" : "text-slate-950 font-extrabold"}>Engineer Your Growth Strategy</span>
+          Make Your Mark. <span className={isDark ? "text-transparent bg-clip-text bg-linear-to-r from-red-500 via-rose-500 to-red-800" : "text-slate-950 font-extrabold"}>Book Your Digital Marketing Consultation</span>
         </motion.h1>
 
         <motion.p
@@ -221,8 +223,18 @@ export const Contact: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.45 }}
           className={`text-base sm:text-lg leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}
         >
-          Fill out the consultation request below. A senior growth partner will review your current digital footprint and respond within 12 business hours.
+          Book a digital marketing consultation with our team. A senior growth strategist will review your performance marketing, web presence, and ad campaigns to deliver actionable recommendations.
         </motion.p>
+
+        <div className="pt-1 flex flex-wrap items-center justify-center gap-4 text-xs font-heading font-semibold">
+          <NavLink to="/services" className={`inline-flex items-center gap-1.5 transition-colors ${isDark ? 'text-red-400 hover:text-red-300' : 'text-slate-900 hover:text-red-600'}`}>
+            Explore digital marketing services <ArrowRight className="w-3.5 h-3.5" />
+          </NavLink>
+          <span className={isDark ? 'text-neutral-600' : 'text-stone-300'}>•</span>
+          <NavLink to="/clients" className={`inline-flex items-center gap-1.5 transition-colors ${isDark ? 'text-red-400 hover:text-red-300' : 'text-slate-900 hover:text-red-600'}`}>
+            View client case studies <ArrowRight className="w-3.5 h-3.5" />
+          </NavLink>
+        </div>
       </section>
 
       {/* ========================================================================= */}

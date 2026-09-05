@@ -173,7 +173,7 @@ export const Services: React.FC = () => {
       }`}>
       <SEO
         title="Digital Marketing Services | Kevorch SBD Marketing & Development"
-        description="Explore Kevorch SBD Marketing & Development services including Meta Ads management, Google Ads & SEO campaigns, social media management, graphic logo design, and video editing."
+        description="Explore Kevorch SBD digital marketing services, including SEO services, Google & Meta Ads, website development, branding, lead generation, and video production."
         canonical="/services"
         structuredData={{
           "@type": "ItemList",
@@ -228,7 +228,7 @@ export const Services: React.FC = () => {
               isDark ? 'text-slate-400' : 'text-slate-600'
             }`}
           >
-            Comprehensive data-driven digital solutions designed to grow your brand, increase visibility, and drive qualified leads.
+            Comprehensive data-driven digital marketing services designed to scale brand visibility, drive qualified leads, and grow revenue.
           </motion.p>
         </div>
 
@@ -344,14 +344,24 @@ export const Services: React.FC = () => {
             <p className={`text-sm mb-6 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
               Contact our senior marketing leads to discuss your campaign targets and digital requirements.
             </p>
-            <button
-              onClick={() => navigate('/contact')}
-              className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-colors cursor-pointer ${
-                isDark ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-slate-950 text-white hover:bg-red-600'
-              }`}
-            >
-              Contact Our Team <ArrowRight className="w-4 h-4" />
-            </button>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <button
+                onClick={() => navigate('/contact')}
+                className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-colors cursor-pointer ${
+                  isDark ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-slate-950 text-white hover:bg-red-600'
+                }`}
+              >
+                Book a Digital Marketing Consultation <ArrowRight className="w-4 h-4" />
+              </button>
+              <NavLink
+                to="/clients"
+                className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-colors border ${
+                  isDark ? 'border-slate-700 text-slate-300 hover:text-white hover:border-slate-500' : 'border-slate-300 text-slate-700 hover:text-black hover:border-slate-400'
+                }`}
+              >
+                View Client Case Studies <ArrowRight className="w-4 h-4" />
+              </NavLink>
+            </div>
           </div>
         </div>
 

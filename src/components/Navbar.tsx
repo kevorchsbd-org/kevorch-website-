@@ -58,7 +58,9 @@ export const Navbar: React.FC = () => {
           >
             <img
               src={isDark ? whiteLogo : blackLogo}
-              alt="KEVORCH Logo"
+              alt="Kevorch SBD Marketing & Development Logo"
+              width="160"
+              height="44"
               className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </NavLink>

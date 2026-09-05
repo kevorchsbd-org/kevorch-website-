@@ -87,7 +87,9 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-1">
               <img
                 src={isDark ? whiteLogo : blackLogo}
-                alt="KEVORCH Logo"
+                alt="Kevorch SBD Marketing & Development Logo"
+                width="180"
+                height="48"
                 className="h-10 sm:h-12 w-auto object-contain"
               />
             </div>
