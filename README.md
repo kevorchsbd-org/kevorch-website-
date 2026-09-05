@@ -1,224 +1,354 @@
-# 🚀 Kevorch - Premium Corporate & Agency Web Application
+# 🚀 Kevorch SBD Marketing & Development | Official Web Application
 
-Welcome to the **Kevorch Official Website** project repository. This is a modern, high-performance, ultra-responsive web application designed with rich aesthetics, interactive GSAP animations, dynamic dark/light themes, and fast native browser scrolling.
+[![Live Demo](https://img.shields.io/badge/Live_Site-kevorch.online-DE0918?style=for-the-badge&logo=google-chrome&logoColor=white)](https://kevorch.online)
+[![React 19](https://img.shields.io/badge/React_19-00D8FF?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript_5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite 8](https://img.shields.io/badge/Vite_8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_v4-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=black)](https://tailwindcss.com/)
+[![Firebase](https://img.shields.io/badge/Firebase_Auth_%26_Firestore-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+
+Welcome to the **Kevorch SBD Marketing & Development** official digital platform repository. This enterprise-grade single-page web application (SPA) represents high-performance web engineering, interactive visual aesthetics, dark/light theme persistence, dynamic lead generation workflows, and multi-engine search optimizations including **SEO**, **GEO** (Generative Engine Optimization), and **AEO** (Answer Engine Optimization).
 
 ---
 
 ## 📑 Table of Contents
 
-- [🌟 Features Overview](#-features-overview)
-- [🛠️ Tech Stack & Dependencies](#%EF%B8%8F-tech-stack--dependencies)
-- [📁 Project Structure](#-project-structure)
-- [🧩 Components Breakdown](#-components-breakdown)
-- [📄 Pages & Routes](#-pages--routes)
-- [✨ Animations & Hooks](#-animations--hooks)
-- [🌐 Hosting & Deployment](#-hosting--deployment)
-- [🚀 Quick Start Guide](#-quick-start-guide)
+1. [🌟 Executive Overview](#-executive-overview)
+2. [🔄 End-to-End System & User Workflow](#-end-to-end-system--user-workflow)
+3. [🔍 Search Engine Optimization (SEO) Architecture](#-search-engine-optimization-seo-architecture)
+4. [🤖 Generative Engine Optimization (GEO) Strategy](#-generative-engine-optimization-geo-strategy)
+5. [🗣️ Answer Engine Optimization (AEO) & Voice Search](#%EF%B8%8F-answer-engine-optimization-aeo--voice-search)
+6. [🛠️ Tech Stack & Technical Specifications](#%EF%B8%8F-tech-stack--technical-specifications)
+7. [📁 Directory Architecture & Codebase Map](#-directory-architecture--codebase-map)
+8. [📄 Pages & Dynamic Route Matrix](#-pages--dynamic-route-matrix)
+9. [🔐 Firebase Admin Panel & Lead Pipeline](#-firebase-admin-panel--lead-pipeline)
+10. [🚀 Installation, Build & Deployment Guide](#-installation-build--deployment-guide)
 
 ---
 
-## 🌟 Features Overview
+## 🌟 Executive Overview
 
-- **Fast Native Scrolling**: Fast, responsive, natural native browser scrolling experience with smooth route restoration.
-- **GSAP & Framer Motion Animations**: High-end scroll triggers, magnetic cursor effects, text splitting, parallax scroll, and counter animations.
-- **Interactive Preloader**: Pre-mount animated loading screen with progress percentage.
-- **Dynamic Theme Switcher**: Full Dark Mode / Light Mode support with smooth transitions, powered by React Context and Tailwind CSS v4.
-- **Responsive Architecture**: Pixel-perfect grid & flex layouts optimized for desktop, tablet, and mobile devices.
-- **Firebase Hosting Ready**: Configured for single-command zero-downtime deployment to Firebase Hosting with custom domain support.
+**Kevorch SBD Marketing & Development** helps businesses grow through digital marketing, branding, development, and high-converting digital experiences.
 
----
-
-## 🛠️ Tech Stack & Dependencies
-
-| Category | Technology / Library | Description |
-| :--- | :--- | :--- |
-| **Framework** | [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) | Core UI library with strict typing |
-| **Build Tool** | [Vite 8](https://vitejs.dev/) | Lightning-fast HMR and bundle optimizer |
-| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) | Modern utility-first CSS engine |
-| **Animations** | [GSAP 3](https://greensock.com/gsap/) + [Framer Motion](https://www.framer.com/motion/) | Professional timeline, scroll trigger & UI animations |
-| **Scrolling** | Native Browser Engine | Fast, zero-lag native scrolling |
-| **Icons** | [Lucide React](https://lucide.dev/) | Modern SVG icons set |
-| **Routing** | [React Router v7](https://reactrouter.com/) | Client-side page navigation |
-| **Data Viz** | [Recharts](https://recharts.org/) | Data visualization graphs & charts |
-| **Hosting** | [Firebase Hosting](https://firebase.google.com/docs/hosting) | Global CDN static hosting |
+The web application is built to deliver:
+- **Instant Brand Impression**: High-impact hero section with live typewriter text rendering `"Make Your Mark."`.
+- **Dynamic Aesthetics**: High-end dark/light theme switching, crimson ambient glow effects, floating magnetic buttons, and marquee ticker animations.
+- **Native Scroll Performance**: Zero-lag native browser scrolling paired with smooth route restoration via `SmoothScroll`.
+- **Full Lead Pipeline**: Interactive multi-step consultation booking connected live to Firebase Firestore with role-authenticated admin dashboard management.
+- **Tri-Optimization Engine**: Purpose-built for traditional Search Engines (Google, Bing), AI Search Generators (Gemini, ChatGPT, Perplexity), and Direct Answer Engines (Siri, Alexa, Google Assistant).
 
 ---
 
-## 📁 Project Structure
+## 🔄 End-to-End System & User Workflow
+
+```mermaid
+flowchart TD
+    A[Visitor Lands on kevorch.online] --> B[Preloader Curtain Animation 0-100%]
+    B --> C[Home Page Loaded]
+    C --> D[Typewriter Hero: 'Make Your Mark.']
+    D --> E{User Explores Navigation}
+    
+    E -->|View Services| F[Services Page: Paid Media, SEO, Dev, Branding]
+    E -->|View Case Studies| G[Clients Page: Interactive Filterable Portfolio]
+    E -->|Learn About Team| H[About Page: Vision, History & Executive Team]
+    E -->|Book Strategy| I[Contact Page: Interactive Consultation Form]
+
+    I -->|Submit Inquiry| J[Firebase Firestore 'leads' Collection]
+    J --> K[Real-Time Notification in Admin Dashboard]
+    
+    L[Authorized Admin] -->|Login at /admin-login| M[Firebase Authentication]
+    M --> N[Admin Dashboard /admin]
+    N --> O[Filter, Update Lead Status: New, Contacted, Converted]
+```
+
+### Key Workflow Phases:
+
+1. **Preloader & Page Hydration**:
+   - Initial loading curtain tracks asset hydration (`0%` to `100%`) before triggering a GSAP timeline curtain reveal.
+2. **Hero & Dynamic Branding**:
+   - Hero section triggers a smooth typewriter effect displaying `"Make Your Mark."` followed by core value proposition messaging.
+3. **Interactive Service Discovery & Filtering**:
+   - Visitors can filter portfolio case studies by service category (*Paid Media & SEO*, *Branding & Web Dev*, *UI/UX & Social Marketing*).
+4. **Lead Capture & Real-time Persistence**:
+   - Contact form validates user inquiry details (Name, Email, Phone, Service Interest, Budget, Message) and commits the lead directly into Firebase Firestore.
+5. **Admin Operations**:
+   - Protected route `/admin` requires Firebase Authentication. Admins manage lead statuses (`New`, `In Progress`, `Completed`, `Archived`) in real-time.
+
+---
+
+## 🔍 Search Engine Optimization (SEO) Architecture
+
+The application enforces standard SEO best practices on every page using a custom `<SEO>` management component (`src/components/SEO.tsx`).
+
+### 1. Title Tag & Meta Description Standards
+- **Title Scoping**: Scoped cleanly per route with brand identity suffix (`Kevorch SBD Marketing & Development`).
+- **Homepage Meta Snippet**:
+  > `"Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, and development."`
+
+### 2. Social Graph Integration (Open Graph & Twitter)
+Every page dynamically updates head tags to generate rich social previews when shared on LinkedIn, WhatsApp, Facebook, and X (Twitter):
+- `og:site_name`, `og:title`, `og:description`, `og:url`, `og:type`, `og:image`
+- `twitter:card` (`summary_large_image`), `twitter:title`, `twitter:description`, `twitter:image`
+
+### 3. Canonical Tag Verification
+- Automatic canonical URL injection (`<link rel="canonical" href="https://kevorch.online/..." />`) prevents duplicate content indexing.
+
+### 4. Technical Indexing Protocol
+- Static deployment includes pre-configured `robots.txt` and comprehensive `sitemap.xml` listing all indexable pages (`/`, `/about`, `/services`, `/clients`, `/contact`).
+
+---
+
+## 🤖 Generative Engine Optimization (GEO) Strategy
+
+**GEO** (Generative Engine Optimization) ensures that Large Language Models (LLMs) and AI Search Engines (such as Google Gemini, ChatGPT Search, Perplexity AI, Claude, and Bing Copilot) accurately extract, understand, and cite Kevorch SBD Marketing & Development as an authoritative entity.
+
+```
+       +-------------------------------------------------------------+
+       |             Generative AI Search Engine (Gemini)            |
+       +-------------------------------------------------------------+
+                                     ^
+                                     |  Structured Entity Knowledge
+                                     |  (JSON-LD & Semantic Tree)
+                                     v
++-------------------------------------------------------------------------+
+|                  Kevorch SBD Web Platform (GEO Engine)                  |
+|                                                                         |
+|  1. Factual Organization Schema (@id: #organization)                    |
+|  2. Canonical Entity Identification (slogan: "Make Your Mark.")        |
+|  3. Core Service Taxonomy (Paid Media, SEO, Branding, Development)     |
+|  4. Verified Social Profiles (sameAs Links)                             |
++-------------------------------------------------------------------------+
+```
+
+### GEO Implementation Principles in Codebase:
+
+1. **Entity Graph Modeling via JSON-LD (`application/ld+json`)**:
+   - Structured JSON-LD graphs define explicit entity relationships using schema.org types:
+     - `@type: Organization`: Defines official name, slogan (`"Make Your Mark."`), logo, official URL (`https://kevorch.online`), and official social profiles (`sameAs`: Instagram, WhatsApp).
+     - `@type: WebSite`: Links the website publisher back to the parent Organization ID.
+     - `@type: AboutPage`: Establishes agency capabilities and executive domain authority.
+     - `@type: ItemList` / `@type: Service`: Categorizes service offerings in clean machine-readable node trees.
+
+2. **Unambiguous Brand Statements**:
+   - Avoids vague slogans or floating claims.
+   - States explicit core capabilities clearly: Digital Marketing, Meta Ads, Google Ads, SEO, Brand Identity, Web Development, and Creative Media Production.
+
+3. **Machine-Readable Semantic Hierarchy**:
+   - Uses strict HTML5 semantic tags (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`, `<h1>`, `<h2>`) enabling AI crawlers to parse content blocks without DOM ambiguity.
+
+---
+
+## 🗣️ Answer Engine Optimization (AEO) & Voice Search
+
+**AEO** (Answer Engine Optimization) prepares content to serve as direct answers for featured snippets, voice search queries (Google Assistant, Siri, Alexa), and conversational Q&A interfaces.
+
+```
+User Query: "What services does Kevorch SBD Marketing & Development offer?"
+                     │
+                     ▼
+       ┌───────────────────────────┐
+       │   AEO Engine / Voice Assistant   │
+       └─────────────┬─────────────┘
+                     │ Matches FAQ Schema & Scoped Paragraph
+                     ▼
+       ┌───────────────────────────┐
+       │  Direct Answer Snippet    │
+       │ "Kevorch SBD offers Meta  │
+       │  Ads, Google Ads, SEO,   │
+       │  Branding & Development."│
+       └───────────────────────────┘
+```
+
+### AEO Technical Capabilities:
+
+1. **JSON-LD `FAQPage` Schema**:
+   - Integrated into the Contact Page (`src/pages/Contact.tsx`), embedding structured `@type: Question` and `@type: Answer` schema arrays:
+     ```json
+     {
+       "@type": "FAQPage",
+       "@id": "https://kevorch.online/contact#faq",
+       "mainEntity": [
+         {
+           "@type": "Question",
+           "name": "What services does Kevorch SBD Marketing & Development offer?",
+           "acceptedAnswer": {
+             "@type": "Answer",
+             "text": "Kevorch SBD specializes in digital marketing, Meta Ads, Google Ads, Search Engine Optimization (SEO), brand identity design, web development, and visual media production."
+           }
+         }
+       ]
+     }
+     ```
+
+2. **Direct Answer Paragraph Structuring**:
+   - First paragraphs across key sections are written in direct, concise target definitions (<50 words) to qualify for Google Position Zero (Featured Snippet).
+
+3. **Natural Conversational Language Scoping**:
+   - Headings mirror real human inquiry patterns (e.g., *"How quickly can we expect campaign results?"*, *"What is your project development process?"*).
+
+---
+
+## 🛠️ Tech Stack & Technical Specifications
+
+| Category | Technology | Version | Purpose & Implementation Details |
+| :--- | :--- | :--- | :--- |
+| **Frontend Framework** | [React](https://react.dev/) | `19.0.0` | UI component layer with high concurrency & strict mode |
+| **Language** | [TypeScript](https://www.typescriptlang.org/) | `5.7.2` | End-to-end type safety across components, props, and data models |
+| **Build Engine** | [Vite](https://vitejs.dev/) | `8.1.5` | Next-gen bundling, instant HMR, and production asset optimization |
+| **CSS Framework** | [Tailwind CSS](https://tailwindcss.com/) | `v4.0` | Utility-first styling with modern native CSS variables |
+| **UI Motion** | [Framer Motion](https://www.framer.com/motion/) | `12.4` | Declarative UI animations, modal presence, and page transitions |
+| **Timeline Motion** | [GSAP](https://greensock.com/gsap/) | `3.14` | ScrollTrigger timeline orchestrations & preloader curtain effects |
+| **Backend & DB** | [Firebase](https://firebase.google.com/) | `11.3` | Authentication for Admin portal & Firestore database for Lead management |
+| **Icons** | [Lucide React](https://lucide.dev/) | `0.475` | Lightweight modern vector icon set |
+| **Routing** | [React Router](https://reactrouter.com/) | `7.1` | Client-side routing with dynamic layout wrapping |
+| **Hosting** | [Firebase Hosting](https://firebase.google.com/docs/hosting) | CDN | Global Edge CDN hosting with zero-downtime deployment |
+
+---
+
+## 📁 Directory Architecture & Codebase Map
 
 ```text
 web1/
-├── .agents/                 # Workspace Agent configuration and custom skills
-├── .firebase/               # Firebase hosting build cache
-├── public/                  # Public static assets (favicons, logos, images)
+├── .agents/                 # AI Agent rules & customized workspace skills
+├── public/                  # Static public distribution assets
+│   ├── favicon.ico          # Browser tab favicon
+│   ├── favicon.png          # PNG brand icon
+│   ├── robots.txt           # Search crawler indexing rules
+│   └── sitemap.xml          # XML sitemap protocol manifest
 ├── src/
-│   ├── animations/          # GSAP animation timeline modules
-│   │   ├── hero.ts          # Hero section text & element entrance timelines
-│   │   ├── navbar.ts        # Dynamic header scroll behaviors
-│   │   ├── counters.ts      # Animated numerical counters
-│   │   ├── services.ts      # Service card reveal triggers
-│   │   ├── portfolio.ts     # Work showcase transitions
-│   │   ├── contact.ts       # Contact form entrance triggers
-│   │   └── loader.ts        # Preloader screen animation sequences
-│   ├── components/          # Reusable UI Containers & Elements
-│   │   ├── Navbar.tsx       # Main header navigation bar
-│   │   ├── Footer.tsx       # Page footer with links & newsletter
-│   │   ├── Preloader.tsx    # Initial splash screen preloader
-│   │   ├── SmoothScroll.tsx # Native route scroll restoration component
-│   │   ├── ScrollProgress.tsx # Top reading/scroll progress bar
-│   │   ├── MagneticButton.tsx # Interactive cursor magnet wrapper
-│   │   ├── Marquee.tsx      # Infinite looping logo/text ticker
-│   │   ├── ThemeToggle.tsx  # Dark/Light theme mode toggle button
-│   │   └── CustomCursor.tsx # Interactive cursor follower
-│   ├── context/             # React Context Providers
-│   │   └── ThemeContext.tsx # Global theme state (Dark/Light)
-│   ├── data/                # Static data models & mock JSON payloads
-│   │   ├── mockData.ts      # Services, portfolio, and testimonial data
-│   │   └── executiveData.ts # Team leadership profiles & company statistics
-│   ├── hooks/               # Custom React Hooks
-│   │   ├── useMagnetic.ts   # Mouse tracking physics calculation
-│   │   ├── useReveal.ts     # ScrollTrigger visibility observer
-│   │   ├── useParallax.ts   # Scroll-based element parallax offset
-│   │   ├── useCounter.ts    # Animated number increments
-│   │   └── useSplitText.ts  # Typography character/word splitting
-│   ├── pages/               # Top-level Page Views
+│   ├── animations/          # GSAP animation timeline builders
+│   │   ├── contact.ts       # Contact form animation triggers
+│   │   ├── counters.ts      # Number increment timelines
+│   │   ├── hero.ts          # Hero section text split & reveal sequence
+│   │   ├── loader.ts        # Preloader curtain reveal sequence
+│   │   ├── navbar.ts        # Dynamic header scroll transformations
+│   │   ├── portfolio.ts     # Work showcase reveal animations
+│   │   └── services.ts      # Service cards entrance triggers
+│   ├── components/          # Reusable UI Components
+│   │   ├── CustomCursor.tsx # Interactive magnetic cursor indicator
+│   │   ├── Footer.tsx       # Universal footer container & social links
+│   │   ├── MagneticButton.tsx # Cursor magnet wrapper component
+│   │   ├── Marquee.tsx      # Infinite horizontal sliding logo ticker
+│   │   ├── Navbar.tsx       # Universal top header navigation bar
+│   │   ├── Preloader.tsx    # Initial pre-mount animated loading curtain
+│   │   ├── ScrollProgress.tsx # Top reading progress bar indicator
+│   │   ├── SEO.tsx          # Dynamic Head & Meta Tag Management component
+│   │   ├── SmoothScroll.tsx # Route change scroll restoration helper
+│   │   └── ThemeToggle.tsx  # Dark / Light mode toggle button
+│   ├── context/             # React Context State Providers
+│   │   └── ThemeContext.tsx # Global theme mode manager (Dark/Light)
+│   ├── data/                # Static Data Repositories & Mock Data
+│   │   ├── executiveData.ts # Executive leadership profile data
+│   │   └── mockData.ts      # Services list, case studies, & testimonials
+│   ├── hooks/               # Custom React Physics & Motion Hooks
+│   │   ├── useCounter.ts    # Number counter animation hook
+│   │   ├── useMagnetic.ts   # Cursor proximity magnet hook
+│   │   ├── useParallax.ts   # Scroll parallax offset calculation hook
+│   │   ├── useReveal.ts     # ScrollTrigger element visibility observer
+│   │   └── useSplitText.ts  # Text character splitting hook
+│   ├── lib/                 # Third-party SDK initializations
+│   │   └── firebase.ts      # Firebase App, Auth, & Firestore instances
+│   ├── pages/               # Primary View Pages
+│   │   ├── About.tsx        # Agency profile, vision, & leadership team
+│   │   ├── Admin.tsx        # Protected lead management dashboard
+│   │   ├── AdminLogin.tsx   # Firebase authenticated admin login
+│   │   ├── Clients.tsx      # Work portfolio & filterable case studies
+│   │   ├── Contact.tsx      # Strategy consultation booking form & FAQ
 │   │   ├── Home.tsx         # Main Landing Page
-│   │   ├── About.tsx        # Company Profile & Team Page
-│   │   ├── Services.tsx     # Solutions & Offerings Page
-│   │   ├── Clients.tsx      # Portfolio & Case Studies Page
-│   │   └── Contact.tsx      # Interactive Inquiry & Contact Page
-│   ├── App.tsx              # Main App Component & Router Configuration
-│   ├── index.css            # Custom CSS & Tailwind v4 imports
-│   └── main.tsx             # Application Entry Point
-├── .firebaserc              # Firebase project alias configuration
-├── firebase.json            # Firebase hosting rewrites & headers
-├── package.json             # Scripts & dependency definitions
-├── tsconfig.json            # TypeScript compiler configuration
-└── vite.config.ts           # Vite build configuration
+│   │   └── Services.tsx     # Full solution capabilities showcase
+│   ├── services/            # Backend API Service Wrappers
+│   │   └── leadService.ts   # Firestore lead CRUD functions
+│   ├── types/               # TypeScript Definitions
+│   │   └── index.ts         # Service, Client, Lead, & Theme interfaces
+│   ├── App.tsx              # App Root Layout, Router Setup & Theme Context
+│   ├── index.css            # Global CSS, Tailwind v4 imports & custom utilities
+│   └── main.tsx             # Application DOM entry point
+├── firebase.json            # Firebase Hosting rewrite rules & cache headers
+├── index.html               # Main HTML entry file & primary SEO meta tags
+├── package.json             # NPM dependencies & build scripts
+├── tsconfig.json            # Master TypeScript configuration
+└── vite.config.ts           # Vite bundler & path alias configuration
 ```
 
 ---
 
-## 🧩 Components Breakdown
+## 📄 Pages & Dynamic Route Matrix
 
-### 1. 🧭 `Navbar.tsx`
-
-- **Purpose**: Top header navigation bar.
-- **Features**: Dynamic background blur on scroll, mobile responsive drawer menu, brand logo, navigation links (`Home`, `About`, `Services`, `Clients`, `Contact`), and embedded `ThemeToggle`.
-
-### 2. 🔻 `Footer.tsx`
-
-- **Purpose**: Comprehensive site footer container.
-- **Features**: Quick links, office location addresses, interactive newsletter subscription, copyright notice, social media channels, and back-to-top button.
-
-### 3. ⏳ `Preloader.tsx`
-
-- **Purpose**: Initial website loading curtain.
-- **Features**: Displays progress counter (0% to 100%) and smooth curtain reveal animation using GSAP before showing main page content.
-
-### 4. 📜 `SmoothScroll.tsx`
-
-- **Purpose**: Native route scroll restoration component.
-- **Features**: Ensures instant top-of-page scroll positioning on route navigation using native browser APIs.
-
-### 5. 📊 `ScrollProgress.tsx`
-
-- **Purpose**: Fixed top reading bar.
-- **Features**: Dynamically calculates document scroll percentage and renders a subtle highlight line at the very top of the screen.
-
-### 6. 🧲 `MagneticButton.tsx`
-
-- **Purpose**: Micro-interaction UI wrapper.
-- **Features**: Pulls buttons slightly towards the user's cursor on hover for a tactile, futuristic feel.
-
-### 7. 🔄 `Marquee.tsx`
-
-- **Purpose**: Infinite sliding ticker container.
-- **Features**: Seamlessly scrolls client logos, technology tags, and key highlight badges horizontally.
-
-### 8. 🌓 `ThemeToggle.tsx`
-
-- **Purpose**: Dark/Light mode theme switch button.
-- **Features**: Smooth icon toggle between Sun and Moon, persisting user preference in `localStorage`.
+| Route Path | Page Component | Primary Purpose | SEO & GEO Highlights |
+| :--- | :--- | :--- | :--- |
+| `/` | `Home.tsx` | Main agency landing page | Typewriter `"Make Your Mark."`, `Organization` & `WebSite` JSON-LD schemas |
+| `/about` | `About.tsx` | Agency mission, team & story | Leadership profiles, `AboutPage` JSON-LD schema |
+| `/services` | `Services.tsx` | Detailed service capabilities | Categorized Service breakdown, `ItemList` JSON-LD schema |
+| `/clients` | `Clients.tsx` | Portfolio & case studies | Filterable category tags, Client ROI metrics, `Portfolio` JSON-LD |
+| `/contact` | `Contact.tsx` | Consultation form & FAQs | Real-time lead submission, `ContactPage` & `FAQPage` AEO schema |
+| `/admin-login` | `AdminLogin.tsx` | Portal login for site admins | Firebase Auth sign-in interface, index follow disabled |
+| `/admin` | `Admin.tsx` | Lead management dashboard | Real-time Firestore lead tracking & status filter dashboard |
 
 ---
 
-## 📄 Pages & Routes
+## 🔐 Firebase Admin Panel & Lead Pipeline
 
-| Route | Page Component | Key Sections & Containers |
-| :--- | :--- | :--- |
-| `/` | [Home.tsx](file:///d:/company%20projects/kevorch%20documents/web%20site/web1/src/pages/Home.tsx) | Hero Section, Counter Stats, Featured Services Grid, Interactive Case Studies, Client Marquee, Testimonials, CTA Banner |
-| `/about` | [About.tsx](file:///d:/company%20projects/kevorch%20documents/web%20site/web1/src/pages/About.tsx) | Company Vision & Mission, Leadership Team Profiles, Core Values, History Timeline |
-| `/services` | [Services.tsx](file:///d:/company%20projects/kevorch%20documents/web%20site/web1/src/pages/Services.tsx) | Solution Offerings List, Detailed Capability Cards, Tech Stack Showcase, Delivery Process |
-| `/clients` | [Clients.tsx](file:///d:/company%20projects/kevorch%20documents/web%20site/web1/src/pages/Clients.tsx) | Filterable Portfolio Gallery, Detailed Case Study Highlights, Client Impact Metrics |
-| `/contact` | [Contact.tsx](file:///d:/company%20projects/kevorch%20documents/web%20site/web1/src/pages/Contact.tsx) | Interactive Inquiry Form, Global Office Locations, Direct Email/Phone Contacts, FAQ Accordion |
+The platform includes an embedded Firebase-powered CRM system for real-time lead management.
 
----
-
-## ✨ Animations & Hooks
-
-- **`useMagnetic`**: Uses mouse position relative to container bounding rect to apply spring physics offset.
-- **`useReveal`**: Automatically attaches GSAP ScrollTrigger to elements with `.reveal` class for fading in on scroll down.
-- **`useCounter`**: Animates numbers from zero to target value when scrolled into view.
-- **`useParallax`**: Moves background cards or images slower than the page scroll speed to generate depth perception.
+1. **Lead Submission (`Contact.tsx`)**:
+   - Visitors fill out the consultation booking form.
+   - Form submits payload via `leadService.ts` (`addDoc` to Firestore `leads` collection) with `timestamp`, `status: "new"`, name, email, phone, service interest, budget, and message.
+2. **Admin Authentication (`AdminLogin.tsx`)**:
+   - Authenticates site administrators using `signInWithEmailAndPassword` via Firebase Auth.
+3. **Admin Dashboard (`Admin.tsx`)**:
+   - Protected route using state observer (`onAuthStateChanged`).
+   - Fetches and displays incoming inquiries with live search, status filtering (`All`, `New`, `In Progress`, `Contacted`, `Archived`), and single-click status update actions.
 
 ---
 
-## 🌐 Hosting & Deployment
+## 🚀 Installation, Build & Deployment Guide
 
-This project is deployed using **Firebase Hosting**.
+### Prerequisites
+- **Node.js**: `v18.0.0` or higher
+- **NPM**: `v9.0.0` or higher
+- **Firebase CLI**: `npm install -g firebase-tools`
 
-- **Default Hosting Domains**:
-  - `https://kevorch-website.web.app`
-  - `https://kevorch-website.firebaseapp.com`
-- **Custom Domain**: `https://kevorch.online`
-
-### Deploying Updates to Firebase
-
+### 1. Clone & Install Dependencies
 ```bash
-# 1. Build the production application
-npm run build
+git clone https://github.com/kevorchsbd-org/kevorch-website-.git
+cd kevorch-website-
+npm install
+```
 
-# 2. Deploy to Firebase Hosting
+### 2. Environment Configuration
+Create a `.env.local` file in the project root with your Firebase credentials:
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+### 3. Local Development Server
+Start Vite local server with instant HMR:
+```bash
+npm run dev
+```
+Navigate to `http://localhost:5173` in your browser.
+
+### 4. Build for Production
+Run TypeScript compilation and Vite asset bundler:
+```bash
+npm run build
+```
+Production assets will be output to the `dist/` directory.
+
+### 5. Deploy to Firebase Hosting
+```bash
+# Login to Firebase CLI
+firebase login
+
+# Deploy production bundle
 firebase deploy --only hosting
 ```
 
 ---
 
-## 🚀 Quick Start Guide
-
-### 1. Installation
-
-Clone the project directory and install node packages:
-
-```bash
-npm install
-```
-
-### 2. Development Mode
-
-Run the Vite development server with Hot Module Replacement (HMR):
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### 3. Production Build
-
-Compile TypeScript and bundle assets with Vite:
-
-```bash
-npm run build
-```
-
-Preview the built distribution locally:
-
-```bash
-npm run preview
-```
-
----
-
-*© 2026 Kevorch. All rights reserved.*
+*© 2026 Kevorch SBD Marketing & Development. All rights reserved.*
