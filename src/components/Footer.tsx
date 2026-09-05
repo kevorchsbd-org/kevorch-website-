@@ -156,6 +156,7 @@ export const Footer: React.FC = () => {
               <li><NavLink to="/about" className="hover:text-red-500 transition-colors">About</NavLink></li>
               <li><NavLink to="/services" className="hover:text-red-500 transition-colors">Services</NavLink></li>
               <li><NavLink to="/clients" className="hover:text-red-500 transition-colors">Clients</NavLink></li>
+              <li><NavLink to="/resources" className="hover:text-red-500 transition-colors">Resources</NavLink></li>
               <li><NavLink to="/contact" className="hover:text-red-500 transition-colors">Contact</NavLink></li>
             </ul>
           </div>

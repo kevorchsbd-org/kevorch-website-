@@ -406,6 +406,14 @@ export const Services: React.FC = () => {
               >
                 View Client Case Studies <ArrowRight className="w-4 h-4" />
               </NavLink>
+              <NavLink
+                to="/resources"
+                className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-colors border ${
+                  isDark ? 'border-red-900/50 text-red-400 hover:text-red-300 hover:border-red-500' : 'border-red-200 text-red-600 hover:text-red-700 hover:border-red-400'
+                }`}
+              >
+                Explore Marketing Resources & Guides <ArrowRight className="w-4 h-4" />
+              </NavLink>
             </div>
           </div>
         </div>

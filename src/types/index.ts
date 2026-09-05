@@ -72,3 +72,21 @@ export interface Milestone {
   description: string;
   stats: string;
 }
+
+export interface ResourceArticle {
+  slug: string;
+  title: string;
+  category: 'Meta Ads' | 'SEO' | 'Google Ads' | 'Branding' | 'Growth Strategy';
+  readTime: string;
+  publishDate: string;
+  summary: string;
+  directAnswer: string;
+  sections: {
+    heading: string;
+    content: string;
+    bullets?: string[];
+  }[];
+  relatedServiceId: string;
+  relatedServiceTitle: string;
+  tags: string[];
+}

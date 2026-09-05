@@ -13,6 +13,8 @@ const About = lazy(() => import('./pages/About').then(m => ({ default: m.About }
 const Services = lazy(() => import('./pages/Services').then(m => ({ default: m.Services })));
 const Clients = lazy(() => import('./pages/Clients').then(m => ({ default: m.Clients })));
 const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
+const Resources = lazy(() => import('./pages/Resources').then(m => ({ default: m.Resources })));
+const ArticleDetail = lazy(() => import('./pages/ArticleDetail').then(m => ({ default: m.ArticleDetail })));
 const AdminLogin = lazy(() => import('./pages/AdminLogin').then(m => ({ default: m.AdminLogin })));
 const Admin = lazy(() => import('./pages/Admin').then(m => ({ default: m.Admin })));
 import { ProtectedRoute } from './components/admin/ProtectedRoute';
@@ -32,6 +34,8 @@ const AppContent: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/clients" element={<Clients />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/:slug" element={<ArticleDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route

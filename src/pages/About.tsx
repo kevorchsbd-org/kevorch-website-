@@ -215,9 +215,19 @@ export const About: React.FC = () => {
           <p className={`max-w-xl mx-auto text-sm sm:text-base ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
             Get in touch with our digital marketing company leads to discuss your project requirements and strategy.
           </p>
-          <MagneticButton variant="primary" size="lg" onClick={() => navigate('/contact')}>
-            Book a Digital Marketing Consultation <ArrowRight className="w-5 h-5 ml-1" />
-          </MagneticButton>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <MagneticButton variant="primary" size="lg" onClick={() => navigate('/contact')}>
+              Book a Digital Marketing Consultation <ArrowRight className="w-5 h-5 ml-1" />
+            </MagneticButton>
+            <NavLink
+              to="/resources"
+              className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-colors border ${
+                isDark ? 'border-red-900/50 text-red-400 hover:text-red-300 hover:border-red-500' : 'border-red-200 text-red-600 hover:text-red-700 hover:border-red-400'
+              }`}
+            >
+              Read Marketing Resources & Insights <ArrowRight className="w-4 h-4" />
+            </NavLink>
+          </div>
         </div>
       </section>
     </div>
