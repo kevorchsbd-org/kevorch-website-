@@ -158,6 +158,52 @@ export const About: React.FC = () => {
       </section>
 
       {/* ========================================================================= */}
+      {/* 4. COMPANY CAPABILITIES & PROBLEM-SOLVING */}
+      {/* ========================================================================= */}
+      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <span className={`text-xs font-mono uppercase tracking-widest font-semibold ${isDark ? 'text-red-500' : 'text-stone-700'}`}>
+            // Agency Capabilities
+          </span>
+          <h2 className={`text-3xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+            Solving Modern Digital Growth Challenges
+          </h2>
+          <p className={`text-xs sm:text-sm leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+            As a performance-focused digital marketing company, Kevorch SBD Marketing & Development bridges the gap between creative visual media and technical lead generation.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs leading-relaxed">
+          <div className={`p-7 rounded-3xl border ${isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200'}`}>
+            <h3 className={`text-lg font-heading font-bold mb-3 ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+              Core Expertise & Capabilities
+            </h3>
+            <ul className="space-y-2 font-mono text-[11px]">
+              <li className="flex items-center gap-2">✓ Paid Media Scaling (Meta Ads & Google Ads)</li>
+              <li className="flex items-center gap-2">✓ Search Engine Optimization (SEO Services)</li>
+              <li className="flex items-center gap-2">✓ High-Converting React Web & App Development</li>
+              <li className="flex items-center gap-2">✓ Brand Identity & Graphic Logo Creation</li>
+              <li className="flex items-center gap-2">✓ Video Editing & Short-Form Social Reels</li>
+            </ul>
+          </div>
+
+          <div className={`p-7 rounded-3xl border ${isDark ? 'bg-neutral-950 border-neutral-800' : 'bg-stone-50 border-stone-200'}`}>
+            <h3 className={`text-lg font-heading font-bold mb-3 ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+              Why Businesses Partner With Us
+            </h3>
+            <p className={`mb-3 ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
+              We replace guesswork with structured experimentation, transparent communication, and rapid project execution. Our clients work with dedicated senior strategy leads committed to long-term business scale.
+            </p>
+            <div className="pt-2">
+              <NavLink to="/contact" className={`font-mono text-xs font-semibold inline-flex items-center gap-1 ${isDark ? 'text-red-400 hover:text-red-300' : 'text-slate-900 hover:text-red-600'}`}>
+                Book a Digital Marketing Consultation <ArrowRight className="w-3.5 h-3.5" />
+              </NavLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
       {/* 5. FINAL ABOUT CTA */}
       {/* ========================================================================= */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

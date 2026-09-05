@@ -331,6 +331,51 @@ export const Services: React.FC = () => {
           })}
         </div>
 
+        {/* Scannable Service Capability Matrix & AEO Insights */}
+        <div className="mt-20 max-w-5xl mx-auto">
+          <div className={`rounded-3xl p-8 sm:p-12 border ${
+            isDark ? 'bg-neutral-950/80 border-neutral-800 text-neutral-300' : 'bg-stone-50 border-stone-200 text-stone-700'
+          }`}>
+            <div className="text-center space-y-3 mb-10">
+              <span className={`text-xs font-mono uppercase tracking-widest font-semibold ${isDark ? 'text-red-500' : 'text-stone-700'}`}>
+                // Growth Delivery Framework
+              </span>
+              <h2 className={`text-2xl sm:text-3xl font-heading font-bold ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+                How Our Digital Marketing Services Work
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs leading-relaxed">
+              <div className="space-y-3">
+                <h3 className={`text-base font-heading font-bold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                  <span className="w-2 h-2 rounded-full bg-red-500 inline-block" /> What We Provide
+                </h3>
+                <p className={isDark ? 'text-neutral-400' : 'text-stone-600'}>
+                  Targeted Meta Ads (Facebook & Instagram), high-intent Google Ads, technical SEO services, custom graphic branding, short-form video editing, and responsive website development.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className={`text-base font-heading font-bold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                  <span className="w-2 h-2 rounded-full bg-red-500 inline-block" /> Who It Is For
+                </h3>
+                <p className={isDark ? 'text-neutral-400' : 'text-stone-600'}>
+                  Growing companies, e-commerce brands, local enterprises, and B2B providers looking to eliminate wasted ad spend and scale qualified lead acquisition.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h3 className={`text-base font-heading font-bold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                  <span className="w-2 h-2 rounded-full bg-red-500 inline-block" /> What You Receive
+                </h3>
+                <p className={isDark ? 'text-neutral-400' : 'text-stone-600'}>
+                  Transparent campaign analytics, high-converting ad creative assets, ongoing technical optimization, and direct access to senior strategy partners.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Corporate CTA Banner */}
         <div className="mt-20 text-center">
           <div className={`rounded-2xl p-8 sm:p-12 text-center max-w-4xl mx-auto border transition-colors ${

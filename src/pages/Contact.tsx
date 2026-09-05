@@ -266,8 +266,29 @@ export const Contact: React.FC = () => {
                 Start a Conversation.
               </h2>
               <p className={`text-sm sm:text-base leading-relaxed ${isDark ? 'text-neutral-400' : 'text-stone-600'}`}>
-                Have a project in mind? Tell us what you need and let's build something that works.
+                Schedule a direct digital marketing consultation with our strategy leads. We work with growing brands, e-commerce businesses, and local service providers seeking measurable ad scale, modern web development, and visual brand identity.
               </p>
+            </div>
+
+            {/* Consultation Process Expectations */}
+            <div className={`p-6 rounded-2xl border space-y-3 ${isDark ? 'bg-neutral-950 border-neutral-800 text-neutral-300' : 'bg-stone-50 border-stone-200 text-stone-700'}`}>
+              <h3 className={`text-xs font-mono uppercase tracking-widest font-bold ${isDark ? 'text-red-400' : 'text-slate-900'}`}>
+                What Happens Next?
+              </h3>
+              <ol className="space-y-2 text-xs">
+                <li className="flex items-start gap-2">
+                  <span className="font-mono text-red-500 font-bold">1.</span>
+                  <span><strong>Audit Review:</strong> Our senior team evaluates your website and campaign details within 12 hours.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="font-mono text-red-500 font-bold">2.</span>
+                  <span><strong>Growth Assessment:</strong> We analyze search intent, ad funnel opportunities, and visual branding needs.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="font-mono text-red-500 font-bold">3.</span>
+                  <span><strong>Direct Consultation:</strong> We deliver custom campaign recommendations and actionable next steps.</span>
+                </li>
+              </ol>
             </div>
 
             {/* Clean Horizontal Contact Rows */}
