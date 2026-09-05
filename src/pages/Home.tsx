@@ -108,7 +108,7 @@ export const Home: React.FC = () => {
       }`}>
       <SEO
         title="Kevorch SBD Marketing & Development | Digital Marketing"
-        description="Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, development, and high-converting digital experiences."
+        description="Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, and development."
         canonical="/"
         structuredData={[
           {
@@ -118,7 +118,7 @@ export const Home: React.FC = () => {
             "slogan": "Make Your Mark.",
             "url": "https://kevorch.online",
             "logo": "https://kevorch.online/favicon.png",
-            "description": "Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, development, and high-converting digital experiences.",
+            "description": "Make Your Mark. Kevorch SBD Marketing & Development helps businesses grow through digital marketing, branding, and development.",
             "sameAs": [
               "https://www.instagram.com/kevorchsbd/?hl=en",
               "https://wa.me/918681838373"
